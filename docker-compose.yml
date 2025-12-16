@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # Frontend (served via simple HTTP server)
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "3000:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./styles.css:/usr/share/nginx/html/styles.css:ro
+      - ./app.js:/usr/share/nginx/html/app.js:ro
+    depends_on:
+      - backend
+    networks:
+      - coderunner-network
+
+  # Backend API Server
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - PISTON_URL=http://piston:2000/api/v2
+    depends_on:
+      - piston
+    networks:
+      - coderunner-network
+    restart: unless-stopped
+
+  # Piston Code Execution Engine
+  piston:
+    image: ghcr.io/engineer-man/piston
+    ports:
+      - "2000:2000"
+    privileged: true
+    networks:
+      - coderunner-network
+    restart: unless-stopped
+    # Install language runtimes on startup
+    entrypoint: >
+      /bin/sh -c "
+        echo 'Installing language runtimes...' &&
+        piston ppman install python &&
+        piston ppman install java &&
+        piston ppman install gcc &&
+        piston ppman install g++ &&
+        piston ppman install csharp.net &&
+        piston ppman install node &&
+        piston ppman install typescript &&
+        piston ppman install go &&
+        piston ppman install rust &&
+        piston ppman install ruby &&
+        piston ppman install php &&
+        piston ppman install dart &&
+        piston ppman install swift &&
+        piston ppman install scala &&
+        piston ppman install rlang &&
+        piston ppman install sqlite3 &&
+        echo 'All runtimes installed!' &&
+        /piston_api
+      "
+
+networks:
+  coderunner-network:
+    driver: bridge
