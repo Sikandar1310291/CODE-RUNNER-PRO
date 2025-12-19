@@ -1,15 +1,24 @@
 version: '3.8'
 
 services:
-  # Frontend (served via simple HTTP server)
+  # Frontend (Optimized Nginx)
   frontend:
     image: nginx:alpine
     ports:
       - "3000:80"
     volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro # Load custom config
       - ./index.html:/usr/share/nginx/html/index.html:ro
       - ./styles.css:/usr/share/nginx/html/styles.css:ro
       - ./app.js:/usr/share/nginx/html/app.js:ro
+      - ./examples.html:/usr/share/nginx/html/examples.html:ro
+      - ./examples-data.js:/usr/share/nginx/html/examples-data.js:ro
+      - ./tutorials.html:/usr/share/nginx/html/tutorials.html:ro
+      - ./tutorials.js:/usr/share/nginx/html/tutorials.js:ro
+      - ./editor.html:/usr/share/nginx/html/editor.html:ro
+      - ./privacy.html:/usr/share/nginx/html/privacy.html:ro
+      - ./terms.html:/usr/share/nginx/html/terms.html:ro
+      - ./logo.png:/usr/share/nginx/html/logo.png:ro
     depends_on:
       - backend
     networks:
@@ -23,6 +32,7 @@ services:
     ports:
       - "3001:3001"
     environment:
+      - NODE_ENV=production
       - PORT=3001
       - PISTON_URL=http://piston:2000/api/v2
     depends_on:
@@ -37,33 +47,26 @@ services:
     ports:
       - "2000:2000"
     privileged: true
+    volumes:
+      - piston_packages:/piston/packages # PERSISTENCE: Downloads saved here!
     networks:
       - coderunner-network
     restart: unless-stopped
-    # Install language runtimes on startup
+    # Improved entrypoint: checks if packages exist before installing to save time
     entrypoint: >
       /bin/sh -c "
-        echo 'Installing language runtimes...' &&
-        piston ppman install python &&
-        piston ppman install java &&
-        piston ppman install gcc &&
-        piston ppman install g++ &&
-        piston ppman install csharp.net &&
-        piston ppman install node &&
-        piston ppman install typescript &&
-        piston ppman install go &&
-        piston ppman install rust &&
-        piston ppman install ruby &&
-        piston ppman install php &&
-        piston ppman install dart &&
-        piston ppman install swift &&
-        piston ppman install scala &&
-        piston ppman install rlang &&
-        piston ppman install sqlite3 &&
-        echo 'All runtimes installed!' &&
+        if [ ! -d '/piston/packages/python' ]; then
+          echo 'First run detected! Installing language runtimes (this happens only once)...' &&
+          piston ppman install python java gcc g++ csharp.net node typescript go rust ruby php dart swift scala rlang sqlite3
+        else
+          echo 'Runtimes already installed! Starting fast...'
+        fi &&
         /piston_api
       "
 
 networks:
   coderunner-network:
     driver: bridge
+
+volumes:
+  piston_packages: # Named volume for persistence

@@ -60,9 +60,17 @@
                 <aside class="tutorials-sidebar" id="tutorialsSidebar">
                     <div class="sidebar-header">
                         <h3>Languages</h3>
-                        <input type="text" id="tutorialSearch" placeholder="Search..." class="sidebar-search">
                     </div>
-                    <nav class="sidebar-nav">
+                    <div class="sidebar-search">
+                        <input type="text" id="tutorialSearch" placeholder="Search...">
+                    </div>
+
+                    <!-- Ad Placeholder Sidebar -->
+                    <div class="ad-container" style="margin: 1rem 0; min-height: 250px;">
+                        <span class="ad-label">Ad Space</span>
+                    </div>
+
+                    <nav class="sidebar-nav" id="tutorialNav">
                         <a href="#python" class="sidebar-link active" data-lang="python"><span>🐍</span> Python</a>
                         <a href="#javascript" class="sidebar-link" data-lang="javascript"><span>🟨</span> JavaScript</a>
                         <a href="#java" class="sidebar-link" data-lang="java"><span>☕</span> Java</a>
@@ -676,6 +684,13 @@
         <footer class="footer">
             <div class="footer-content">
                 <p>&copy; 2024 CodeRunner Pro. Free online compiler for everyone.</p>
+                <div style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="privacy.html"
+                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
+                        Policy</a>
+                    <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of
+                        Service</a>
+                </div>
             </div>
         </footer>
     </div>
