@@ -1,3 +1,21 @@
+// ===== Splash Screen Handler =====
+function initSplashScreen() {
+    const splash = document.getElementById('splashScreen');
+    if (!splash) return;
+
+    // Fade out after animation completes (2.5 seconds)
+    setTimeout(() => {
+        splash.classList.add('fade-out');
+        // Remove from DOM after transition
+        setTimeout(() => {
+            splash.remove();
+        }, 800);
+    }, 2500);
+}
+
+// Initialize splash screen immediately
+initSplashScreen();
+
 // ===== Language Configuration with Icons =====
 const LANGUAGES = {
     python: {
@@ -478,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initEventListeners();
+    initFAQ();
 
     if (document.getElementById('editor')) {
         initEditor();
@@ -996,4 +1015,25 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+// ===== FAQ Accordion =====
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', () => {
+                // Close other open items
+                faqItems.forEach(other => {
+                    if (other !== item && other.classList.contains('open')) {
+                        other.classList.remove('open');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('open');
+            });
+        }
+    });
 }

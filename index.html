@@ -3,17 +3,109 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>CodeRunner Pro - Free Online Compiler | Run Code in 17+ Languages</title>
+    <meta name="title" content="CodeRunner Pro - Free Online Compiler | Run Code in 17+ Languages">
     <meta name="description"
-        content="Free online compiler supporting 17+ programming languages. Write, compile, and run code directly in your browser.">
-    <title>CodeRunner Pro - Online Compiler</title>
+        content="Free online compiler and IDE supporting Python, Java, C++, JavaScript, and 17+ programming languages. Write, compile, and run code instantly in your browser. No installation required.">
+    <meta name="keywords"
+        content="online compiler, code compiler, run code online, programming tutorials, learn to code, Python compiler, Java compiler, C++ compiler, JavaScript compiler, online IDE, code editor, programming examples, free compiler, execute code online, coding practice, learn programming, code runner, compile code online, programming languages">
+    <meta name="author" content="CodeRunner Pro">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coderunner.pro/">
+    <meta property="og:title" content="CodeRunner Pro - Free Online Compiler | Run Code in 17+ Languages">
+    <meta property="og:description"
+        content="Write, compile and run code in 17+ programming languages directly in your browser. No setup required, 100% free.">
+    <meta property="og:image" content="https://coderunner.pro/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://coderunner.pro/">
+    <meta property="twitter:title" content="CodeRunner Pro - Free Online Compiler">
+    <meta property="twitter:description"
+        content="Write, compile and run code in 17+ programming languages. Free online IDE with syntax highlighting.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://coderunner.pro/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link rel="stylesheet" href="styles.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CodeRunner Pro",
+        "description": "Free online compiler supporting 17+ programming languages",
+        "url": "https://coderunner.pro",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": ["Python Compiler", "Java Compiler", "C++ Compiler", "JavaScript Compiler", "Code Editor", "Syntax Highlighting"]
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-particles">
+            <div class="splash-particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="splash-particle" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="splash-particle" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="splash-particle" style="left: 40%; animation-delay: 0.5s;"></div>
+            <div class="splash-particle" style="left: 50%; animation-delay: 1.5s;"></div>
+            <div class="splash-particle" style="left: 60%; animation-delay: 2.5s;"></div>
+            <div class="splash-particle" style="left: 70%; animation-delay: 0.8s;"></div>
+            <div class="splash-particle" style="left: 80%; animation-delay: 1.8s;"></div>
+            <div class="splash-particle" style="left: 90%; animation-delay: 2.8s;"></div>
+        </div>
+        <div class="splash-content">
+            <div class="splash-logo-container">
+                <div class="splash-logo-ring"></div>
+                <div class="splash-logo-inner">
+                    <img src="logo.png" alt="CodeRunner Pro">
+                </div>
+            </div>
+            <div class="splash-brand">
+                <h1 class="splash-title">CodeRunner<span class="pro">Pro</span></h1>
+                <p class="splash-tagline">Code. Compile. Conquer.</p>
+            </div>
+            <div class="splash-loader">
+                <div class="splash-progress-bar">
+                    <div class="splash-progress-fill"></div>
+                </div>
+                <div class="splash-loading-text">
+                    Loading
+                    <span class="splash-loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Animated Background -->
     <div class="animated-bg">
         <div class="gradient-orb orb-1"></div>
@@ -22,20 +114,25 @@
         <div class="particles" id="particles"></div>
     </div>
 
+
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
-                <div class="logo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
-                </div>
-                <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
             </div>
             <nav class="nav-actions">
                 <div class="nav-links">
-                    <a href="#" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="tutorials.html" class="nav-link">Tutorials</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
                     <a href="editor.html" class="nav-link">Editor</a>
                 </div>
                 <button class="btn-icon" id="themeToggle" title="Toggle Theme">
@@ -60,21 +157,28 @@
             <div class="hero-content">
                 <div class="hero-badge animate-fade-in">
                     <span class="badge-icon">🚀</span>
-                    <span>Free & Open Source</span>
+                    <span>Free Online Compiler & IDE</span>
                 </div>
                 <h1 class="hero-title animate-slide-up">
                     Code. Compile. <span class="gradient-text">Execute.</span>
                 </h1>
                 <p class="hero-subtitle animate-slide-up delay-1">
-                    Write and run code in <strong>17+ languages</strong> directly in your browser.
-                    No setup, no installation, just pure coding magic.
+                    Write and run code in <strong>17+ programming languages</strong> directly in your browser.
+                    No setup, no installation — just pure coding magic. Start learning to code today!
                 </p>
                 <div class="hero-actions animate-slide-up delay-2">
                     <a href="editor.html" class="btn btn-primary btn-lg">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="5 3 19 12 5 21 5 3"></polygon>
                         </svg>
-                        Start Coding
+                        Start Coding Now
+                    </a>
+                    <a href="tutorials.html" class="btn btn-secondary btn-lg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        View Tutorials
                     </a>
                 </div>
                 <div class="hero-stats animate-fade-in delay-3">
@@ -85,25 +189,605 @@
                     <div class="stat-divider"></div>
                     <div class="stat">
                         <span class="stat-value">100%</span>
-                        <span class="stat-label">Free</span>
+                        <span class="stat-label">Free Forever</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat">
                         <span class="stat-value">∞</span>
                         <span class="stat-label">Executions</span>
                     </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">&lt;1s</span>
+                        <span class="stat-label">Execution</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Languages Section -->
+        <section class="languages-section" id="languages">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">💻 Programming Languages</span>
+                    <h2 class="section-title">Compile & Run Code in <span class="gradient-text">17+ Languages</span>
+                    </h2>
+                    <p class="section-subtitle">From Python to Rust, Java to Swift — we support all major programming
+                        languages. Choose your favorite and start coding instantly.</p>
+                </div>
+                <div class="languages-grid">
+                    <a href="editor.html?lang=python" class="lang-card">
+                        <span class="lang-emoji">🐍</span>
+                        <span class="lang-name">Python</span>
+                        <span class="lang-desc">Data Science & AI</span>
+                    </a>
+                    <a href="editor.html?lang=javascript" class="lang-card">
+                        <span class="lang-emoji">🟨</span>
+                        <span class="lang-name">JavaScript</span>
+                        <span class="lang-desc">Web Development</span>
+                    </a>
+                    <a href="editor.html?lang=java" class="lang-card">
+                        <span class="lang-emoji">☕</span>
+                        <span class="lang-name">Java</span>
+                        <span class="lang-desc">Enterprise Apps</span>
+                    </a>
+                    <a href="editor.html?lang=cpp" class="lang-card">
+                        <span class="lang-emoji">⚡</span>
+                        <span class="lang-name">C++</span>
+                        <span class="lang-desc">System Programming</span>
+                    </a>
+                    <a href="editor.html?lang=c" class="lang-card">
+                        <span class="lang-emoji">⚙️</span>
+                        <span class="lang-name">C</span>
+                        <span class="lang-desc">Low-Level Programming</span>
+                    </a>
+                    <a href="editor.html?lang=csharp" class="lang-card">
+                        <span class="lang-emoji">💜</span>
+                        <span class="lang-name">C#</span>
+                        <span class="lang-desc">.NET Development</span>
+                    </a>
+                    <a href="editor.html?lang=typescript" class="lang-card">
+                        <span class="lang-emoji">🔷</span>
+                        <span class="lang-name">TypeScript</span>
+                        <span class="lang-desc">Typed JavaScript</span>
+                    </a>
+                    <a href="editor.html?lang=go" class="lang-card">
+                        <span class="lang-emoji">🐹</span>
+                        <span class="lang-name">Go</span>
+                        <span class="lang-desc">Cloud & Backend</span>
+                    </a>
+                    <a href="editor.html?lang=rust" class="lang-card">
+                        <span class="lang-emoji">🦀</span>
+                        <span class="lang-name">Rust</span>
+                        <span class="lang-desc">Memory Safe Systems</span>
+                    </a>
+                    <a href="editor.html?lang=ruby" class="lang-card">
+                        <span class="lang-emoji">💎</span>
+                        <span class="lang-name">Ruby</span>
+                        <span class="lang-desc">Web Apps</span>
+                    </a>
+                    <a href="editor.html?lang=php" class="lang-card">
+                        <span class="lang-emoji">🐘</span>
+                        <span class="lang-name">PHP</span>
+                        <span class="lang-desc">Server-Side Web</span>
+                    </a>
+                    <a href="editor.html?lang=swift" class="lang-card">
+                        <span class="lang-emoji">🦅</span>
+                        <span class="lang-name">Swift</span>
+                        <span class="lang-desc">iOS Development</span>
+                    </a>
+                    <a href="editor.html?lang=dart" class="lang-card">
+                        <span class="lang-emoji">🎯</span>
+                        <span class="lang-name">Dart</span>
+                        <span class="lang-desc">Flutter Apps</span>
+                    </a>
+                    <a href="editor.html?lang=scala" class="lang-card">
+                        <span class="lang-emoji">🔴</span>
+                        <span class="lang-name">Scala</span>
+                        <span class="lang-desc">Functional & OOP</span>
+                    </a>
+                    <a href="editor.html?lang=r" class="lang-card">
+                        <span class="lang-emoji">📊</span>
+                        <span class="lang-name">R</span>
+                        <span class="lang-desc">Statistics & Data</span>
+                    </a>
+                    <a href="editor.html?lang=sql" class="lang-card">
+                        <span class="lang-emoji">🗃️</span>
+                        <span class="lang-name">SQL</span>
+                        <span class="lang-desc">Database Queries</span>
+                    </a>
+                    <a href="editor.html?lang=html" class="lang-card">
+                        <span class="lang-emoji">🌐</span>
+                        <span class="lang-name">HTML/CSS</span>
+                        <span class="lang-desc">Web Design</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">✨ Features</span>
+                    <h2 class="section-title">Why Choose <span class="gradient-text">CodeRunner Pro</span>?</h2>
+                    <p class="section-subtitle">Experience the best online coding environment with powerful features
+                        designed for developers and learners alike.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3>Instant Execution</h3>
+                        <p>Run your code in milliseconds with our powerful execution engine. No waiting, no delays —
+                            just instant results.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Monaco Editor</h3>
+                        <p>VS Code-quality code editing with syntax highlighting, auto-completion, and smart indentation
+                            for all languages.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <h3>Secure Sandbox</h3>
+                        <p>All code runs in isolated Docker containers with strict resource limits. Your code is safe
+                            and secure.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>No Installation</h3>
+                        <p>Run Python, Java, C++, and more without installing anything. Works on any device with a web
+                            browser.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </div>
+                        <h3>Dark/Light Mode</h3>
+                        <p>Switch between dark and light themes based on your preference. Easy on the eyes during
+                            late-night coding sessions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h3>17+ Languages</h3>
+                        <p>From Python to Rust, Java to Swift — learn and practice programming in all major languages.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works-section" id="how-it-works">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">🎯 How It Works</span>
+                    <h2 class="section-title">Start Coding in <span class="gradient-text">3 Simple Steps</span></h2>
+                    <p class="section-subtitle">No sign-up required. Just write code, click run, and see results
+                        instantly.</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Choose a Language</h3>
+                            <p>Select from 17+ programming languages including Python, Java, C++, JavaScript, and more.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="step-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Write Your Code</h3>
+                            <p>Use our powerful Monaco editor with syntax highlighting and auto-completion features.</p>
+                        </div>
+                    </div>
+                    <div class="step-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Run & See Results</h3>
+                            <p>Click "Run Code" or press Ctrl+Enter to execute. See output instantly in the output
+                                panel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Tutorials Section -->
+        <section class="tutorials-preview-section" id="tutorials-preview">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">📚 Learn Programming</span>
+                    <h2 class="section-title">Popular <span class="gradient-text">Tutorials</span></h2>
+                    <p class="section-subtitle">Master programming with our comprehensive tutorials. From beginner
+                        basics to advanced concepts.</p>
+                </div>
+                <div class="tutorials-grid">
+                    <a href="tutorials.html#python" class="tutorial-card">
+                        <div class="tutorial-icon">🐍</div>
+                        <div class="tutorial-info">
+                            <h3>Python Tutorial</h3>
+                            <p>Learn Python programming from scratch. Variables, loops, functions, OOP, and more.</p>
+                            <div class="tutorial-topics">
+                                <span>Built-in Functions</span>
+                                <span>List Methods</span>
+                                <span>Dictionary</span>
+                            </div>
+                        </div>
+                        <svg class="tutorial-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="tutorials.html#javascript" class="tutorial-card">
+                        <div class="tutorial-icon">🟨</div>
+                        <div class="tutorial-info">
+                            <h3>JavaScript Tutorial</h3>
+                            <p>Master JavaScript for web development. DOM manipulation, ES6+, and async programming.</p>
+                            <div class="tutorial-topics">
+                                <span>Array Methods</span>
+                                <span>String Methods</span>
+                                <span>DOM API</span>
+                            </div>
+                        </div>
+                        <svg class="tutorial-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="tutorials.html#java" class="tutorial-card">
+                        <div class="tutorial-icon">☕</div>
+                        <div class="tutorial-info">
+                            <h3>Java Tutorial</h3>
+                            <p>Learn Java for enterprise applications. OOP concepts, collections, and multithreading.
+                            </p>
+                            <div class="tutorial-topics">
+                                <span>String Methods</span>
+                                <span>Collections</span>
+                                <span>Stream API</span>
+                            </div>
+                        </div>
+                        <svg class="tutorial-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="tutorials.html#cpp" class="tutorial-card">
+                        <div class="tutorial-icon">⚡</div>
+                        <div class="tutorial-info">
+                            <h3>C++ Tutorial</h3>
+                            <p>Master C++ for system programming. Pointers, STL, and memory management.</p>
+                            <div class="tutorial-topics">
+                                <span>STL Containers</span>
+                                <span>Algorithms</span>
+                                <span>OOP</span>
+                            </div>
+                        </div>
+                        <svg class="tutorial-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                <div class="section-cta">
+                    <a href="tutorials.html" class="btn btn-primary">
+                        View All Tutorials
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Examples Section -->
+        <section class="examples-preview-section" id="examples-preview">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">💡 Code Examples</span>
+                    <h2 class="section-title">Practice with <span class="gradient-text">Real Examples</span></h2>
+                    <p class="section-subtitle">Learn by doing with our curated collection of programming examples. Try
+                        them in our online compiler!</p>
+                </div>
+                <div class="examples-grid">
+                    <a href="examples.html#hello-world" class="example-card">
+                        <div class="example-header">
+                            <span class="example-lang">Python</span>
+                            <span class="example-level beginner">Beginner</span>
+                        </div>
+                        <h3>Hello World Program</h3>
+                        <p>Your first program in any language</p>
+                        <code>print("Hello, World!")</code>
+                    </a>
+                    <a href="examples.html#add-numbers" class="example-card">
+                        <div class="example-header">
+                            <span class="example-lang">Python</span>
+                            <span class="example-level beginner">Beginner</span>
+                        </div>
+                        <h3>Add Two Numbers</h3>
+                        <p>Basic arithmetic operations</p>
+                        <code>sum = num1 + num2</code>
+                    </a>
+                    <a href="examples.html#prime-check" class="example-card">
+                        <div class="example-header">
+                            <span class="example-lang">Python</span>
+                            <span class="example-level intermediate">Intermediate</span>
+                        </div>
+                        <h3>Check Prime Number</h3>
+                        <p>Determine if a number is prime</p>
+                        <code>is_prime(n)</code>
+                    </a>
+                    <a href="examples.html#factorial" class="example-card">
+                        <div class="example-header">
+                            <span class="example-lang">Python</span>
+                            <span class="example-level intermediate">Intermediate</span>
+                        </div>
+                        <h3>Find Factorial</h3>
+                        <p>Calculate factorial of a number</p>
+                        <code>factorial(n)</code>
+                    </a>
+                    <a href="examples.html#fibonacci" class="example-card">
+                        <div class="example-header">
+                            <span class="example-lang">Python</span>
+                            <span class="example-level intermediate">Intermediate</span>
+                        </div>
+                        <h3>Fibonacci Sequence</h3>
+                        <p>Generate Fibonacci numbers</p>
+                        <code>fibonacci(n)</code>
+                    </a>
+                    <a href="examples.html#sorting" class="example-card">
+                        <div class="example-header">
+                            <span class="example-lang">Python</span>
+                            <span class="example-level advanced">Advanced</span>
+                        </div>
+                        <h3>Sorting Algorithms</h3>
+                        <p>Bubble, Quick, Merge sort</p>
+                        <code>quick_sort(arr)</code>
+                    </a>
+                </div>
+                <div class="section-cta">
+                    <a href="examples.html" class="btn btn-primary">
+                        View All Examples
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">❓ FAQ</span>
+                    <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                    <p class="section-subtitle">Find answers to the most common questions about CodeRunner Pro.</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is CodeRunner Pro free to use?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! CodeRunner Pro is completely free to use. You can write, compile, and run code in
+                                17+ programming languages without any cost. There are no hidden fees, no credit card
+                                required, and no usage limits. We believe everyone should have access to quality
+                                programming tools.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What programming languages are supported?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We support 17+ programming languages including Python, JavaScript, Java, C, C++, C#,
+                                TypeScript, Go, Rust, Ruby, PHP, Swift, Dart, Scala, R, SQL, and HTML/CSS. We're
+                                constantly adding more languages based on user requests.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do I need to install anything to use the compiler?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No installation required! CodeRunner Pro is a web-based online compiler. All you need is
+                                a web browser (Chrome, Firefox, Safari, Edge) and an internet connection. Our
+                                cloud-based execution engine handles all the compilation and execution on our servers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is my code secure?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! All code execution happens in isolated Docker containers with strict resource
+                                limits. Your code runs in a secure sandbox environment with no access to our servers or
+                                other users' code. We don't store your code after execution unless you choose to save
+                                it.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I use CodeRunner Pro to learn programming?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! CodeRunner Pro is perfect for learning to code. We offer comprehensive tutorials for
+                                all supported languages, from beginner to advanced. You'll also find hundreds of code
+                                examples that you can run and modify. It's like having a coding playground where you can
+                                experiment and learn.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is the execution time limit?</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Each code execution has a maximum runtime of 5 seconds and compilation time of 10
+                                seconds. This is sufficient for most learning and practice scenarios. Memory is limited
+                                to 128MB per execution. These limits help ensure fair usage and fast response times for
+                                all users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="section-container">
+                <div class="cta-content">
+                    <h2>Ready to Start Coding?</h2>
+                    <p>Join thousands of developers who use CodeRunner Pro for learning, practicing, and testing code.
+                        No sign-up required!</p>
+                    <div class="cta-buttons">
+                        <a href="editor.html" class="btn btn-primary btn-lg">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            Start Coding Now
+                        </a>
+                        <a href="tutorials.html" class="btn btn-secondary btn-lg">
+                            Browse Tutorials
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <p>Powered by <strong>Piston</strong> Execution Engine</p>
-                <div class="footer-links">
-                    <a href="#">Documentation</a>
-                    <a href="#">API</a>
-                    <a href="#">GitHub</a>
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                        </div>
+                        <p>Free online compiler supporting 17+ programming languages. Write, compile, and run code
+                            instantly in your browser.</p>
+                        <div class="footer-social">
+                            <a href="https://github.com/Sikandar1310291" class="social-link" title="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                            <a href="mailto:awaisamjad31151@gmail.com" class="social-link" title="Email">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/muhammad-awais-75a786327" class="social-link"
+                                title="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links-group">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="editor.html">Online Compiler</a></li>
+                            <li><a href="tutorials.html">Tutorials</a></li>
+                            <li><a href="examples.html">Code Examples</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-group">
+                        <h4>Languages</h4>
+                        <ul>
+                            <li><a href="tutorials.html#python">Python</a></li>
+                            <li><a href="tutorials.html#javascript">JavaScript</a></li>
+                            <li><a href="tutorials.html#java">Java</a></li>
+                            <li><a href="tutorials.html#cpp">C++</a></li>
+                            <li><a href="tutorials.html#csharp">C#</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-group">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="examples.html#beginner">Beginner Examples</a></li>
+                            <li><a href="examples.html#intermediate">Intermediate Examples</a></li>
+                            <li><a href="examples.html#advanced">Advanced Examples</a></li>
+                            <li><a href="#">API Documentation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 CodeRunner Pro. Free online compiler for everyone.</p>
+                    <p>Powered by <strong>Piston</strong> Execution Engine</p>
                 </div>
             </div>
         </footer>

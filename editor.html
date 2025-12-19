@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
     <meta name="description" content="Professional online code editor supporting 17+ languages.">
     <title>Editor - CodeRunner Pro</title>
     <link rel="stylesheet" href="styles.css">
@@ -13,15 +15,50 @@
 </head>
 
 <body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-particles">
+            <div class="splash-particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="splash-particle" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="splash-particle" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="splash-particle" style="left: 50%; animation-delay: 1.5s;"></div>
+            <div class="splash-particle" style="left: 70%; animation-delay: 0.8s;"></div>
+            <div class="splash-particle" style="left: 90%; animation-delay: 2.8s;"></div>
+        </div>
+        <div class="splash-content">
+            <div class="splash-logo-container">
+                <div class="splash-logo-ring"></div>
+                <div class="splash-logo-inner">
+                    <img src="logo.png" alt="CodeRunner Pro">
+                </div>
+            </div>
+            <div class="splash-brand">
+                <h1 class="splash-title">CodeRunner<span class="pro">Pro</span></h1>
+                <p class="splash-tagline">Code. Compile. Conquer.</p>
+            </div>
+            <div class="splash-loader">
+                <div class="splash-progress-bar">
+                    <div class="splash-progress-fill"></div>
+                </div>
+                <div class="splash-loading-text">
+                    Loading Editor
+                    <span class="splash-loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
                 <a href="index.html" class="logo-link">
                     <div class="logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                        </svg>
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
                     </div>
                 </a>
                 <a href="index.html" style="text-decoration: none; color: inherit;">

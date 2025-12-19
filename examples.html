@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <title>Code Examples - 85+ Programs in 17 Languages | CodeRunner Pro</title>
+    <meta name="description"
+        content="85+ programming examples in Python, JavaScript, Java, C++, and more. Hello World, Fibonacci, Prime Number, Factorial examples with Try in Editor feature.">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Tutorials</a>
+                    <a href="examples.html" class="nav-link active">Examples</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+        <main class="examples-page">
+            <div class="examples-layout">
+                <aside class="examples-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Filter by Language</h3>
+                    </div>
+                    <nav class="sidebar-nav" id="langFilters"></nav>
+                    <div class="sidebar-header" style="margin-top:1.5rem;">
+                        <h3>Difficulty</h3>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <button class="level-btn active" data-level="all">All Levels</button>
+                        <button class="level-btn" data-level="beginner">Beginner</button>
+                        <button class="level-btn" data-level="intermediate">Intermediate</button>
+                        <button class="level-btn" data-level="advanced">Advanced</button>
+                    </nav>
+                </aside>
+                <div class="examples-content">
+                    <div class="content-header">
+                        <h1>Programming <span class="gradient-text">Examples</span></h1>
+                        <p>85+ code examples across 17 languages. Click "Try in Editor" to run any example!</p>
+                    </div>
+                    <div id="examplesContainer"></div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CodeRunner Pro</p>
+            </div>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+    <script src="examples-data.js"></script>
+</body>
+
+</html>
