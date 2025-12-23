@@ -27,6 +27,7 @@ services:
       - ./python-online-compiler.html:/usr/share/nginx/html/python-online-compiler.html:ro
       - ./java-online-compiler.html:/usr/share/nginx/html/java-online-compiler.html:ro
       - ./cpp-online-compiler.html:/usr/share/nginx/html/cpp-online-compiler.html:ro
+      - ./googleb0fbc2d80ad9dc53.html:/usr/share/nginx/html/googleb0fbc2d80ad9dc53.html:ro
     depends_on:
       - backend
     networks:
