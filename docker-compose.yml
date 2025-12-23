@@ -19,6 +19,14 @@ services:
       - ./privacy.html:/usr/share/nginx/html/privacy.html:ro
       - ./terms.html:/usr/share/nginx/html/terms.html:ro
       - ./logo.png:/usr/share/nginx/html/logo.png:ro
+      - ./favicon.ico:/usr/share/nginx/html/favicon.ico:ro
+      - ./favicon-48x48.png:/usr/share/nginx/html/favicon-48x48.png:ro
+      - ./favicon-96x96.png:/usr/share/nginx/html/favicon-96x96.png:ro
+      - ./favicon-192x192.png:/usr/share/nginx/html/favicon-192x192.png:ro
+      - ./favicon-512x512.png:/usr/share/nginx/html/favicon-512x512.png:ro
+      - ./python-online-compiler.html:/usr/share/nginx/html/python-online-compiler.html:ro
+      - ./java-online-compiler.html:/usr/share/nginx/html/java-online-compiler.html:ro
+      - ./cpp-online-compiler.html:/usr/share/nginx/html/cpp-online-compiler.html:ro
     depends_on:
       - backend
     networks:
