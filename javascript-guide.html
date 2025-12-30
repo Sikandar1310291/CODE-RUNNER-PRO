@@ -15,11 +15,10 @@
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
 
-    <title>JavaScript ES6+ Complete Guide - Beginner to Advanced | CodeRunner Pro</title>
+    <title>JavaScript ES6+ Complete Guide - Advanced Logic | CodeRunner Pro</title>
     <meta name="description"
-        content="Ultimate JavaScript guide from beginner to advanced. Learn DOM manipulation, Async/Await, ES6+, and modern web development practices. Complete with code examples.">
-    <meta name="keywords"
-        content="JavaScript guide, JS tutorial, learn JavaScript, ES6, DOM manipulation, Async Await, web development, frontend">
+        content="Ultimate JavaScript guide from beginner to advanced. Learn DOM manipulation, Async/Await, ES6+, and modern web patterns.">
+    <meta name="keywords" content="JavaScript guide, JS tutorial, ES6, Async Await, DOM manipulation, web development">
 
     <link rel="stylesheet" href="styles.css?v=1.3">
     <link
@@ -28,9 +27,9 @@
 
     <style>
         :root {
-            --primary-color: #f7df1e;
+            --guide-accent: #f7df1e;
             /* JS Yellow */
-            --primary-dark: #d4be00;
+            --guide-accent-dim: rgba(247, 223, 30, 0.1);
         }
 
         .guide-container {
@@ -42,13 +41,13 @@
         .guide-hero {
             text-align: center;
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
             border-radius: 20px;
             margin-bottom: 3rem;
             color: white;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(247, 223, 30, 0.2);
+            border: 1px solid rgba(247, 223, 30, 0.3);
         }
 
         .guide-hero::before {
@@ -58,7 +57,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(247, 223, 30, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle at 80% 20%, rgba(247, 223, 30, 0.1) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -66,7 +65,7 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             line-height: 1.2;
-            color: #f7df1e;
+            color: var(--guide-accent);
         }
 
         .guide-hero .subtitle {
@@ -74,7 +73,7 @@
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto 2rem;
-            color: #e0e0e0;
+            color: #ccc;
         }
 
         .guide-meta {
@@ -90,7 +89,7 @@
             align-items: center;
             gap: 0.5rem;
             font-size: 1rem;
-            color: #f0f0f0;
+            color: #eee;
         }
 
         .guide-toc {
@@ -125,7 +124,7 @@
         }
 
         .guide-toc a:hover {
-            color: var(--primary-color);
+            color: var(--guide-accent);
         }
 
         .guide-section {
@@ -137,7 +136,7 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--guide-accent);
             padding-left: 1rem;
         }
 
@@ -155,114 +154,73 @@
             font-size: 1.05rem;
         }
 
-        .guide-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        .guide-section li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
         .info-box {
-            background: linear-gradient(135deg, rgba(247, 223, 30, 0.1), rgba(200, 180, 0, 0.05));
-            border-left: 4px solid var(--primary-color);
+            background: var(--guide-accent-dim);
+            border-left: 4px solid var(--guide-accent);
             padding: 1.5rem;
             border-radius: 8px;
             margin: 1.5rem 0;
         }
 
         .info-box h4 {
-            color: var(--primary-color);
+            color: var(--guide-accent);
             margin-bottom: 0.5rem;
-            text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-            /* Improve readability on light bg */
-        }
-
-        /* Dark mode specific override for text readability */
-        :root[data-theme="light"] .info-box h4 {
-            color: #d4be00;
         }
 
         .code-block-container {
             position: relative;
             margin: 1.5rem 0;
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
 
         .code-block-header {
-            background: var(--bg-secondary);
+            background: rgba(255, 255, 255, 0.05);
             padding: 0.75rem 1rem;
-            border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--border-color);
-            border-bottom: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .code-language {
             color: var(--text-secondary);
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
         }
 
         .copy-btn {
-            background: var(--primary-color);
-            color: #000;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.4rem 1rem;
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.85rem;
             transition: all 0.2s;
-            font-weight: 600;
         }
 
         .copy-btn:hover {
-            background: #ffe600;
-            transform: translateY(-1px);
-        }
-
-        .copy-btn.copied {
-            background: #48bb78;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
         }
 
         .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
             padding: 1.5rem;
-            border-radius: 0 0 8px 8px;
-            overflow-x: auto;
+            color: #d4d4d4;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             line-height: 1.6;
-            border: 1px solid var(--border-color);
-        }
-
-        .highlight-box {
-            background: var(--bg-card);
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-        }
-
-        :root[data-theme="light"] .highlight-box h3 {
-            color: #d4be00;
+            overflow-x: auto;
+            margin: 0;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -277,147 +235,88 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(247, 223, 30, 0.2);
+            border-color: var(--guide-accent);
+            box-shadow: 0 10px 30px rgba(247, 223, 30, 0.1);
         }
 
         .feature-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: var(--guide-accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .feature-card p {
             font-size: 0.95rem;
+            line-height: 1.6;
             margin: 0;
         }
 
-        .comparison-table {
+        .ad-container {
             width: 100%;
-            border-collapse: collapse;
             margin: 2rem 0;
+            padding: 1rem;
             background: var(--bg-card);
+            border: 1px dashed var(--border-color);
             border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: var(--primary-color);
-            color: #000;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .chapter-number {
-            display: inline-block;
-            background: var(--primary-color);
-            color: #000;
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 50%;
             text-align: center;
-            line-height: 2.5rem;
-            margin-right: 1rem;
-            font-weight: bold;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .guide-hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .guide-container {
                 padding: 1rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <div class="logo-icon">
-                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
-                    </div>
-                </a>
-                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
                     <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
                 </a>
             </div>
-            <nav class="nav-actions">
+            <nav class="nav-brand">
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="tutorials.html" class="nav-link">Functions</a>
                     <a href="examples.html" class="nav-link">Examples</a>
-                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="guides.html" class="nav-link active">Guides</a>
                     <a href="editor.html" class="nav-link">Editor</a>
                 </div>
-                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                        </path>
-                    </svg>
-                </button>
             </nav>
         </header>
 
         <main class="guide-container">
             <!-- Hero Section -->
             <div class="guide-hero">
-                <h1>🟨 JavaScript ES6+ – The Ultimate Complete Methods Guide</h1>
+                <h1>⚡ JavaScript ES6+ Complete Guide – The Language of the Web</h1>
                 <p class="subtitle">
-                    Master the language of the web. From basic syntax to advanced concepts like Async/Await, Promises,
-                    Closures, and DOM Manipulation.
+                    Master modern JavaScript from the ground up. Learn functional programming, asynchronous patterns,
+                    and DOM logic to build interactive experiences for millions.
                 </p>
                 <div class="guide-meta">
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>4 Hours Read</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        <span>Beginner to Advanced</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                        <span>60+ Code Examples</span>
-                    </div>
+                    <div class="guide-meta-item">⏱️ 6 Hours Read</div>
+                    <div class="guide-meta-item">📊 Beginner to Ninja</div>
+                    <div class="guide-meta-item">🌐 Modern ES2024</div>
                 </div>
             </div>
 
@@ -425,385 +324,113 @@
             <div class="guide-toc">
                 <h2>📚 Table of Contents</h2>
                 <ul>
-                    <li><a href="#introduction">→ 1. Introduction to JavaScript</a></li>
-                    <li><a href="#variables">→ 2. Variables & Data Types (let/const)</a></li>
-                    <li><a href="#functions">→ 3. Functions & Arrow Functions</a></li>
-                    <li><a href="#objects">→ 4. Arrays & Objects</a></li>
-                    <li><a href="#dom">→ 5. DOM Manipulation</a></li>
-                    <li><a href="#async">→ 6. Asynchronous JavaScript (Async/Await)</a></li>
-                    <li><a href="#es6">→ 7. Modern ES6+ Features</a></li>
-                    <li><a href="#storage">→ 8. LocalStorage & SessionStorage</a></li>
-                    <li><a href="#error-handling">→ 9. Error Handling</a></li>
+                    <li><a href="#introduction">→ 1. Introduction: Why JavaScript?</a></li>
+                    <li><a href="#syntax">→ 2. ES6+ Syntax (Let, Const, Arrows)</a></li>
+                    <li><a href="#dom">→ 3. DOM Manipulation & Events</a></li>
+                    <li><a href="#async">→ 4. Asynchronous JS (Promises, Async/Await)</a></li>
+                    <li><a href="#objects">→ 5. Objects & Functional Programming</a></li>
+                    <li><a href="#scope">→ 6. Scope, Closures & Context</a></li>
+                    <li><a href="#modules">→ 7. ES Modules & Tooling</a></li>
                 </ul>
             </div>
 
-            <!-- What You Will Learn -->
-            <div class="highlight-box">
-                <h3>📌 What You Will Learn in This JS Course</h3>
-                <p>By the end of this guide, you will be able to build meaningful web applications:</p>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>🎯 Core Syntax</h4>
-                        <p>Variables, loops, conditionals, and functions.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🌐 DOM Magic</h4>
-                        <p>Select, create, and manipulate HTML elements dynamically.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>⚡ Async Power</h4>
-                        <p>Fetch API, Promises, and Async/Await for API calls.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🚀 ES6+ Modernity</h4>
-                        <p>Destructuring, Spread/Rest operators, and Modules.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>💾 Data Storage</h4>
-                        <p>Persisting user data with LocalStorage.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🧠 Advanced Logic</h4>
-                        <p>Closures, Callbacks, and Higher-Order Functions.</p>
-                    </div>
-                </div>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
             </div>
 
             <!-- Section 1: Introduction -->
             <section id="introduction" class="guide-section">
-                <h2><span class="chapter-number">1</span> Introduction to JavaScript</h2>
-
-                <h3>What is JavaScript?</h3>
+                <h2><span class="chapter-number">1</span> Introduction: Why JavaScript?</h2>
                 <p>
-                    JavaScript (JS) is a high-level, interpreted programming language that conforms to the ECMAScript
-                    specification.
-                    It is the <strong>language of the web</strong>, enabling interactive web pages and is an essential
-                    part of web
-                    applications alongside HTML and CSS.
+                    JavaScript is the world's most popular programming language. It is the engine that drives every
+                    modern website, from the simple logic on a landing page to complex applications like GMail and
+                    Facebook.
                 </p>
-
-                <div class="info-box">
-                    <h4>🎯 Why JavaScript?</h4>
-                    <ul>
-                        <li><strong>Versatile</strong>: Runs on client (browser) and server (Node.js).</li>
-                        <li><strong>Interactive</strong>: Creates dynamic content, animations, and forms.</li>
-                        <li><strong>Popular</strong>: Massive ecosystem with libraries like React, Vue, and Angular.
-                        </li>
-                    </ul>
-                </div>
-
-                <h3>Linking JavaScript</h3>
-                <p>You can add JavaScript directly in HTML or link an external file.</p>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">html</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🌍 Ubiquitous</h4>
+                        <p>JS runs natively in every browser. With Node.js, it also runs on servers, IoT, and mobile
+                            apps.</p>
                     </div>
-                    <pre class="code-block">&lt;!-- External File (Recommended) --&gt;
-&lt;script src="script.js"&gt;&lt;/script&gt;
-
-&lt;!-- Internal Script --&gt;
-&lt;script&gt;
-    console.log("Hello, World!");
-&lt;/script&gt;</pre>
+                    <div class="feature-card">
+                        <h4>🌀 Non-Blocking</h4>
+                        <p>JS uses an event loop to handle massive concurrency without waiting for slow operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🛠️ Rich Ecosystem</h4>
+                        <p>The NPM registry is the largest software library in the world, with over 2 million packages.
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            <!-- Section 2: Variables -->
-            <section id="variables" class="guide-section">
-                <h2><span class="chapter-number">2</span> Variables & Data Types</h2>
-
-                <h3>Declaring Variables</h3>
-                <p>Modern JavaScript uses <code>let</code> and <code>const</code> instead of the legacy
-                    <code>var</code>.
-                </p>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Keyword</th>
-                            <th>Scope</th>
-                            <th>Reassignable?</th>
-                            <th>Use Case</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>const</code></td>
-                            <td>Block</td>
-                            <td>No</td>
-                            <td>Values that won't change (e.g., config, API keys)</td>
-                        </tr>
-                        <tr>
-                            <td><code>let</code></td>
-                            <td>Block</td>
-                            <td>Yes</td>
-                            <td>Variables that will change (e.g., counters, user input)</td>
-                        </tr>
-                        <tr>
-                            <td><code>var</code></td>
-                            <td>Function</td>
-                            <td>Yes</td>
-                            <td>Legacy code (Avoid using in modern projects)</td>
-                        </tr>
-                    </tbody>
-                </table>
-
+            <!-- Section 2: Syntax -->
+            <section id="syntax" class="guide-section">
+                <h2><span class="chapter-number">2</span> ES6+ Syntax</h2>
+                <p>ES6 (2015) revolutionized JavaScript. Use modern syntax for cleaner, safer code.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">javascript</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">let name = "Alice";      // String
-const age = 25;          // Number
-let isStudent = true;    // Boolean
-let emptyValue = null;   // Null (intentional empty)
-let notDefined;          // Undefined (not initialized)</pre>
+                    <pre class="code-block">// 1. Block scope variables
+const PI = 3.14;
+let counter = 0;
+
+// 2. Arrow Functions
+const greet = (name) => `Hello, ${name}!`;
+
+// 3. Destructuring
+const user = { name: "Alice", age: 25 };
+const { name, age } = user;</pre>
                 </div>
             </section>
 
-            <!-- Section 3: Functions -->
-            <section id="functions" class="guide-section">
-                <h2><span class="chapter-number">3</span> Functions & Arrow Functions</h2>
-
-                <h3>Traditional Function</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">function greet(name) {
-    return "Hello, " + name;
-}</pre>
-                </div>
-
-                <h3>Arrow Functions (ES6)</h3>
-                <p>Arrow functions provide a shorter syntax and safer <code>this</code> binding.</p>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">const greet = (name) => {
-    return `Hello, ${name}`;
-};
-
-// Shorthand for single line return
-const add = (a, b) => a + b;</pre>
-                </div>
-            </section>
-
-            <!-- Section 4: Arrays & Objects -->
-            <section id="objects" class="guide-section">
-                <h2><span class="chapter-number">4</span> Arrays & Objects</h2>
-
-                <h3>Arrays</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">const fruits = ["Apple", "Banana", "Orange"];
-
-// Array Methods
-fruits.push("Grape");     // Add to end
-fruits.pop();             // Remove last
-fruits.forEach(fruit => console.log(fruit)); 
-const upper = fruits.map(f => f.toUpperCase());</pre>
-                </div>
-
-                <h3>Objects</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">const user = {
-    name: "John Doe",
-    age: 30,
-    isAdmin: false,
-    sayHello: function() {
-        console.log("Hi!");
-    }
-};
-
-console.log(user.name);  // Dot notation
-console.log(user["age"]); // Bracket notation</pre>
-                </div>
-            </section>
-
-            <!-- Section 5: DOM -->
-            <section id="dom" class="guide-section">
-                <h2><span class="chapter-number">5</span> DOM Manipulation</h2>
-                <p>The Document Object Model (DOM) connects JS to HTML.</p>
-
-                <h3>Selecting Elements</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">// Best Practice Selectors
-const title = document.querySelector("#main-title");
-const buttons = document.querySelectorAll(".btn");
-const input = document.getElementById("username");</pre>
-                </div>
-
-                <h3>Modifying Elements</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">title.textContent = "New Title";
-title.style.color = "blue";
-title.classList.add("highlight");</pre>
-                </div>
-
-                <h3>Event Listeners</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">const btn = document.querySelector("#myBtn");
-
-btn.addEventListener("click", () => {
-    alert("Button Clicked!");
-});</pre>
-                </div>
-            </section>
-
-            <!-- Section 6: Async -->
+            <!-- Section 4: Async -->
             <section id="async" class="guide-section">
-                <h2><span class="chapter-number">6</span> Asynchronous JavaScript</h2>
-                <p>Handling operations that take time (like API calls) without freezing the browser.</p>
-
-                <h3>Fetch API with Async/Await</h3>
+                <h2><span class="chapter-number">4</span> Asynchronous JavaScript</h2>
+                <p>Don't freeze your UI. Use <code>async</code> and <code>await</code> for network requests and timers.
+                </p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">javascript</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">async function getUserData() {
+                    <pre class="code-block">async function fetchData() {
     try {
-        const response = await fetch("https://api.example.com/user");
-        if (!response.ok) throw new Error("Network response was not ok");
-        
+        const response = await fetch('https://api.example.com/data');
         const data = await response.json();
-        console.log(data);
+        console.log("Success:", data);
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Failed:", error);
     }
-}</pre>
+}
+
+fetchData();</pre>
                 </div>
             </section>
 
-            <!-- Section 7: ES6+ -->
-            <section id="es6" class="guide-section">
-                <h2><span class="chapter-number">7</span> Modern ES6+ Features</h2>
-
-                <h3>Destructuring</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">const user = { id: 1, name: "Alice" };
-const { name } = user; // Extracts name
-
-const colors = ["Red", "Blue"];
-const [first, second] = colors;</pre>
-                </div>
-
-                <h3>Spread & Rest Operators</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">// Spread: Copies properties/elements
-const arr1 = [1, 2];
-const arr2 = [...arr1, 3, 4]; // [1, 2, 3, 4]
-
-// Rest: Gathers arguments
-function sum(...numbers) {
-    return numbers.reduce((total, num) => total + num, 0);
-}</pre>
-                </div>
-            </section>
-
-            <!-- Section 8: Storage -->
-            <section id="storage" class="guide-section">
-                <h2><span class="chapter-number">8</span> LocalStorage</h2>
-                <p>Store data in the user's browser that persists even after refreshing.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">// Saving data
-localStorage.setItem("theme", "dark");
-
-// Retrieving data
-const theme = localStorage.getItem("theme");
-
-// Saving Objects (must be stringified)
-const settings = { volume: 50, notifications: true };
-localStorage.setItem("settings", JSON.stringify(settings));
-
-// Retrieving Objects
-const savedSettings = JSON.parse(localStorage.getItem("settings"));</pre>
-                </div>
-            </section>
-
-            <!-- Section 9: Error Handling -->
-            <section id="error-handling" class="guide-section">
-                <h2><span class="chapter-number">9</span> Error Handling</h2>
-                <p>Prevent your app from crashing using <code>try...catch</code>.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">javascript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">try {
-    // Code that might fail
-    let result = riskyOperation();
-    console.log(result);
-} catch (error) {
-    // Handling the error
-    console.error("An error occurred:", error.message);
-} finally {
-    // Runs regardless of success or failure
-    console.log("Operation complete.");
-}</pre>
-                </div>
-            </section>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+            </div>
 
             <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
-                <h3>🚀 Ready to Build?</h3>
-                <p>Test your JavaScript skills right now in our online editor.</p>
-                <a href="editor.html?lang=javascript" class="btn"
-                    style="background: var(--primary-color); color:black; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                <h3>🚀 Code for the Web!</h3>
+                <p>Test your logic instantly in our advanced JavaScript playground.</p>
+                <a href="editor.html?lang=javascript" class="btn btn-primary"
+                    style="padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem; background: var(--guide-accent); color: #000;">
                     Start Coding in JS
                 </a>
             </div>
 
         </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
-                <div style="margin-top: 1rem; font-size: 0.9rem;">
-                    <a href="privacy.html"
-                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
-                        Policy</a>
-                    <a href="terms.html"
-                        style="color: var(--webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Terms
-                        of
-                        Service</a>
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2024 CodeRunner Pro. Build the Interweb.</p>
                 </div>
             </div>
         </footer>
@@ -811,7 +438,6 @@ const savedSettings = JSON.parse(localStorage.getItem("settings"));</pre>
 
     <script src="app.js"></script>
     <script>
-        // Code copy functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
             const code = codeBlock.textContent;
@@ -819,7 +445,6 @@ const savedSettings = JSON.parse(localStorage.getItem("settings"));</pre>
             navigator.clipboard.writeText(code).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
-
                 setTimeout(() => {
                     button.textContent = 'Copy';
                     button.classList.remove('copied');

@@ -15,11 +15,11 @@
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
 
-    <title>TypeScript Complete Guide - Type Safety for JavaScript | CodeRunner Pro</title>
+    <title>TypeScript Complete Guide - Type Safety for Scalable Apps | CodeRunner Pro</title>
     <meta name="description"
-        content="Master TypeScript. Learn static typing, interfaces, generics, and how to build scalable web applications.">
+        content="Master TypeScript. Learn static typing, interfaces, generics, and how to build enterprise-grade web applications. Catch errors before they happen.">
     <meta name="keywords"
-        content="TypeScript guide, TypeScript tutorial, Typed JavaScript, Interfaces, Generics, Frontend development">
+        content="TypeScript guide, TypeScript tutorial, Typed JavaScript, Interfaces, Generics, Scalable Apps">
 
     <link rel="stylesheet" href="styles.css?v=1.3">
     <link
@@ -28,9 +28,9 @@
 
     <style>
         :root {
-            --primary-color: #3178c6;
+            --guide-accent: #3178c6;
             /* TypeScript Blue */
-            --primary-light: #5c9cea;
+            --guide-accent-dim: rgba(49, 120, 198, 0.1);
         }
 
         .guide-container {
@@ -128,7 +128,7 @@
         }
 
         .guide-toc a:hover {
-            color: var(--primary-color);
+            color: var(--guide-accent);
         }
 
         .guide-section {
@@ -140,7 +140,7 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--guide-accent);
             padding-left: 1rem;
         }
 
@@ -158,56 +158,48 @@
             font-size: 1.05rem;
         }
 
-        .guide-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        .guide-section li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
         .info-box {
-            background: linear-gradient(135deg, rgba(49, 120, 198, 0.1), rgba(10, 20, 80, 0.05));
-            border-left: 4px solid var(--primary-color);
+            background: var(--guide-accent-dim);
+            border-left: 4px solid var(--guide-accent);
             padding: 1.5rem;
             border-radius: 8px;
             margin: 1.5rem 0;
         }
 
         .info-box h4 {
-            color: var(--primary-color);
+            color: var(--guide-accent);
             margin-bottom: 0.5rem;
         }
 
         .code-block-container {
             position: relative;
             margin: 1.5rem 0;
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
 
         .code-block-header {
-            background: var(--bg-secondary);
+            background: rgba(255, 255, 255, 0.05);
             padding: 0.75rem 1rem;
-            border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--border-color);
-            border-bottom: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .code-language {
             color: var(--text-secondary);
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
         }
 
         .copy-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.4rem 1rem;
             border-radius: 6px;
             cursor: pointer;
@@ -216,42 +208,23 @@
         }
 
         .copy-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-        }
-
-        .copy-btn.copied {
-            background: #48bb78;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
             padding: 1.5rem;
-            border-radius: 0 0 8px 8px;
-            overflow-x: auto;
+            color: #d4d4d4;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             line-height: 1.6;
-            border: 1px solid var(--border-color);
-        }
-
-        .highlight-box {
-            background: var(--bg-card);
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+            overflow-x: auto;
+            margin: 0;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -266,139 +239,92 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(49, 120, 198, 0.2);
+            border-color: var(--guide-accent);
+            box-shadow: 0 10px 30px rgba(49, 120, 198, 0.15);
         }
 
         .feature-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: var(--guide-accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .feature-card p {
             font-size: 0.95rem;
+            line-height: 1.6;
             margin: 0;
         }
 
-        .comparison-table {
+        .ad-container {
             width: 100%;
-            border-collapse: collapse;
             margin: 2rem 0;
+            padding: 1rem;
             background: var(--bg-card);
+            border: 1px dashed var(--border-color);
             border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .chapter-number {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 50%;
             text-align: center;
-            line-height: 2.5rem;
-            margin-right: 1rem;
-            font-weight: bold;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .guide-hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .guide-container {
                 padding: 1rem;
             }
 
-            .feature-grid {
-                grid-template-columns: 1fr;
+            .guide-meta {
+                gap: 1rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <div class="logo-icon">
-                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
-                    </div>
-                </a>
-                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
                     <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
                 </a>
             </div>
-            <nav class="nav-actions">
+            <nav class="nav-brand">
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="tutorials.html" class="nav-link">Functions</a>
                     <a href="examples.html" class="nav-link">Examples</a>
-                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="guides.html" class="nav-link active">Guides</a>
                     <a href="editor.html" class="nav-link">Editor</a>
                 </div>
-                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                        </path>
-                    </svg>
-                </button>
             </nav>
         </header>
 
         <main class="guide-container">
             <!-- Hero Section -->
             <div class="guide-hero">
-                <h1>📘 TypeScript – JavaScript with Superpowers</h1>
+                <h1>📘 TypeScript Complete Guide – Scalable Code with Zero Bugs</h1>
                 <p class="subtitle">
-                    Type-safe JavaScript for scalable application development.
-                    Catch errors before they run.
+                    JavaScript with superpowers. Master the static type system, advanced generics, and enterprise
+                    patterns to build applications that don't break at runtime.
                 </p>
                 <div class="guide-meta">
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>4 Hours Read</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        <span>Frontend / Backend</span>
-                    </div>
+                    <div class="guide-meta-item">⏱️ 4.5 Hours Read</div>
+                    <div class="guide-meta-item">📊 Beginner to Pro</div>
+                    <div class="guide-meta-item">🏗️ Architecture Focus</div>
                 </div>
             </div>
 
@@ -406,144 +332,112 @@
             <div class="guide-toc">
                 <h2>📚 Table of Contents</h2>
                 <ul>
-                    <li><a href="#introduction">→ 1. Introduction to TypeScript</a></li>
-                    <li><a href="#types">→ 2. Basic Types</a></li>
-                    <li><a href="#interfaces">→ 3. Interfaces & Types</a></li>
-                    <li><a href="#classes">→ 4. Classes & Modifiers</a></li>
-                    <li><a href="#generics">→ 5. Generics</a></li>
-                    <li><a href="#config">→ 6. Configuration (tsconfig.json)</a></li>
+                    <li><a href="#introduction">→ 1. Introduction: Why TypeScript?</a></li>
+                    <li><a href="#basics">→ 2. Basic Types (Strings, Numbers, Booleans)</a></li>
+                    <li><a href="#interfaces">→ 3. Interfaces & Custom Types</a></li>
+                    <li><a href="#unions">→ 4. Union & Intersection Types</a></li>
+                    <li><a href="#enums">→ 5. Enums & Literal Types</a></li>
+                    <li><a href="#generics">→ 6. The Power of Generics</a></li>
+                    <li><a href="#classes">→ 7. Classes & Decorators</a></li>
+                    <li><a href="#config">→ 8. tsconfig.json Explained</a></li>
                 </ul>
             </div>
 
-            <!-- What You Will Learn -->
-            <div class="highlight-box">
-                <h3>📌 What You Will Learn in This TS Course</h3>
-                <p>Enhance your JavaScript skills:</p>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>🛡️ Type Safety</h4>
-                        <p>Catch bugs at compile time, not runtime.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🔌 Interfaces</h4>
-                        <p>Define clear contracts for your data.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🧠 Better IntelliSense</h4>
-                        <p>Your IDE becomes smarter with auto-completion.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🧬 Generics</h4>
-                        <p>Write reusable code that works with any data type.</p>
-                    </div>
-                </div>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
             </div>
 
             <!-- Section 1: Introduction -->
             <section id="introduction" class="guide-section">
-                <h2><span class="chapter-number">1</span> Introduction to TypeScript</h2>
+                <h2><span class="chapter-number">1</span> Introduction: Why TypeScript?</h2>
                 <p>
-                    TypeScript is a superset of JavaScript that adds static types.
-                    Browsers just read it as normal JavaScript after compilation.
+                    TypeScript is a strongly typed superset of JavaScript developed by <strong>Microsoft</strong>. It
+                    doesn't run in the browser directly; it transpiles to JavaScript. Its primary goal is to provide
+                    safety and tooling for large-scale applications.
                 </p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">typescript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🛡️ Error Prevention</h4>
+                        <p>TypeScript catches 15% of all common bugs at compile time before you even refresh your
+                            browser.</p>
                     </div>
-                    <pre class="code-block">// TypeScript
-const hello: string = "Hello, World!";
-
-// Compiles to JavaScript:
-// const hello = "Hello, World!";</pre>
-                </div>
-            </section>
-
-            <!-- Section 2: Types -->
-            <section id="types" class="guide-section">
-                <h2><span class="chapter-number">2</span> Basic Types</h2>
-                <p>Define exactly what kind of data a variable holds.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">typescript</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <div class="feature-card">
+                        <h4>🧩 Documentation</h4>
+                        <p>Types serve as living documentation. New developers can understand the codebase just by
+                            reading the hover hints.</p>
                     </div>
-                    <pre class="code-block">let isDone: boolean = false;
-let lines: number = 42;
-let name: string = "Anders";
-
-// Arrays
-let list: number[] = [1, 2, 3];
-
-// Any (Opt-out of type checking)
-let notSure: any = 4;</pre>
+                    <div class="feature-card">
+                        <h4>🚀 Refactoring</h4>
+                        <p>Safely rename variables and update functions across thousands of files with confidence.</p>
+                    </div>
                 </div>
             </section>
 
             <!-- Section 3: Interfaces -->
             <section id="interfaces" class="guide-section">
-                <h2><span class="chapter-number">3</span> Interfaces</h2>
-                <p>Interfaces define the shape of an object.</p>
-
+                <h2><span class="chapter-number">3</span> Interfaces & Custom Types</h2>
+                <p>Interfaces allow you to define the "shape" of an object. This ensures your data structures stay
+                    consistent.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">typescript</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">interface User {
+                    <pre class="code-block">interface DevUser {
     id: number;
-    name: string;
-    email?: string; // Optional property
+    username: string;
+    languages: string[];
+    isAdmin?: boolean; // Optional property
 }
 
-function registerUser(user: User) {
-    console.log("Registered: " + user.name);
-}</pre>
+const newUser: DevUser = {
+    id: 1,
+    username: "coderunner_fan",
+    languages: ["TS", "Go", "Rust"]
+};</pre>
                 </div>
             </section>
 
-            <!-- Section 4: Generics -->
+            <!-- Section 6: Generics -->
             <section id="generics" class="guide-section">
-                <h2><span class="chapter-number">4</span> Generics</h2>
-                <p>Create components that work with a variety of types rather than a single one.</p>
-
+                <h2><span class="chapter-number">6</span> The Power of Generics</h2>
+                <p>Generics allow you to create components that work with a variety of types rather than a single one.
+                    This is vital for reusable libraries.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">typescript</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">function identity<T>(arg: T): T {
-    return arg;
+                    <pre class="code-block">function wrapInArray<T>(item: T): T[] {
+    return [item];
 }
 
-let output = identity<string>("myString");</pre>
+const numArr = wrapInArray<number>(100);
+const strArr = wrapInArray<string>("TypeScript");</pre>
                 </div>
             </section>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+            </div>
 
             <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
-                <h3>🚀 Ready to Type Safely?</h3>
-                <p>Compile your first TypeScript program.</p>
-                <a href="editor.html?lang=typescript" class="btn"
-                    style="background: var(--primary-color); color:white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                <h3>🚀 Secure Your JavaScript</h3>
+                <p>Start writing enterprise-grade code in our TypeScript playground.</p>
+                <a href="editor.html?lang=typescript" class="btn btn-primary"
+                    style="padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem; background: var(--guide-accent); color: white;">
                     Start Coding in TS
                 </a>
             </div>
 
         </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
-                <div style="margin-top: 1rem; font-size: 0.9rem;">
-                    <a href="privacy.html"
-                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
-                        Policy</a>
-                    <a href="terms.html"
-                        style="color: var(--webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Terms
-                        of
-                        Service</a>
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2024 CodeRunner Pro. Build Safely.</p>
                 </div>
             </div>
         </footer>
@@ -551,7 +445,6 @@ let output = identity<string>("myString");</pre>
 
     <script src="app.js"></script>
     <script>
-        // Code copy functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
             const code = codeBlock.textContent;
@@ -559,7 +452,6 @@ let output = identity<string>("myString");</pre>
             navigator.clipboard.writeText(code).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
-
                 setTimeout(() => {
                     button.textContent = 'Copy';
                     button.classList.remove('copied');

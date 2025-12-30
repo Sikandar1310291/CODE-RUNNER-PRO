@@ -15,11 +15,10 @@
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
 
-    <title>HTML5 Complete Guide - Beginner to Advanced | CodeRunner Pro</title>
+    <title>HTML5 Complete Guide - Structure & SEO | CodeRunner Pro</title>
     <meta name="description"
-        content="The ultimate HTML5 guide. Learn semantic HTML, forms, tables, media, and SEO best practices to build modern websites.">
-    <meta name="keywords"
-        content="HTML guide, HTML tutorial, HTML5, semantic HTML, web development, learn to code, frontend">
+        content="Master HTML5 from scratch. Learn semantic markup, advanced forms, accessibility, and SEO best practices to build the foundation of the modern web.">
+    <meta name="keywords" content="HTML5 guide, semantic HTML, web structure, SEO, accessibility, frontend development">
 
     <link rel="stylesheet" href="styles.css?v=1.3">
     <link
@@ -28,9 +27,9 @@
 
     <style>
         :root {
-            --primary-color: #E34F26;
+            --guide-accent: #E34F26;
             /* HTML Orange */
-            --primary-light: #f06a46;
+            --guide-accent-dim: rgba(227, 79, 38, 0.1);
         }
 
         .guide-container {
@@ -128,7 +127,7 @@
         }
 
         .guide-toc a:hover {
-            color: var(--primary-color);
+            color: var(--guide-accent);
         }
 
         .guide-section {
@@ -140,7 +139,7 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--guide-accent);
             padding-left: 1rem;
         }
 
@@ -158,56 +157,48 @@
             font-size: 1.05rem;
         }
 
-        .guide-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        .guide-section li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
         .info-box {
-            background: linear-gradient(135deg, rgba(227, 79, 38, 0.1), rgba(150, 50, 20, 0.05));
-            border-left: 4px solid var(--primary-color);
+            background: var(--guide-accent-dim);
+            border-left: 4px solid var(--guide-accent);
             padding: 1.5rem;
             border-radius: 8px;
             margin: 1.5rem 0;
         }
 
         .info-box h4 {
-            color: var(--primary-color);
+            color: var(--guide-accent);
             margin-bottom: 0.5rem;
         }
 
         .code-block-container {
             position: relative;
             margin: 1.5rem 0;
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
 
         .code-block-header {
-            background: var(--bg-secondary);
+            background: rgba(255, 255, 255, 0.05);
             padding: 0.75rem 1rem;
-            border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--border-color);
-            border-bottom: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .code-language {
             color: var(--text-secondary);
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
         }
 
         .copy-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.4rem 1rem;
             border-radius: 6px;
             cursor: pointer;
@@ -216,42 +207,23 @@
         }
 
         .copy-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-        }
-
-        .copy-btn.copied {
-            background: #48bb78;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
             padding: 1.5rem;
-            border-radius: 0 0 8px 8px;
-            overflow-x: auto;
+            color: #d4d4d4;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             line-height: 1.6;
-            border: 1px solid var(--border-color);
-        }
-
-        .highlight-box {
-            background: var(--bg-card);
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+            overflow-x: auto;
+            margin: 0;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -266,147 +238,102 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(227, 79, 38, 0.2);
+            border-color: var(--guide-accent);
+            box-shadow: 0 10px 30px rgba(227, 79, 38, 0.15);
         }
 
         .feature-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: var(--guide-accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .feature-card p {
             font-size: 0.95rem;
+            line-height: 1.6;
             margin: 0;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
         }
 
         .chapter-number {
             display: inline-block;
-            background: var(--primary-color);
+            background: var(--guide-accent);
             color: white;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2rem;
+            height: 2rem;
             border-radius: 50%;
             text-align: center;
-            line-height: 2.5rem;
-            margin-right: 1rem;
+            line-height: 2rem;
+            margin-right: 0.75rem;
+            font-size: 1rem;
             font-weight: bold;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .guide-hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .guide-container {
                 padding: 1rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <div class="logo-icon">
-                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
-                    </div>
-                </a>
-                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
                     <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
                 </a>
             </div>
-            <nav class="nav-actions">
+            <nav class="nav-brand">
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="tutorials.html" class="nav-link">Functions</a>
                     <a href="examples.html" class="nav-link">Examples</a>
-                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="guides.html" class="nav-link active">Guides</a>
                     <a href="editor.html" class="nav-link">Editor</a>
                 </div>
-                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                        </path>
-                    </svg>
-                </button>
             </nav>
         </header>
 
         <main class="guide-container">
             <!-- Hero Section -->
             <div class="guide-hero">
-                <h1>🌐 HTML5 – The Skeleton of the Web</h1>
+                <h1>🌐 HTML5 Complete Guide – The Blueprint of the Web</h1>
                 <p class="subtitle">
-                    The fundamental building block of everything you see on the internet. Master tags, forms, media, and
-                    semantic structures.
+                    The foundation of every digital experience. Master semantic architecture, modern forms, and
+                    high-impact SEO techniques to build websites that rank and perform.
                 </p>
                 <div class="guide-meta">
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>3 Hours Read</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        <span>Beginner Friendly</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                        <span>Standard HTML5</span>
-                    </div>
+                    <div class="guide-meta-item">⏱️ 3 Hours Read</div>
+                    <div class="guide-meta-item">📊 Beginner Friendly</div>
+                    <div class="guide-meta-item">🔍 SEO Optimized</div>
                 </div>
             </div>
 
@@ -414,227 +341,105 @@
             <div class="guide-toc">
                 <h2>📚 Table of Contents</h2>
                 <ul>
-                    <li><a href="#introduction">→ 1. Introduction to HTML</a></li>
-                    <li><a href="#structure">→ 2. Document Structure</a></li>
-                    <li><a href="#text">→ 3. Text Formatting Tags</a></li>
-                    <li><a href="#lists">→ 4. Lists & Tables</a></li>
-                    <li><a href="#media">→ 5. Images & Links</a></li>
-                    <li><a href="#forms">→ 6. Forms & Input (Important!)</a></li>
-                    <li><a href="#semantic">→ 7. Semantic HTML</a></li>
-                    <li><a href="#seo">→ 8. SEO Basics</a></li>
+                    <li><a href="#introduction">→ 1. Introduction: The Web's Backbone</a></li>
+                    <li><a href="#structure">→ 2. Document Anatomy</a></li>
+                    <li><a href="#semantic">→ 3. Semantic Tags (Power of Meaning)</a></li>
+                    <li><a href="#media">→ 4. Images, SVG & Video</a></li>
+                    <li><a href="#forms">→ 5. Modern Forms & Validation</a></li>
+                    <li><a href="#accessibility">→ 6. Accessibility (A11y)</a></li>
+                    <li><a href="#seo">→ 7. Meta Tags & SEO Mastery</a></li>
                 </ul>
             </div>
 
-            <!-- What You Will Learn -->
-            <div class="highlight-box">
-                <h3>📌 What You Will Learn in This HTML Course</h3>
-                <p>Everything you need to build web pages from scratch:</p>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>🎯 Tags Mastery</h4>
-                        <p>Learn over 50+ essential HTML tags and attributes.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🏗️ Structure</h4>
-                        <p>How to organize content with sections, divs, and spans.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>📝 Forms</h4>
-                        <p>Create inputs, buttons, and collect user data securely.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🔍 SEO</h4>
-                        <p>Structuring sites so Google can rank them higher.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>♿ Accessibility</h4>
-                        <p>Writing HTML that everyone, including screen readers, can use.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🎨 Media</h4>
-                        <p>Embedding images, videos, and audio elements.</p>
-                    </div>
-                </div>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
             </div>
 
             <!-- Section 1: Introduction -->
             <section id="introduction" class="guide-section">
-                <h2><span class="chapter-number">1</span> Introduction to HTML</h2>
-
-                <h3>What is HTML?</h3>
+                <h2><span class="chapter-number">1</span> Introduction: The Web's Backbone</h2>
                 <p>
-                    HTML stands for <strong>HyperText Markup Language</strong>. It is not a programming language,
-                    but a markup language used to create the structure of web pages.
+                    HTML5 (HyperText Markup Language) is the standard markup language for documents designed to be
+                    displayed in a web browser. It is the language that tells the browser <strong>what</strong> the
+                    content is, while CSS tells it <strong>how</strong> it looks.
                 </p>
-
-                <div class="info-box">
-                    <h4>🎯 The Trio of Web Dev</h4>
-                    <ul>
-                        <li><strong>HTML</strong>: Structure (The skeleton)</li>
-                        <li><strong>CSS</strong>: Style (The clothes/makeup)</li>
-                        <li><strong>JavaScript</strong>: Functionality (The brain/muscle)</li>
-                    </ul>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🌱 Standardized</h4>
+                        <p>Maintained by the W3C, HTML5 works consistently across Chrome, Safari, Firefox, and Edge.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📱 Responsive</h4>
+                        <p>Modern HTML includes full support for mobile-first viewport management and media queries.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🤖 Machine Readable</h4>
+                        <p>Well-written HTML helps search engines like Google understand your content perfectly.</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- Section 2: Structure -->
-            <section id="structure" class="guide-section">
-                <h2><span class="chapter-number">2</span> Document Structure</h2>
-                <p>Every HTML5 document follows a specific boilerplate structure.</p>
-
+            <!-- Section 3: Semantic HTML -->
+            <section id="semantic" class="guide-section">
+                <h2><span class="chapter-number">3</span> Semantic Tags</h2>
+                <p>Don't just use <code>&lt;div&gt;</code>. Use tags that describe their content. This is the difference
+                    between a amateur site and a professional one.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">html</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;My Website&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Welcome to my site!&lt;/h1&gt;
-    &lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
+                    <pre class="code-block">&lt;header&gt;Logo and Nav&lt;/header&gt;
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h1&gt;Main Story&lt;/h1&gt;
+        &lt;p&gt;Context here...&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;aside&gt;Related Links&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;Copyright 2024&lt;/footer&gt;</pre>
                 </div>
             </section>
 
-            <!-- Section 3: Text -->
-            <section id="text" class="guide-section">
-                <h2><span class="chapter-number">3</span> Text Formatting Tags</h2>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Tag</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></td>
-                            <td>Headings (h1 is largest)</td>
-                        </tr>
-                        <tr>
-                            <td><code>&lt;p&gt;</code></td>
-                            <td>Paragraph</td>
-                        </tr>
-                        <tr>
-                            <td><code>&lt;strong&gt;</code></td>
-                            <td><strong>Bold Text</strong></td>
-                        </tr>
-                        <tr>
-                            <td><code>&lt;em&gt;</code></td>
-                            <td><em>Italic Text</em></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <!-- Section 4: Lists -->
-            <section id="lists" class="guide-section">
-                <h2><span class="chapter-number">4</span> Lists & Tables</h2>
-
-                <h3>Lists</h3>
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">html</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">&lt;!-- Unordered List (Bullets) --&gt;
-&lt;ul&gt;
-    &lt;li&gt;Apples&lt;/li&gt;
-    &lt;li&gt;Bananas&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!-- Ordered List (Numbers) --&gt;
-&lt;ol&gt;
-    &lt;li&gt;Step 1&lt;/li&gt;
-    &lt;li&gt;Step 2&lt;/li&gt;
-&lt;/ol&gt;</pre>
-                </div>
-            </section>
-
-            <!-- Section 5: Media -->
-            <section id="media" class="guide-section">
-                <h2><span class="chapter-number">5</span> Images & Links</h2>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">html</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">&lt;!-- Image --&gt;
-&lt;img src="laptop.jpg" alt="A laptop on a desk" width="300"&gt;
-
-&lt;!-- Link --&gt;
-&lt;a href="https://google.com" target="_blank"&gt;Go to Google&lt;/a&gt;</pre>
-                </div>
-            </section>
-
-            <!-- Section 6: Forms -->
+            <!-- Section 5: Forms -->
             <section id="forms" class="guide-section">
-                <h2><span class="chapter-number">6</span> Forms & Input</h2>
-                <p>Forms allow users to send data to a server.</p>
-
+                <h2><span class="chapter-number">5</span> Modern Forms & Validation</h2>
+                <p>Forms are the primary way to collect user data. HTML5 provides built-in validation to reduce your
+                    JavaScript code.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">html</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">&lt;form action="/submit"&gt;
-    &lt;label for="email"&gt;Email:&lt;/label&gt;
-    &lt;input type="email" id="email" name="email" required&gt;
-    
-    &lt;label for="pass"&gt;Password:&lt;/label&gt;
-    &lt;input type="password" id="pass" name="pass"&gt;
-
-    &lt;button type="submit"&gt;Login&lt;/button&gt;
+                    <pre class="code-block">&lt;form&gt;
+  &lt;input type="email" placeholder="email@site.com" required&gt;
+  &lt;input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"&gt;
+  &lt;button type="submit"&gt;Join Now&lt;/button&gt;
 &lt;/form&gt;</pre>
                 </div>
             </section>
 
-            <!-- Section 7: Semantic -->
-            <section id="semantic" class="guide-section">
-                <h2><span class="chapter-number">7</span> Semantic HTML</h2>
-                <p>Using tags that describe their meaning improves accessibility and SEO.</p>
-
-                <div class="info-box">
-                    <h4>Why Semantic?</h4>
-                    <p>Instead of using <code>&lt;div&gt;</code> for everything, use these specific tags:</p>
-                    <ul>
-                        <li><code>&lt;header&gt;</code>: Top section of page/article.</li>
-                        <li><code>&lt;nav&gt;</code>: Navigation links.</li>
-                        <li><code>&lt;main&gt;</code>: Main content area.</li>
-                        <li><code>&lt;footer&gt;</code>: Footer content.</li>
-                        <li><code>&lt;article&gt;</code>: Self-contained content like a blog post.</li>
-                    </ul>
-                </div>
-            </section>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+            </div>
 
             <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
-                <h3>🚀 Ready to Build Web Pages?</h3>
-                <p>Start writing HTML instantly.</p>
-                <a href="editor.html?lang=html" class="btn"
-                    style="background: var(--primary-color); color:white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                <h3>🚀 Map the Web</h3>
+                <p>Experience the latest HTML5 features in our real-time editor.</p>
+                <a href="editor.html?lang=html" class="btn btn-primary"
+                    style="padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem; background: var(--guide-accent); color: white;">
                     Start Coding HTML
                 </a>
             </div>
 
         </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
-                <div style="margin-top: 1rem; font-size: 0.9rem;">
-                    <a href="privacy.html"
-                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
-                        Policy</a>
-                    <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of
-                        Service</a>
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2024 CodeRunner Pro. Structure the World.</p>
                 </div>
             </div>
         </footer>
@@ -642,7 +447,6 @@
 
     <script src="app.js"></script>
     <script>
-        // Code copy functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
             const code = codeBlock.textContent;
@@ -650,7 +454,6 @@
             navigator.clipboard.writeText(code).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
-
                 setTimeout(() => {
                     button.textContent = 'Copy';
                     button.classList.remove('copied');

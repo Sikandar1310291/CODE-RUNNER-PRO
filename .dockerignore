@@ -1,0 +1,11 @@
+.git
+.gitignore
+node_modules
+server
+nginx
+.vscode
+.idea
+*.md
+docker-compose.yml
+frontend.Dockerfile
+generate_favicons.py

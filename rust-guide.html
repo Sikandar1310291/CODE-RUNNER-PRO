@@ -17,9 +17,9 @@
 
     <title>Rust Programming Complete Guide - Memory Safety & Speed | CodeRunner Pro</title>
     <meta name="description"
-        content="Master Rust programming. Learn Ownership, Borrowing, Lifetimes, and safe concurrency without garbage collection.">
+        content="Master Rust. Learn ownership, borrowing, lifetimes, and safe concurrency. Build performance-critical systems with the world's most loved language.">
     <meta name="keywords"
-        content="Rust guide, Rust tutorial, Ownership, Borrowing, Rust concurrency, systems programming, safe memory">
+        content="Rust guide, learn Rust, ownership, borrowing, systems programming, WebAssembly, Cargo">
 
     <link rel="stylesheet" href="styles.css?v=1.3">
     <link
@@ -28,9 +28,9 @@
 
     <style>
         :root {
-            --primary-color: #e43b1a;
+            --guide-accent: #e43b1a;
             /* Rust Orange */
-            --primary-light: #ff7043;
+            --guide-accent-dim: rgba(228, 59, 26, 0.1);
         }
 
         .guide-container {
@@ -42,7 +42,7 @@
         .guide-hero {
             text-align: center;
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, #3b0e06 0%, #5d1a0c 100%);
+            background: linear-gradient(135deg, #2b0b06 0%, #4a150a 100%);
             border-radius: 20px;
             margin-bottom: 3rem;
             color: white;
@@ -128,7 +128,7 @@
         }
 
         .guide-toc a:hover {
-            color: var(--primary-color);
+            color: var(--guide-accent);
         }
 
         .guide-section {
@@ -140,7 +140,7 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--guide-accent);
             padding-left: 1rem;
         }
 
@@ -158,56 +158,48 @@
             font-size: 1.05rem;
         }
 
-        .guide-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        .guide-section li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
         .info-box {
-            background: linear-gradient(135deg, rgba(228, 59, 26, 0.1), rgba(10, 20, 80, 0.05));
-            border-left: 4px solid var(--primary-color);
+            background: var(--guide-accent-dim);
+            border-left: 4px solid var(--guide-accent);
             padding: 1.5rem;
             border-radius: 8px;
             margin: 1.5rem 0;
         }
 
         .info-box h4 {
-            color: var(--primary-color);
+            color: var(--guide-accent);
             margin-bottom: 0.5rem;
         }
 
         .code-block-container {
             position: relative;
             margin: 1.5rem 0;
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
 
         .code-block-header {
-            background: var(--bg-secondary);
+            background: rgba(255, 255, 255, 0.05);
             padding: 0.75rem 1rem;
-            border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--border-color);
-            border-bottom: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .code-language {
             color: var(--text-secondary);
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
         }
 
         .copy-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.4rem 1rem;
             border-radius: 6px;
             cursor: pointer;
@@ -216,42 +208,23 @@
         }
 
         .copy-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-        }
-
-        .copy-btn.copied {
-            background: #48bb78;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
             padding: 1.5rem;
-            border-radius: 0 0 8px 8px;
-            overflow-x: auto;
+            color: #d4d4d4;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             line-height: 1.6;
-            border: 1px solid var(--border-color);
-        }
-
-        .highlight-box {
-            background: var(--bg-card);
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+            overflow-x: auto;
+            margin: 0;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -266,138 +239,106 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(228, 59, 26, 0.2);
+            border-color: var(--guide-accent);
+            box-shadow: 0 10px 30px rgba(228, 59, 26, 0.15);
         }
 
         .feature-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: var(--guide-accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .feature-card p {
             font-size: 0.95rem;
+            line-height: 1.6;
             margin: 0;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
         }
 
         .chapter-number {
             display: inline-block;
-            background: var(--primary-color);
+            background: var(--guide-accent);
             color: white;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2rem;
+            height: 2rem;
             border-radius: 50%;
             text-align: center;
-            line-height: 2.5rem;
-            margin-right: 1rem;
+            line-height: 2rem;
+            margin-right: 0.75rem;
+            font-size: 1rem;
             font-weight: bold;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .guide-hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .guide-container {
                 padding: 1rem;
             }
 
-            .feature-grid {
-                grid-template-columns: 1fr;
+            .guide-meta {
+                gap: 1rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <div class="logo-icon">
-                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
-                    </div>
-                </a>
-                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
                     <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
                 </a>
             </div>
-            <nav class="nav-actions">
+            <nav class="nav-brand">
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="tutorials.html" class="nav-link">Functions</a>
                     <a href="examples.html" class="nav-link">Examples</a>
-                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="guides.html" class="nav-link active">Guides</a>
                     <a href="editor.html" class="nav-link">Editor</a>
                 </div>
-                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                        </path>
-                    </svg>
-                </button>
             </nav>
         </header>
 
         <main class="guide-container">
             <!-- Hero Section -->
             <div class="guide-hero">
-                <h1>🦀 Rust – Safe, Fast, Concurrent</h1>
+                <h1>🦀 Rust Programming Complete Guide – The Safest Speed</h1>
                 <p class="subtitle">
-                    The most loved programming language. Memory safety without garbage collection.
+                    Empowering everyone to build reliable and efficient software. Master ownership, borrowing, and
+                    fearless concurrency to build systems that last.
                 </p>
                 <div class="guide-meta">
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>5 Hours Read</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        <span>Systems / WebAssembly</span>
-                    </div>
+                    <div class="guide-meta-item">⏱️ 6 Hours Read</div>
+                    <div class="guide-meta-item">📊 Hardcore Entry</div>
+                    <div class="guide-meta-item">🛡️ Memory Safe</div>
                 </div>
             </div>
 
@@ -405,173 +346,119 @@
             <div class="guide-toc">
                 <h2>📚 Table of Contents</h2>
                 <ul>
-                    <li><a href="#introduction">→ 1. Introduction to Rust</a></li>
-                    <li><a href="#ownership">→ 2. Ownership & Borrowing</a></li>
-                    <li><a href="#types">→ 3. Data Types & Variables</a></li>
-                    <li><a href="#structs">→ 4. Structs & Enums</a></li>
-                    <li><a href="#pattern">→ 5. Pattern Matching</a></li>
-                    <li><a href="#concurrency">→ 6. Fearless Concurrency</a></li>
+                    <li><a href="#introduction">→ 1. Introduction: The Rust Revolution</a></li>
+                    <li><a href="#ownership">→ 2. Ownership: The Heart of Rust</a></li>
+                    <li><a href="#borrowing">→ 3. Borrowing & References</a></li>
+                    <li><a href="#lifetimes">→ 4. Lifetimes & Scopes</a></li>
+                    <li><a href="#enums">→ 5. Enums & Match (Pattern Matching)</a></li>
+                    <li><a href="#traits">→ 6. Traits: Defining Behavior</a></li>
+                    <li><a href="#smart-pointers">→ 7. Smart Pointers (Box, Rc, Arc)</a></li>
+                    <li><a href="#error-handling">→ 8. Robust Error Handling</a></li>
+                    <li><a href="#concurrency">→ 9. Fearless Concurrency</a></li>
                 </ul>
             </div>
 
-            <!-- What You Will Learn -->
-            <div class="highlight-box">
-                <h3>📌 What You Will Learn in This Rust Course</h3>
-                <p>Understand the unique features that make Rust powerful:</p>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>🔒 Ownership</h4>
-                        <p>Rust's unique system for managing memory safely.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>⚡ Zero Cost</h4>
-                        <p>Abstractions that compile down to efficient machine code.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🚫 No Null</h4>
-                        <p>Using <code>Option</code> and <code>Result</code> instead of nulls.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🧵 Concurrency</h4>
-                        <p>Compiler-checked threading prevents data races.</p>
-                    </div>
-                </div>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
             </div>
 
             <!-- Section 1: Introduction -->
             <section id="introduction" class="guide-section">
-                <h2><span class="chapter-number">1</span> Introduction to Rust</h2>
+                <h2><span class="chapter-number">1</span> Introduction: The Rust Revolution</h2>
                 <p>
-                    Rust is a systems programming language that empowers everyone to build reliable and efficient
-                    software.
-                    It guarantees memory safety and thread safety at compile-time.
+                    Rust is a systems programming language that has been voted "most loved" for 8 consecutive years. It
+                    combines the performance of C/C++ with memory safety guarantees that previously required a garbage
+                    collector.
                 </p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🔒 Borrow Checker</h4>
+                        <p>Rust's compiler tracks every allocation and reference to ensure zero memory leaks at compile
+                            time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Zero-Cost</h4>
+                        <p>High-level abstractions in Rust compile down to assembly that is as fast as hand-written C++.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🏗️ Modern Cargo</h4>
+                        <p>The best-in-class package manager (Cargo) makes dependency management and testing a breeze.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
+            <!-- Section 2: Ownership -->
+            <section id="ownership" class="guide-section">
+                <h2><span class="chapter-number">2</span> Ownership: The Heart of Rust</h2>
+                <p>Ownership is Rust's most unique feature. It ensures memory safety without a garbage collector.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">rust</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
                     <pre class="code-block">fn main() {
-    println!("Hello, world!");
+    let s1 = String::from("hello");
+    let s2 = s1; // Ownership MOVED to s2
+
+    // println!("{}", s1); // This would cause a COMPILE ERROR
+    println!("{}", s2);    // This works
 }</pre>
                 </div>
-            </section>
-
-            <!-- Section 2: Ownership -->
-            <section id="ownership" class="guide-section">
-                <h2><span class="chapter-number">2</span> Ownership & Borrowing</h2>
-                <p>This is the most important concept in Rust. Every value has an owner.</p>
-
                 <div class="info-box">
-                    <h4>📝 Rules of Ownership</h4>
+                    <h4>📝 Ownership Rules</h4>
                     <ul>
-                        <li>Each value in Rust has a variable that’s called its owner.</li>
+                        <li>Each value in Rust has a variable called its owner.</li>
                         <li>There can only be one owner at a time.</li>
-                        <li>When the owner goes out of scope, the value will be dropped.</li>
+                        <li>When the owner goes out of scope, the value is dropped.</li>
                     </ul>
                 </div>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">rust</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">let s1 = String::from("hello");
-let s2 = s1; 
-// println!("{}", s1); // Error! s1 no longer valid (ownership moved)
-
-// Borrowing using references
-let len = calculate_length(&s2); // passed reference
-</pre>
-                </div>
             </section>
 
-            <!-- Section 3: Types -->
-            <section id="types" class="guide-section">
-                <h2><span class="chapter-number">3</span> Variables & Mutability</h2>
-                <p>Variables are immutable by default.</p>
-
+            <!-- Section 9: Concurrency -->
+            <section id="concurrency" class="guide-section">
+                <h2><span class="chapter-number">9</span> Fearless Concurrency</h2>
+                <p>Rust's type system and ownership rules prevent data races at compile time. If your code compiles, it
+                    is thread-safe.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">rust</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">let x = 5;
-// x = 6; // Error! Mutable variable needed
+                    <pre class="code-block">use std::thread;
 
-let mut y = 10;
-y = 11; // OK!</pre>
-                </div>
-            </section>
+fn main() {
+    let handle = thread::spawn(|| {
+        println!("Hello from a thread!");
+    });
 
-            <!-- Section 4: Structs -->
-            <section id="structs" class="guide-section">
-                <h2><span class="chapter-number">4</span> Structs & Enums</h2>
-                <p>Custom data types to structure your program.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">rust</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">struct User {
-    username: String,
-    active: bool,
-}
-
-enum Direction {
-    Up,
-    Down,
-    Left,
-    Right,
+    handle.join().unwrap();
 }</pre>
                 </div>
             </section>
 
-            <!-- Section 5: Pattern Matching -->
-            <section id="pattern" class="guide-section">
-                <h2><span class="chapter-number">5</span> Pattern Matching</h2>
-                <p>Rust has excellent support for pattern matching with <code>match</code>.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">rust</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">let number = 3;
-
-match number {
-    1 => println!("One"),
-    2 => println!("Two"),
-    3 => println!("Three"),
-    _ => println!("Other"),
-}</pre>
-                </div>
-            </section>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+            </div>
 
             <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
-                <h3>🚀 Ready to Write Safe Code?</h3>
-                <p>Compile your first Rust program.</p>
-                <a href="editor.html?lang=rust" class="btn"
-                    style="background: var(--primary-color); color:white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                <h3>🚀 Rewrite it in Rust</h3>
+                <p>Run safe, performant Rust code in our cloud environment.</p>
+                <a href="editor.html?lang=rust" class="btn btn-primary"
+                    style="padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem; background: var(--guide-accent); color: white;">
                     Start Coding in Rust
                 </a>
             </div>
 
         </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
-                <div style="margin-top: 1rem; font-size: 0.9rem;">
-                    <a href="privacy.html"
-                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
-                        Policy</a>
-                    <a href="terms.html"
-                        style="color: var(--webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Terms
-                        of
-                        Service</a>
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2024 CodeRunner Pro. Trust the Compiler.</p>
                 </div>
             </div>
         </footer>
@@ -579,7 +466,6 @@ match number {
 
     <script src="app.js"></script>
     <script>
-        // Code copy functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
             const code = codeBlock.textContent;
@@ -587,7 +473,6 @@ match number {
             navigator.clipboard.writeText(code).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
-
                 setTimeout(() => {
                     button.textContent = 'Copy';
                     button.classList.remove('copied');

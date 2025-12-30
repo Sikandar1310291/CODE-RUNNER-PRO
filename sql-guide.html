@@ -27,9 +27,9 @@
 
     <style>
         :root {
-            --primary-color: #f29111;
+            --guide-accent: #f29111;
             /* SQL Orange */
-            --primary-light: #ffb042;
+            --guide-accent-dim: rgba(242, 145, 17, 0.1);
         }
 
         .guide-container {
@@ -127,7 +127,7 @@
         }
 
         .guide-toc a:hover {
-            color: var(--primary-color);
+            color: var(--guide-accent);
         }
 
         .guide-section {
@@ -139,7 +139,7 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--guide-accent);
             padding-left: 1rem;
         }
 
@@ -157,56 +157,48 @@
             font-size: 1.05rem;
         }
 
-        .guide-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        .guide-section li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
         .info-box {
-            background: linear-gradient(135deg, rgba(242, 145, 17, 0.1), rgba(10, 20, 80, 0.05));
-            border-left: 4px solid var(--primary-color);
+            background: var(--guide-accent-dim);
+            border-left: 4px solid var(--guide-accent);
             padding: 1.5rem;
             border-radius: 8px;
             margin: 1.5rem 0;
         }
 
         .info-box h4 {
-            color: var(--primary-color);
+            color: var(--guide-accent);
             margin-bottom: 0.5rem;
         }
 
         .code-block-container {
             position: relative;
             margin: 1.5rem 0;
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
 
         .code-block-header {
-            background: var(--bg-secondary);
+            background: rgba(255, 255, 255, 0.05);
             padding: 0.75rem 1rem;
-            border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--border-color);
-            border-bottom: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .code-language {
             color: var(--text-secondary);
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
         }
 
         .copy-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.4rem 1rem;
             border-radius: 6px;
             cursor: pointer;
@@ -215,42 +207,23 @@
         }
 
         .copy-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-        }
-
-        .copy-btn.copied {
-            background: #48bb78;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
             padding: 1.5rem;
-            border-radius: 0 0 8px 8px;
-            overflow-x: auto;
+            color: #d4d4d4;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             line-height: 1.6;
-            border: 1px solid var(--border-color);
-        }
-
-        .highlight-box {
-            background: var(--bg-card);
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+            overflow-x: auto;
+            margin: 0;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -265,17 +238,19 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(242, 145, 17, 0.2);
+            border-color: var(--guide-accent);
+            box-shadow: 0 10px 30px rgba(242, 145, 17, 0.15);
         }
 
         .feature-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: var(--guide-accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .feature-card p {
             font-size: 0.95rem;
+            line-height: 1.6;
             margin: 0;
         }
 
@@ -286,10 +261,11 @@
             background: var(--bg-card);
             border-radius: 12px;
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         .comparison-table th {
-            background: var(--primary-color);
+            background: var(--guide-accent);
             color: white;
             padding: 1rem;
             text-align: left;
@@ -301,102 +277,90 @@
             color: var(--text-secondary);
         }
 
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
         .chapter-number {
             display: inline-block;
-            background: var(--primary-color);
+            background: var(--guide-accent);
             color: white;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2rem;
+            height: 2rem;
             border-radius: 50%;
             text-align: center;
-            line-height: 2.5rem;
-            margin-right: 1rem;
+            line-height: 2rem;
+            margin-right: 0.75rem;
+            font-size: 1rem;
             font-weight: bold;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .guide-hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .guide-container {
                 padding: 1rem;
             }
 
-            .feature-grid {
-                grid-template-columns: 1fr;
+            .guide-meta {
+                gap: 1rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <div class="logo-icon">
-                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
-                    </div>
-                </a>
-                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
                     <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
                 </a>
             </div>
-            <nav class="nav-actions">
+            <nav class="nav-brand">
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="tutorials.html" class="nav-link">Functions</a>
                     <a href="examples.html" class="nav-link">Examples</a>
-                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="guides.html" class="nav-link active">Guides</a>
                     <a href="editor.html" class="nav-link">Editor</a>
                 </div>
-                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                        </path>
-                    </svg>
-                </button>
             </nav>
         </header>
 
         <main class="guide-container">
             <!-- Hero Section -->
             <div class="guide-hero">
-                <h1>🗄️ SQL – The Language of Data</h1>
+                <h1>🗄️ SQL Complete Guide – Master Database Queries</h1>
                 <p class="subtitle">
-                    Structured Query Language. The standard for storing, retrieving, and manipulating data in databases.
+                    The universal language for data. Learn to manage relational databases, write complex queries, and
+                    optimize performance like a Senior Backend Engineer.
                 </p>
                 <div class="guide-meta">
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>3 Hours Read</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        <span>Database / Backend</span>
-                    </div>
+                    <div class="guide-meta-item">⏱️ 3.5 Hours Read</div>
+                    <div class="guide-meta-item">📊 Beginner to Pro</div>
+                    <div class="guide-meta-item">💾 40+ Queries</div>
                 </div>
             </div>
 
@@ -404,124 +368,208 @@
             <div class="guide-toc">
                 <h2>📚 Table of Contents</h2>
                 <ul>
-                    <li><a href="#introduction">→ 1. Introduction to SQL</a></li>
-                    <li><a href="#queries">→ 2. Basic Queries (SELECT)</a></li>
-                    <li><a href="#filtering">→ 3. Filtering Data (WHERE)</a></li>
-                    <li><a href="#joins">→ 4. Joining Tables</a></li>
-                    <li><a href="#manipulation">→ 5. Data Manipulation (CRUD)</a></li>
+                    <li><a href="#introduction">→ 1. Introduction: What is SQL?</a></li>
+                    <li><a href="#ddl">→ 2. DDL: Creating & Altering Tables</a></li>
+                    <li><a href="#dml-select">→ 3. DML: Querying Data (SELECT)</a></li>
+                    <li><a href="#dml-modify">→ 4. DML: Modifying Data (CRUD)</a></li>
+                    <li><a href="#joins">→ 5. Mastering JOINs</a></li>
+                    <li><a href="#aggregations">→ 6. Aggregations & Grouping</a></li>
+                    <li><a href="#constraints">→ 7. Constraints & Relationships</a></li>
+                    <li><a href="#indexing">→ 8. Performance & Indexing</a></li>
                 </ul>
             </div>
 
-            <!-- What You Will Learn -->
-            <div class="highlight-box">
-                <h3>📌 What You Will Learn in This SQL Course</h3>
-                <p>From simple lookups to complex data analysis:</p>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>🔍 Retrieval</h4>
-                        <p>Find exactly what you are looking for with SELECT.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🔗 Relational Data</h4>
-                        <p>Connect multiple tables using powerful JOINs.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🛠️ Management</h4>
-                        <p>Create, read, update, and delete data securely.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>⚡ Optimization</h4>
-                        <p>Speed up your queries with Indexes.</p>
-                    </div>
-                </div>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
             </div>
 
             <!-- Section 1: Introduction -->
             <section id="introduction" class="guide-section">
-                <h2><span class="chapter-number">1</span> Introduction to SQL</h2>
+                <h2><span class="chapter-number">1</span> Introduction: What is SQL?</h2>
                 <p>
-                    SQL (Structured Query Language) is used to communicate with relational databases like MySQL,
-                    PostgreSQL, and SQL Server.
+                    SQL (Structured Query Language) is the standard language for dealing with Relational Databases
+                    (RDBMS). It allows you to store, retrieve, manage, and manipulate data across systems like MySQL,
+                    PostgreSQL, Oracle, and SQL Server.
                 </p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🔍 Declarative</h4>
+                        <p>Tell the database <strong>what</strong> you want, not how to get it. SQL engines handle the
+                            logic.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🛡️ Data Integrity</h4>
+                        <p>Ensure your data is accurate and consistent through foreign keys and constraints.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🚀 Scalable</h4>
+                        <p>Modern SQL databases can handle billions of rows with proper indexing and schema design.</p>
+                    </div>
+                </div>
+            </section>
 
+            <!-- Section 2: DDL -->
+            <section id="ddl" class="guide-section">
+                <h2><span class="chapter-number">2</span> DDL: Creating & Altering Tables</h2>
+                <p>Data Definition Language (DDL) is used to define the database schema.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">sql</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">-- A simple SQL query
-SELECT * FROM Users;</pre>
+                    <pre class="code-block">-- 1. Create a table
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Email VARCHAR(100),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 2. Alter a table
+ALTER TABLE Users ADD COLUMN Phone VARCHAR(15);
+
+-- 3. Delete a table
+DROP TABLE Users;</pre>
                 </div>
             </section>
 
-            <!-- Section 2: Queries -->
-            <section id="queries" class="guide-section">
-                <h2><span class="chapter-number">2</span> Basic Queries</h2>
-                <p>The <code>SELECT</code> statement is used to select data from a database.</p>
-
+            <!-- Section 3: SELECT -->
+            <section id="dml-select" class="guide-section">
+                <h2><span class="chapter-number">3</span> DML: Querying Data (SELECT)</h2>
+                <p>The <code>SELECT</code> statement is the most used part of SQL.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">sql</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">SELECT FirstName, LastName 
-FROM Employees;</pre>
+                    <pre class="code-block">-- Basic Selection
+SELECT Username, Email FROM Users;
+
+-- Filtering with WHERE
+SELECT * FROM Products 
+WHERE Price > 50 AND Status = 'Active'
+ORDER BY CreatedAt DESC
+LIMIT 10;</pre>
+                </div>
+                <div class="info-box">
+                    <h4>💡 Pro-Tip: SELECT *</h4>
+                    <p>In production, avoid using <code>SELECT *</code>. Explicitly naming columns reduces load and
+                        prevents breaking changes when the schema evolves.</p>
                 </div>
             </section>
 
-            <!-- Section 3: Filtering -->
-            <section id="filtering" class="guide-section">
-                <h2><span class="chapter-number">3</span> Filtering Data</h2>
-                <p>Use the <code>WHERE</code> clause to filter records.</p>
-
+            <!-- Section 4: CRUD -->
+            <section id="dml-modify" class="guide-section">
+                <h2><span class="chapter-number">4</span> DML: Modifying Data (CRUD)</h2>
+                <p>CRUD stands for Create, Read, Update, and Delete.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">sql</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">SELECT * FROM Products
-WHERE Price > 20 AND Category = 'Electronics';</pre>
+                    <pre class="code-block">-- INSERT: Create new records
+INSERT INTO Users (Username, Email) 
+VALUES ('sikandar', 'info@coderunner.pro');
+
+-- UPDATE: Modify existing records
+UPDATE Users SET Email = 'new@mail.com' 
+WHERE UserID = 1;
+
+-- DELETE: Remove records
+DELETE FROM Users WHERE Status = 'Inactive';</pre>
                 </div>
             </section>
 
-            <!-- Section 4: Joins -->
+            <!-- Section 5: JOINs -->
             <section id="joins" class="guide-section">
-                <h2><span class="chapter-number">4</span> Joins</h2>
-                <p>Combine rows from two or more tables based on a related column.</p>
-
+                <h2><span class="chapter-number">5</span> Mastering JOINs</h2>
+                <p>JOINs allow you to query data across related tables.</p>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Join Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>INNER JOIN</strong></td>
+                            <td>Returns records that have matching values in both tables.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LEFT JOIN</strong></td>
+                            <td>Returns all records from the left table, and the matched records from the right table.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>RIGHT JOIN</strong></td>
+                            <td>Returns all records from the right table, and the matched records from the left table.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">sql</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">SELECT Orders.OrderID, Customers.CustomerName
+                    <pre class="code-block">SELECT Orders.OrderID, Users.Username
 FROM Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</pre>
+INNER JOIN Users ON Orders.UserID = Users.UserID;</pre>
                 </div>
             </section>
+
+            <!-- Section 6: Aggregations -->
+            <section id="aggregations" class="guide-section">
+                <h2><span class="chapter-number">6</span> Aggregations & Grouping</h2>
+                <p>Use aggregate functions to perform calculations on multiple rows.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">sql</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">-- Count total users per city
+SELECT City, COUNT(UserID) as TotalUsers
+FROM Users
+GROUP BY City
+HAVING COUNT(UserID) > 5;</pre>
+                </div>
+            </section>
+
+            <!-- Section 7: Constraints -->
+            <section id="constraints" class="guide-section">
+                <h2><span class="chapter-number">7</span> Constraints & Relationships</h2>
+                <div class="info-box">
+                    <h4>🔗 Relationship Types</h4>
+                    <ul>
+                        <li><strong>One-to-One</strong>: One user has one profile.</li>
+                        <li><strong>One-to-Many</strong>: One user has many orders.</li>
+                        <li><strong>Many-to-Many</strong>: Many students take many courses.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+            </div>
 
             <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
-                <h3>🚀 Ready to Master Data?</h3>
-                <p>Start writing SQL queries today.</p>
-                <a href="editor.html?lang=sql" class="btn"
-                    style="background: var(--primary-color); color:white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                <h3>🚀 Query the World!</h3>
+                <p>Test your SQL queries instantly in our interactive compiler environment.</p>
+                <a href="editor.html?lang=sql" class="btn btn-primary"
+                    style="padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem; background: var(--guide-accent); color: white;">
                     Start Coding in SQL
                 </a>
             </div>
 
         </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
-                <div style="margin-top: 1rem; font-size: 0.9rem;">
-                    <a href="privacy.html"
-                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
-                        Policy</a>
-                    <a href="terms.html"
-                        style="color: var(--webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Terms
-                        of
-                        Service</a>
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2024 CodeRunner Pro. Built with ❤️ for Data Enthusiasts.</p>
                 </div>
             </div>
         </footer>
@@ -529,7 +577,6 @@ INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</pre>
 
     <script src="app.js"></script>
     <script>
-        // Code copy functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
             const code = codeBlock.textContent;
@@ -537,7 +584,6 @@ INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</pre>
             navigator.clipboard.writeText(code).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
-
                 setTimeout(() => {
                     button.textContent = 'Copy';
                     button.classList.remove('copied');

@@ -15,10 +15,11 @@
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
 
-    <title>Scala 3 Complete Guide - Functional Programming & Big Data | CodeRunner Pro</title>
+    <title>Scala 3 Complete Guide - Functional & Objects | CodeRunner Pro</title>
     <meta name="description"
-        content="Master Scala 3. Learn functional programming, object-oriented concepts, Akka actors, and Spark for big data processing.">
-    <meta name="keywords" content="Scala guide, Scala tutorial, Functional Programming, JVM, Akka, Spark, Big Data">
+        content="Master Scala 3. Learn the fusion of object-oriented and functional programming. Perfect for Big Data, backends, and high-performance JVM systems.">
+    <meta name="keywords"
+        content="Scala 3 guide, functional programming, learn Scala, JVM, Akka, Spark, big data, pattern matching">
 
     <link rel="stylesheet" href="styles.css?v=1.3">
     <link
@@ -27,9 +28,9 @@
 
     <style>
         :root {
-            --primary-color: #dc322f;
+            --guide-accent: #dc322f;
             /* Scala Red */
-            --primary-light: #ff6b6b;
+            --guide-accent-dim: rgba(220, 50, 47, 0.1);
         }
 
         .guide-container {
@@ -127,7 +128,7 @@
         }
 
         .guide-toc a:hover {
-            color: var(--primary-color);
+            color: var(--guide-accent);
         }
 
         .guide-section {
@@ -139,7 +140,7 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--guide-accent);
             padding-left: 1rem;
         }
 
@@ -157,56 +158,48 @@
             font-size: 1.05rem;
         }
 
-        .guide-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        .guide-section li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
         .info-box {
-            background: linear-gradient(135deg, rgba(220, 50, 47, 0.1), rgba(10, 20, 80, 0.05));
-            border-left: 4px solid var(--primary-color);
+            background: var(--guide-accent-dim);
+            border-left: 4px solid var(--guide-accent);
             padding: 1.5rem;
             border-radius: 8px;
             margin: 1.5rem 0;
         }
 
         .info-box h4 {
-            color: var(--primary-color);
+            color: var(--guide-accent);
             margin-bottom: 0.5rem;
         }
 
         .code-block-container {
             position: relative;
             margin: 1.5rem 0;
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
         }
 
         .code-block-header {
-            background: var(--bg-secondary);
+            background: rgba(255, 255, 255, 0.05);
             padding: 0.75rem 1rem;
-            border-radius: 8px 8px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--border-color);
-            border-bottom: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .code-language {
             color: var(--text-secondary);
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
         }
 
         .copy-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.4rem 1rem;
             border-radius: 6px;
             cursor: pointer;
@@ -215,42 +208,23 @@
         }
 
         .copy-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-1px);
-        }
-
-        .copy-btn.copied {
-            background: #48bb78;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
             padding: 1.5rem;
-            border-radius: 0 0 8px 8px;
-            overflow-x: auto;
+            color: #d4d4d4;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             line-height: 1.6;
-            border: 1px solid var(--border-color);
-        }
-
-        .highlight-box {
-            background: var(--bg-card);
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+            overflow-x: auto;
+            margin: 0;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -265,139 +239,102 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(220, 50, 47, 0.2);
+            border-color: var(--guide-accent);
+            box-shadow: 0 10px 30px rgba(220, 50, 47, 0.15);
         }
 
         .feature-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: var(--guide-accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .feature-card p {
             font-size: 0.95rem;
+            line-height: 1.6;
             margin: 0;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
         }
 
         .chapter-number {
             display: inline-block;
-            background: var(--primary-color);
+            background: var(--guide-accent);
             color: white;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2rem;
+            height: 2rem;
             border-radius: 50%;
             text-align: center;
-            line-height: 2.5rem;
-            margin-right: 1rem;
+            line-height: 2rem;
+            margin-right: 0.75rem;
+            font-size: 1rem;
             font-weight: bold;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .guide-hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .guide-container {
                 padding: 1rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <div class="logo-icon">
-                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
-                    </div>
-                </a>
-                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
                     <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
                 </a>
             </div>
-            <nav class="nav-actions">
+            <nav class="nav-brand">
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="tutorials.html" class="nav-link">Functions</a>
                     <a href="examples.html" class="nav-link">Examples</a>
-                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="guides.html" class="nav-link active">Guides</a>
                     <a href="editor.html" class="nav-link">Editor</a>
                 </div>
-                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                        </path>
-                    </svg>
-                </button>
             </nav>
         </header>
 
         <main class="guide-container">
             <!-- Hero Section -->
             <div class="guide-hero">
-                <h1>🧪 Scala – Function+Object Fusion</h1>
+                <h1>🧪 Scala 3 Complete Guide – Scalable Fusion</h1>
                 <p class="subtitle">
-                    The best of object-oriented and functional programming. The powerhouse of Big Data with Apache
-                    Spark.
+                    The ultimate blend of Functional and Object-Oriented programming. Master the language that powers
+                    Apache Spark, Akka, and high-performance JVM systems.
                 </p>
                 <div class="guide-meta">
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>4.5 Hours Read</span>
-                    </div>
-                    <div class="guide-meta-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        <span>Functional / JVM</span>
-                    </div>
+                    <div class="guide-meta-item">⏱️ 5 Hours Read</div>
+                    <div class="guide-meta-item">📊 JVM Specialist</div>
+                    <div class="guide-meta-item">🧪 Scala 3.3 LTS</div>
                 </div>
             </div>
 
@@ -405,121 +342,72 @@
             <div class="guide-toc">
                 <h2>📚 Table of Contents</h2>
                 <ul>
-                    <li><a href="#introduction">→ 1. Introduction to Scala</a></li>
-                    <li><a href="#oop-fp">→ 2. OOP + Functional</a></li>
-                    <li><a href="#variables">→ 3. Variables & Functions</a></li>
-                    <li><a href="#collections">→ 4. Collections</a></li>
-                    <li><a href="#caseclasses">→ 5. Case Classes & Matching</a></li>
-                    <li><a href="#implicit">→ 6. Implicits & Futures</a></li>
+                    <li><a href="#introduction">→ 1. Introduction: Scalable Language</a></li>
+                    <li><a href="#modern-syntax">→ 2. Quiet Syntax & Indentation</a></li>
+                    <li><a href="#functional">→ 3. Pure Functional Programming</a></li>
+                    <li><a href="#matching">→ 4. Case Classes & Pattern Matching</a></li>
+                    <li><a href="#concurrency">→ 5. Fearless Concurrency (Futures)</a></li>
+                    <li><a href="#interop">→ 6. Java Interoperability</a></li>
+                    <li><a href="#spark">→ 7. Scala in Big Data (Spark)</a></li>
                 </ul>
             </div>
 
-            <!-- What You Will Learn -->
-            <div class="highlight-box">
-                <h3>📌 What You Will Learn in This Scala Course</h3>
-                <p>Master concise and powerful code:</p>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>🧩 Multi-Paradigmn</h4>
-                        <p>Write OOP like Java, but with Functional superpowers.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>💨 Immutable Data</h4>
-                        <p>Safer code by changing how you handle state.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>📦 Case Classes</h4>
-                        <p>Powerful data structures with built-in pattern matching.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🚀 Apache Spark</h4>
-                        <p>The foundation of modern big data processing.</p>
-                    </div>
-                </div>
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
             </div>
 
             <!-- Section 1: Introduction -->
             <section id="introduction" class="guide-section">
-                <h2><span class="chapter-number">1</span> Introduction to Scala</h2>
+                <h2><span class="chapter-number">1</span> Introduction: Scalable Language</h2>
                 <p>
-                    Scala stands for "Scalable Language". It runs on the Java Virtual Machine (JVM) and is fully
-                    interoperable with Java.
-                    If you know Java, you can use all your favorite libraries in Scala.
+                    Scala stands for "Scalable Language". It was designed to address the shortcomings of Java while
+                    maintaining full interoperability with the JVM ecosystem. It is the language of choice for complex
+                    distributed systems and data engineering.
                 </p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🧩 Multi-Paradigm</h4>
+                        <p>Every value is an object, and every operation is a function. Seamlessly mix OOP and FP.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🛡️ Type Inference</h4>
+                        <p>One of the most advanced type systems in the world, catching errors before they reach
+                            production.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🐘 JVM Power</h4>
+                        <p>Deploy on the world-class Java Virtual Machine and use any Java library instantly.</p>
+                    </div>
+                </div>
+            </section>
 
+            <!-- Section 4: Matching -->
+            <section id="matching" class="guide-section">
+                <h2><span class="chapter-number">4</span> Case Classes & Pattern Matching</h2>
+                <p>Case classes are perfect for modeling immutable data. Pattern matching provides a powerful way to
+                    deconstruct that data.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">scala</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     </div>
-                    <pre class="code-block">object HelloWorld extends App {
-    println("Hello, World!")
-}</pre>
+                    <pre class="code-block">case class User(name: String, role: String)
+
+val user = User("Sikandar", "Admin")
+
+val message = user match
+  case User(_, "Admin") => "Access Granted"
+  case User(name, _)    => s"Welcome $name"
+  case _                => "Access Denied"</pre>
                 </div>
             </section>
 
-            <!-- Section 2: Variables -->
-            <section id="variables" class="guide-section">
-                <h2><span class="chapter-number">2</span> Variables & Functions</h2>
-                <p>Scala prefers immutability. Use <code>val</code> for constants and `var` for variables.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">scala</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">val pi = 3.14  // Cannot be changed (Immutable)
-var age = 25   // Can be changed (Mutable)
-
-// Function definition
-def add(a: Int, b: Int): Int = a + b</pre>
-                </div>
-            </section>
-
-            <!-- Section 3: Collections -->
-            <section id="collections" class="guide-section">
-                <h2><span class="chapter-number">3</span> Functional Collections</h2>
-                <p>Map, Filter, and Reduce are core to Scala programming.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">scala</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">val nums = List(1, 2, 3, 4, 5)
-
-val doubled = nums.map(_ * 2)  // List(2, 4, 6, 8, 10)
-val even = nums.filter(_ % 2 == 0) // List(2, 4)</pre>
-                </div>
-            </section>
-
-            <!-- Section 4: Case Classes -->
-            <section id="caseclasses" class="guide-section">
-                <h2><span class="chapter-number">4</span> Case Classes & Matching</h2>
-                <p>Case classes are like Java records but more powerful.</p>
-
-                <div class="code-block-container">
-                    <div class="code-block-header">
-                        <span class="code-language">scala</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre class="code-block">case class Person(name: String, age: Int)
-
-val bob = Person("Bob", 30)
-
-// Pattern Matching
-bob match {
-    case Person("Bob", _) => println("Hi Bob!")
-    case Person(name, age) => println(s"Hi $name")
-}</pre>
-                </div>
-            </section>
-
-            <!-- Section 5: Futures -->
-            <section id="implicit" class="guide-section">
-                <h2><span class="chapter-number">5</span> Asynchronous Futures</h2>
-                <p>Handle long-running tasks without blocking the main thread.</p>
-
+            <!-- Section 5: Concurrency -->
+            <section id="concurrency" class="guide-section">
+                <h2><span class="chapter-number">5</span> Fearless Concurrency</h2>
+                <p>Scala's <code>Future</code> and <code>Promise</code> APIs make asynchronous programming readable and
+                    safe.</p>
                 <div class="code-block-container">
                     <div class="code-block-header">
                         <span class="code-language">scala</span>
@@ -528,35 +416,35 @@ bob match {
                     <pre class="code-block">import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-val f = Future {
-    Thread.sleep(1000)
-    "Result ready!"
-}</pre>
+val data: Future[String] = Future {
+  // Heavy computation here
+  "Computation Complete"
+}
+
+data.onComplete(println)</pre>
                 </div>
             </section>
 
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+            </div>
+
             <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
-                <h3>🚀 Ready to Scale?</h3>
-                <p>Start functional programming with Scala.</p>
-                <a href="editor.html?lang=scala" class="btn"
-                    style="background: var(--primary-color); color:white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                <h3>🚀 Big Data Power</h3>
+                <p>Master functional programming on the JVM in our Scala environment.</p>
+                <a href="editor.html?lang=scala" class="btn btn-primary"
+                    style="padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem; background: var(--guide-accent); color: white;">
                     Start Coding in Scala
                 </a>
             </div>
 
         </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
-                <div style="margin-top: 1rem; font-size: 0.9rem;">
-                    <a href="privacy.html"
-                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
-                        Policy</a>
-                    <a href="terms.html"
-                        style="color: var(--webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Terms
-                        of
-                        Service</a>
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2024 CodeRunner Pro. Scale with Elegance.</p>
                 </div>
             </div>
         </footer>
@@ -564,7 +452,6 @@ val f = Future {
 
     <script src="app.js"></script>
     <script>
-        // Code copy functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
             const code = codeBlock.textContent;
@@ -572,7 +459,6 @@ val f = Future {
             navigator.clipboard.writeText(code).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
-
                 setTimeout(() => {
                     button.textContent = 'Copy';
                     button.classList.remove('copied');

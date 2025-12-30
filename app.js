@@ -477,7 +477,11 @@ print("Doubled: \\(doubled)")
 };
 
 // ===== API Configuration =====
-const API_BASE_URL = 'http://localhost:3001/api';
+// In production (Docker), Nginx proxies /api to the backend container.
+// In local dev, we fall back to the absolute URL.
+const API_BASE_URL = window.location.hostname === 'localhost' && window.location.port === '3000'
+    ? '/api'
+    : 'http://localhost:3001/api';
 const PISTON_PUBLIC_API = 'https://emkc.org/api/v2/piston';
 
 // ===== Global Variables =====
