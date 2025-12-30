@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4108698573577077"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4108698573577077">
+    <title>Programming Guide Books - Learn Python, Java, C++, JavaScript & More | CodeRunner Pro</title>
+    <meta name="description"
+        content="Complete programming guides for 17+ languages including Python, Java, JavaScript, C++, SQL, and more. From beginner to advanced with code examples.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <style>
+        .guides-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .guides-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .guides-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .guides-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .guide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .guide-card:hover::before {
+            opacity: 1;
+        }
+
+        .guide-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-card h2 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .guide-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .guide-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .meta-item svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .guide-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .guides-hero h1 {
+                font-size: 2rem;
+            }
+
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <main class="guides-container">
+            <div class="guides-hero">
+                <h1>📚 Programming <span class="gradient-text">Guide Books</span></h1>
+                <p>Complete end-to-end programming guides from beginner to advanced. Master 17+ programming languages
+                    with professional tutorials, code examples, and best practices!</p>
+            </div>
+
+            <!-- General Purpose Languages -->
+            <div class="category-section">
+                <h2 class="category-title">🚀 General Purpose Languages</h2>
+                <div class="guides-grid">
+                    <a href="python-guide.html" class="guide-card">
+                        <div class="guide-icon">🐍</div>
+                        <h2>Python 3.10</h2>
+                        <p>Master Python from basics to advanced. Learn OOP, file handling, and real-world applications.
+                        </p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>60 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Advanced</span>
+                    </a>
+
+                    <a href="java-guide.html" class="guide-card">
+                        <div class="guide-icon">☕</div>
+                        <h2>Java 15</h2>
+                        <p>Complete Java guide covering OOP, JVM concepts, exception handling, and enterprise
+                            development.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>55 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="csharp-guide.html" class="guide-card">
+                        <div class="guide-icon">💻</div>
+                        <h2>C# 12</h2>
+                        <p>Modern C# programming for .NET. Learn LINQ, async/await, and professional development.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>50 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="go-guide.html" class="guide-card">
+                        <div class="guide-icon">🐹</div>
+                        <h2>Go (Golang) 1.24</h2>
+                        <p>Learn Go's concurrency model, goroutines, channels, and cloud-native development.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>48 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="rust-guide.html" class="guide-card">
+                        <div class="guide-icon">🦀</div>
+                        <h2>Rust 1.80+</h2>
+                        <p>Master Rust's ownership model, memory safety, and fearless concurrency.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>52 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="scala-guide.html" class="guide-card">
+                        <div class="guide-icon">🧪</div>
+                        <h2>Scala 3.x</h2>
+                        <p>Functional and Object-Oriented programming on JVM. Perfect for big data with Spark.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>47 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Web Development -->
+            <div class="category-section">
+                <h2 class="category-title">🌐 Web Development</h2>
+                <div class="guides-grid">
+                    <a href="javascript-guide.html" class="guide-card">
+                        <div class="guide-icon">🟨</div>
+                        <h2>JavaScript (ES2024)</h2>
+                        <p>Modern JavaScript with async/await, promises, and functional programming patterns.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>50 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="typescript-guide.html" class="guide-card">
+                        <div class="guide-icon">🟦</div>
+                        <h2>TypeScript 5.x</h2>
+                        <p>Add type safety to JavaScript. Learn generics, utility types, and advanced patterns.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>48 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="php-guide.html" class="guide-card">
+                        <div class="guide-icon">🐘</div>
+                        <h2>PHP 8.4+</h2>
+                        <p>Modern PHP for web development. Learn Laravel, Composer, and server-side programming.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>45 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="html-guide.html" class="guide-card">
+                        <div class="guide-icon">🌐</div>
+                        <h2>HTML5</h2>
+                        <p>Master semantic HTML, accessibility, forms, and modern web standards.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>40 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="css-guide.html" class="guide-card">
+                        <div class="guide-icon">🎨</div>
+                        <h2>CSS3</h2>
+                        <p>Modern CSS with Flexbox, Grid, animations, and responsive design techniques.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>42 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Systems Programming -->
+            <div class="category-section">
+                <h2 class="category-title">⚙️ Systems & Low-Level Programming</h2>
+                <div class="guides-grid">
+                    <a href="c-guide.html" class="guide-card">
+                        <div class="guide-icon">⚙️</div>
+                        <h2>C Programming</h2>
+                        <p>Foundation of programming. Master pointers, memory management, and system-level coding.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>50 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="cpp-guide.html" class="guide-card">
+                        <div class="guide-icon">⚡</div>
+                        <h2>C++ (CPP)</h2>
+                        <p>Object-oriented systems programming. Learn STL, templates, and modern C++ features.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>55 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Advanced</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Data & Analytics -->
+            <div class="category-section">
+                <h2 class="category-title">📊 Data Science & Analytics</h2>
+                <div class="guides-grid">
+                    <a href="r-guide.html" class="guide-card">
+                        <div class="guide-icon">📊</div>
+                        <h2>R 4.1.1</h2>
+                        <p>Statistical computing and data analysis. Master data frames, functions, and file handling.
+                        </p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>45 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="sql-guide.html" class="guide-card">
+                        <div class="guide-icon">🗃️</div>
+                        <h2>SQL Complete Guide</h2>
+                        <p>Master databases, queries, JOINs, subqueries, and data manipulation.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>50 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile & Cross-Platform -->
+            <div class="category-section">
+                <h2 class="category-title">📱 Mobile & Cross-Platform</h2>
+                <div class="guides-grid">
+                    <a href="dart-guide.html" class="guide-card">
+                        <div class="guide-icon">💙</div>
+                        <h2>Dart 3.x</h2>
+                        <p>Flutter's language. Learn null safety, async programming, and UI development.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>43 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+
+                    <a href="swift-guide.html" class="guide-card">
+                        <div class="guide-icon">🍎</div>
+                        <h2>Swift 6.x</h2>
+                        <p>iOS and macOS development. Master optionals, protocol-oriented programming, and SwiftUI.</p>
+                        <div class="guide-meta">
+                            <div class="meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>46 min</span>
+                            </div>
+                        </div>
+                        <span class="guide-level">Beginner → Intermediate</span>
+                    </a>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
+                <div style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="privacy.html"
+                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
+                        Policy</a>
+                    <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

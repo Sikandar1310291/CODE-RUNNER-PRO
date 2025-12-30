@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4108698573577077"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4108698573577077">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
+
+    <title>Python 3.10 Complete Guide - Beginner to Advanced | CodeRunner Pro</title>
+    <meta name="description"
+        content="Ultimate Python 3.10 guide from beginner to advanced. Learn Python fundamentals, OOP, file handling, and real-world applications. Complete with code examples.">
+    <meta name="keywords"
+        content="Python guide, Python tutorial, learn Python, Python 3.10, Python beginner, Python advanced, Python programming, Python course">
+
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .guide-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .guide-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .guide-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .guide-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .guide-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .guide-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .guide-toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-toc h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .guide-toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guide-toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-toc a:hover {
+            color: var(--primary-color);
+        }
+
+        .guide-section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 100px;
+        }
+
+        .guide-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .guide-section h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .guide-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .guide-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block-container {
+            position: relative;
+            margin: 1.5rem 0;
+        }
+
+        .code-block-header {
+            background: var(--bg-secondary);
+            padding: 0.75rem 1rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+        }
+
+        .code-language {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #5558e3;
+            transform: translateY(-1px);
+        }
+
+        .copy-btn.copied {
+            background: #48bb78;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 0 0 8px 8px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .feature-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2.5rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .guide-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-container {
+                padding: 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <main class="guide-container">
+            <!-- Hero Section -->
+            <div class="guide-hero">
+                <h1>🐍 Python 3.10 – The Ultimate Complete Python Programming Guide</h1>
+                <p class="subtitle">
+                    Master Python from absolute beginner to professional developer. Learn fundamentals, OOP, file
+                    handling, and real-world applications with hands-on examples.
+                </p>
+                <div class="guide-meta">
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>60 min read</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        <span>Beginner to Advanced</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <span>50+ Code Examples</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="guide-toc">
+                <h2>📚 Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">→ 1. Introduction to Python</a></li>
+                    <li><a href="#installation">→ 2. Installing Python & Environment Setup</a></li>
+                    <li><a href="#basics">→ 3. Python Basics & Syntax</a></li>
+                    <li><a href="#control-flow">→ 4. Control Flow Statements</a></li>
+                    <li><a href="#data-structures">→ 5. Python Data Structures</a></li>
+                    <li><a href="#functions">→ 6. Functions & Modules</a></li>
+                    <li><a href="#oop">→ 7. Object-Oriented Programming (OOP)</a></li>
+                    <li><a href="#exceptions">→ 8. Exception Handling</a></li>
+                    <li><a href="#file-handling">→ 9. File Handling in Python</a></li>
+                </ul>
+            </div>
+
+            <!-- Ad Slot: After TOC -->
+            <div class="ad-slot">
+                <div class="ad-container">
+                    <span class="ad-label">Advertisement</span>
+                </div>
+            </div>
+
+            <!-- What You Will Learn -->
+            <div class="highlight-box">
+                <h3>📌 What You Will Learn in This Python Course</h3>
+                <p>By the end of this guide, you will have a solid command over:</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🎯 Fundamentals</h4>
+                        <p>Python syntax, variables, and data types from scratch</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔄 Control Flow</h4>
+                        <p>Conditional statements, loops, and pattern matching</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📦 Data Structures</h4>
+                        <p>Lists, tuples, sets, and dictionaries</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🧠 OOP Concepts</h4>
+                        <p>Classes, inheritance, polymorphism, and encapsulation</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🚨 Error Handling</h4>
+                        <p>Exception handling and defensive programming</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📁 File Operations</h4>
+                        <p>Reading, writing, and working with JSON files</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1: Introduction -->
+            <section id="introduction" class="guide-section">
+                <h2><span class="chapter-number">1</span> Introduction to Python</h2>
+
+                <h3>What is Python?</h3>
+                <p>
+                    Python is a <strong>high-level, interpreted, general-purpose programming language</strong>.
+                    Being high-level means Python abstracts away low-level details like memory management, allowing
+                    developers to focus on logic and problem-solving.
+                </p>
+                <p>
+                    Python is also <strong>interpreted</strong>, meaning code is executed line-by-line, which makes
+                    debugging easier and development faster. Its syntax is intentionally designed to be readable and
+                    close to plain English, reducing the learning curve significantly.
+                </p>
+
+                <h3>History of Python</h3>
+                <ul>
+                    <li>Python was created by <strong>Guido van Rossum</strong></li>
+                    <li>First released in <strong>1991</strong></li>
+                    <li>Named after <strong>Monty Python</strong> (not the snake)</li>
+                </ul>
+
+                <div class="info-box">
+                    <h4>🎯 The Zen of Python</h4>
+                    <p>The core philosophy of Python emphasizes:</p>
+                    <ul>
+                        <li>Simplicity</li>
+                        <li>Readability</li>
+                        <li>Explicitness over cleverness</li>
+                    </ul>
+                </div>
+
+                <h3>Why Python Is So Popular</h3>
+                <p>Python's popularity comes from a combination of simplicity and power:</p>
+                <ul>
+                    <li>✅ Easy to learn and write</li>
+                    <li>✅ Massive ecosystem of libraries</li>
+                    <li>✅ Cross-platform compatibility</li>
+                    <li>✅ Strong community and documentation</li>
+                    <li>✅ Used by companies like Google, Netflix, Instagram, Spotify, NASA</li>
+                </ul>
+
+                <h3>Where Python Is Used</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🌐 Web Development</h4>
+                        <p>Django, Flask, FastAPI</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📊 Data Science</h4>
+                        <p>NumPy, Pandas, Matplotlib</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🤖 AI & Machine Learning</h4>
+                        <p>TensorFlow, PyTorch, Scikit-learn</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚙️ Automation</h4>
+                        <p>Scripting, Task Automation</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎮 Game Development</h4>
+                        <p>Pygame, Panda3D</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔐 Cybersecurity</h4>
+                        <p>Penetration Testing Tools</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Installation -->
+            <section id="installation" class="guide-section">
+                <h2><span class="chapter-number">2</span> Installing Python 3.10 & Environment Setup</h2>
+
+                <h3>Installing Python</h3>
+                <p>Python can be installed from the official website for all major operating systems.</p>
+                <p>After installation, verify it using:</p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">bash</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">python --version</pre>
+                </div>
+
+                <p>A correct setup ensures Python is accessible globally from your terminal or command prompt.</p>
+
+                <h3>Setting Up VS Code for Python Development</h3>
+                <p>Visual Studio Code (VS Code) is one of the most widely used code editors for Python.</p>
+
+                <div class="info-box">
+                    <h4>Setup Steps:</h4>
+                    <ol>
+                        <li>Install VS Code from official website</li>
+                        <li>Install the Python extension from marketplace</li>
+                        <li>Enable features:
+                            <ul>
+                                <li>Syntax highlighting</li>
+                                <li>Linting (error detection)</li>
+                                <li>Debugging tools</li>
+                                <li>Auto-completion (IntelliSense)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Python Virtual Environments</h3>
+                <p>A virtual environment allows you to isolate project dependencies.</p>
+
+                <h4>Creating a Virtual Environment</h4>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">bash</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">python -m venv env</pre>
+                </div>
+
+                <h4>Activating the Environment</h4>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">bash</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Linux/macOS
+source env/bin/activate
+
+# Windows
+env\Scripts\activate</pre>
+                </div>
+
+                <div class="info-box">
+                    <h4>Why Virtual Environments Are Important</h4>
+                    <ul>
+                        <li>✅ Prevent dependency conflicts between projects</li>
+                        <li>✅ Keep projects clean and isolated</li>
+                        <li>✅ Industry standard practice</li>
+                        <li>✅ Required for professional development</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 3: Basics -->
+            <section id="basics" class="guide-section">
+                <h2><span class="chapter-number">3</span> Python Basics & Syntax</h2>
+
+                <h3>Your First Python Program</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">print("Hello, World!")</pre>
+                </div>
+                <p>This simple line demonstrates Python's simplicity. No complex setup or boilerplate is required.</p>
+
+                <h3>Variables & Data Types</h3>
+                <p>Variables store data in memory:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">name = "Python"
+age = 30
+price = 99.99
+is_active = True</pre>
+                </div>
+                <p>Python is <strong>dynamically typed</strong>, meaning you don't need to declare variable types
+                    explicitly.</p>
+
+                <h3>Built-in Data Types</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>int</code></td>
+                            <td>Integer numbers</td>
+                            <td><code>42</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>float</code></td>
+                            <td>Decimal numbers</td>
+                            <td><code>3.14</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>str</code></td>
+                            <td>Text data</td>
+                            <td><code>"Hello"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>bool</code></td>
+                            <td>True or False</td>
+                            <td><code>True</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>None</code></td>
+                            <td>Represents absence of value</td>
+                            <td><code>None</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Type Casting</h3>
+                <p>Type casting converts one data type into another:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Convert string to integer
+num = int("10")
+
+# Convert string to float
+price = float("3.14")
+
+# Convert number to string
+text = str(100)</pre>
+                </div>
+                <p>This is commonly used when working with user input or external data.</p>
+            </section>
+
+            <!-- Section 4: Control Flow -->
+            <section id="control-flow" class="guide-section">
+                <h2><span class="chapter-number">4</span> Control Flow Statements</h2>
+
+                <p>Control flow allows your program to make decisions and repeat actions.</p>
+
+                <h3>Conditional Statements</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">age = 20
+
+if age >= 18:
+    print("Adult")
+elif age > 12:
+    print("Teen")
+else:
+    print("Child")</pre>
+                </div>
+                <p><strong>Note:</strong> Python uses indentation instead of braces, enforcing clean and readable code.
+                </p>
+
+                <h3>match-case (Python 3.10 Feature)</h3>
+                <p>Python 3.10 introduced structural pattern matching:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">day = "Monday"
+
+match day:
+    case "Monday":
+        print("Start of the week")
+    case "Friday":
+        print("Weekend is near!")
+    case _:
+        print("Regular day")</pre>
+                </div>
+                <p>This is similar to switch statements in other languages but more powerful.</p>
+
+                <h3>Loops in Python</h3>
+
+                <h4>for Loop</h4>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Basic for loop
+for i in range(5):
+    print(i)  # Prints 0, 1, 2, 3, 4
+
+# Loop through a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)</pre>
+                </div>
+                <p>Used when the number of iterations is known.</p>
+
+                <h4>while Loop</h4>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">count = 0
+
+while count < 5:
+    print(f"Count is: {count}")
+    count += 1</pre>
+                </div>
+                <p>Used when looping depends on a condition.</p>
+            </section>
+
+            <!-- Section 5: Data Structures -->
+            <section id="data-structures" class="guide-section">
+                <h2><span class="chapter-number">5</span> Python Data Structures</h2>
+
+                <p>Data structures help organize and store data efficiently.</p>
+
+                <h3>Lists</h3>
+                <p>Lists are <strong>mutable, ordered</strong>, and widely used.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Creating a list
+numbers = [1, 2, 3, 4]
+
+# Adding elements
+numbers.append(5)
+
+# Accessing elements
+first = numbers[0]  # Gets 1
+
+# List methods
+numbers.remove(2)  # Removes value 2
+numbers.pop()      # Removes last element</pre>
+                </div>
+
+                <h3>Tuples</h3>
+                <p>Tuples are <strong>immutable</strong>, making them safer for fixed data.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Creating a tuple
+point = (10, 20)
+
+# Accessing elements
+x = point[0]  # Gets 10
+y = point[1]  # Gets 20
+
+# Tuples are immutable (cannot be changed)
+# point[0] = 15  # This would cause an error</pre>
+                </div>
+
+                <h3>Sets</h3>
+                <p>Sets store <strong>unique values</strong> and are unordered.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Creating a set
+unique = {1, 2, 3, 3, 3}  # Duplicates are removed
+print(unique)  # Output: {1, 2, 3}
+
+# Set operations
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union = set1 | set2          # {1, 2, 3, 4, 5}
+intersection = set1 & set2    # {3}</pre>
+                </div>
+
+                <h3>Dictionaries</h3>
+                <p>Dictionaries store data in <strong>key-value pairs</strong> and are extremely fast.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Creating a dictionary
+user = {
+    "name": "Ali",
+    "age": 20,
+    "email": "ali@example.com"
+}
+
+# Accessing values
+name = user["name"]  # Gets "Ali"
+age = user.get("age")  # Safer way to get value
+
+# Adding/updating values
+user["city"] = "New York"
+user["age"] = 21
+
+# Looping through dictionary
+for key, value in user.items():
+    print(f"{key}: {value}")</pre>
+                </div>
+
+                <h3>List Comprehension</h3>
+                <p>A concise and efficient way to create lists:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Traditional way
+squares = []
+for x in range(5):
+    squares.append(x * x)
+
+# List comprehension (better)
+squares = [x * x for x in range(5)]
+# Result: [0, 1, 4, 9, 16]
+
+# With condition
+even_squares = [x * x for x in range(10) if x % 2 == 0]
+# Result: [0, 4, 16, 36, 64]</pre>
+                </div>
+            </section>
+
+            <!-- Ad Slot: Mid Content -->
+            <div class="ad-slot">
+                <div class="ad-container">
+                    <span class="ad-label">Advertisement</span>
+                </div>
+            </div>
+
+            <!-- Section 6: Functions -->
+            <section id="functions" class="guide-section">
+                <h2><span class="chapter-number">6</span> Functions & Modules</h2>
+
+                <h3>Defining Functions</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Basic function
+def greet(name):
+    return f"Hello {name}"
+
+# Calling the function
+message = greet("Python")
+print(message)  # Output: Hello Python</pre>
+                </div>
+                <p>Functions help organize code, improve readability, and enable reuse.</p>
+
+                <h3>Function Arguments</h3>
+                <p>Python supports multiple types of arguments:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Positional arguments
+def add(a, b):
+    return a + b
+
+# Default arguments
+def greet(name="Guest"):
+    return f"Hello {name}"
+
+# Keyword arguments
+def create_user(name, age, city="Unknown"):
+    return {"name": name, "age": age, "city": city}
+
+user = create_user(name="Ali", age=25, city="NYC")
+
+# Variable arguments (*args)
+def total(*numbers):
+    return sum(numbers)
+
+result = total(1, 2, 3, 4, 5)  # Returns 15
+
+# Keyword variable arguments (**kwargs)
+def print_info(**info):
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+print_info(name="Ali", age=20, city="NYC")</pre>
+                </div>
+
+                <h3>Modules & Imports</h3>
+                <p>Modules allow code reuse across files:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Import entire module
+import math
+result = math.sqrt(16)
+
+# Import specific function
+from datetime import date
+today = date.today()
+
+# Import with alias
+import numpy as np
+arr = np.array([1, 2, 3])
+
+# Import all (not recommended)
+from math import *</pre>
+                </div>
+                <p>Python's standard library provides thousands of ready-to-use modules.</p>
+            </section>
+
+            <!-- Section 7: OOP -->
+            <section id="oop" class="guide-section">
+                <h2><span class="chapter-number">7</span> Object-Oriented Programming (OOP)</h2>
+
+                <p>OOP allows you to model real-world entities using code.</p>
+
+                <h3>Creating Classes</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Defining a class
+class Person:
+    def __init__(self, name, age):
+        self.name = name  # Instance variable
+        self.age = age
+    
+    def introduce(self):
+        return f"Hi, I'm {self.name} and I'm {self.age} years old"
+
+# Creating objects (instances)
+person1 = Person("Ali", 25)
+person2 = Person("Sara", 30)
+
+print(person1.introduce())
+# Output: Hi, I'm Ali and I'm 25 years old</pre>
+                </div>
+                <p>A <strong>class</strong> is a blueprint; <strong>objects</strong> are instances of that blueprint.
+                </p>
+
+                <h3>Inheritance</h3>
+                <p>Inheritance promotes code reuse and logical structure.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Parent class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        pass
+
+# Child class
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} says Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} says Meow!"
+
+# Using inheritance
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+
+print(dog.speak())  # Output: Buddy says Woof!
+print(cat.speak())  # Output: Whiskers says Meow!</pre>
+                </div>
+
+                <div class="info-box">
+                    <h4>Core OOP Concepts</h4>
+                    <ul>
+                        <li><strong>Encapsulation</strong> – Protecting data using private/public access</li>
+                        <li><strong>Inheritance</strong> – Reusing code from parent classes</li>
+                        <li><strong>Polymorphism</strong> – One interface, many forms</li>
+                        <li><strong>Abstraction</strong> – Hiding implementation details</li>
+                    </ul>
+                </div>
+
+                <h3>Magic Methods</h3>
+                <p>Magic methods define how objects behave internally:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+    
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+    
+    def __repr__(self):
+        return f"Book('{self.title}', '{self.author}')"
+    
+    def __len__(self):
+        return len(self.title)
+
+# Using magic methods
+book = Book("1984", "George Orwell")
+print(book)         # Calls __str__
+print(len(book))    # Calls __len__</pre>
+                </div>
+            </section>
+
+            <!-- Section 8: Exception Handling -->
+            <section id="exceptions" class="guide-section">
+                <h2><span class="chapter-number">8</span> Exception Handling</h2>
+
+                <p>Exception handling prevents program crashes and improves reliability.</p>
+
+                <h3>Basic Exception Handling</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">try:
+    x = int(input("Enter a number: "))
+    result = 100 / x
+    print(f"Result: {result}")
+except ValueError:
+    print("Invalid input! Please enter a valid number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    print("Execution completed.")</pre>
+                </div>
+
+                <h3>Raising Exceptions</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    if age > 150:
+        raise ValueError("Age seems unrealistic")
+    return age
+
+try:
+    validate_age(-5)
+except ValueError as e:
+    print(f"Error: {e}")</pre>
+                </div>
+
+                <h3>Custom Exceptions</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">class InsufficientFundsError(Exception):
+    pass
+
+class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+    
+    def withdraw(self, amount):
+        if amount > self.balance:
+            raise InsufficientFundsError("Not enough funds")
+        self.balance -= amount
+        return self.balance
+
+# Using custom exception
+account = BankAccount(100)
+try:
+    account.withdraw(150)
+except InsufficientFundsError as e:
+    print(f"Error: {e}")</pre>
+                </div>
+                <p>Custom exceptions allow precise error handling in large applications.</p>
+            </section>
+
+            <!-- Section 9: File Handling -->
+            <section id="file-handling" class="guide-section">
+                <h2><span class="chapter-number">9</span> File Handling in Python</h2>
+
+                <p>File handling enables programs to store, retrieve, and process data permanently.</p>
+
+                <h3>Reading Files</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Reading entire file
+with open("file.txt", "r") as f:
+    data = f.read()
+    print(data)
+
+# Reading line by line
+with open("file.txt", "r") as f:
+    for line in f:
+        print(line.strip())
+
+# Reading all lines into a list
+with open("file.txt", "r") as f:
+    lines = f.readlines()
+    print(lines)</pre>
+                </div>
+
+                <div class="info-box">
+                    <h4>Why use 'with' statement?</h4>
+                    <ul>
+                        <li>✅ Automatically closes the file</li>
+                        <li>✅ Prevents memory leaks</li>
+                        <li>✅ Prevents file corruption</li>
+                        <li>✅ Best practice in professional code</li>
+                    </ul>
+                </div>
+
+                <h3>Writing Files</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Writing to a file (overwrites existing content)
+with open("file.txt", "w") as f:
+    f.write("Hello, World!\n")
+    f.write("Welcome to Python")
+
+# Writing multiple lines
+lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
+with open("output.txt", "w") as f:
+    f.writelines(lines)</pre>
+                </div>
+                <p><strong>Note:</strong> "w" mode overwrites the file. If the file doesn't exist, it creates it.</p>
+
+                <h3>Appending to Files</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Appending to a file
+with open("file.txt", "a") as f:
+    f.write("\nThis is a new line")
+
+# Data is added without deleting existing content</pre>
+                </div>
+
+                <h3>Working with JSON Files</h3>
+                <p>JSON is widely used for APIs and configuration files.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">python</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">import json
+
+# Writing JSON
+data = {
+    "name": "Ali",
+    "age": 20,
+    "skills": ["Python", "JavaScript", "SQL"]
+}
+
+with open("data.json", "w") as file:
+    json.dump(data, file, indent=4)
+
+# Reading JSON
+with open("data.json", "r") as file:
+    loaded_data = json.load(file)
+    print(loaded_data["name"])  # Output: Ali
+
+# Converting to/from JSON strings
+json_string = json.dumps(data)
+python_dict = json.loads(json_string)</pre>
+                </div>
+                <p>JSON allows structured, readable data storage perfect for configuration and API communication.</p>
+
+                <h3>File Modes Summary</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Mode</th>
+                            <th>Description</th>
+                            <th>Creates if Missing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>'r'</code></td>
+                            <td>Read (default)</td>
+                            <td>No (error if missing)</td>
+                        </tr>
+                        <tr>
+                            <td><code>'w'</code></td>
+                            <td>Write (overwrites)</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><code>'a'</code></td>
+                            <td>Append</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><code>'r+'</code></td>
+                            <td>Read and Write</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><code>'rb'</code></td>
+                            <td>Read Binary</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><code>'wb'</code></td>
+                            <td>Write Binary</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Final CTA -->
+            <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
+                <h3>🚀 Ready to Practice?</h3>
+                <p>Now that you've learned the fundamentals, it's time to write code and practice!</p>
+                <a href="editor.html?lang=python" class="btn btn-primary btn-lg"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="width: 20px; height: 20px;">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Start Coding in Python
+                </a>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CodeRunner Pro. Free online compiler for everyone.</p>
+                <div style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="privacy.html"
+                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
+                        Policy</a>
+                    <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Code copy functionality
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
+            const code = codeBlock.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.guide-toc a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

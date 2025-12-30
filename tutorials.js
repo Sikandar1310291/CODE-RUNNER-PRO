@@ -2,185 +2,6 @@
 // Additional language tutorial content and interactivity
 
 const TUTORIAL_DATA = {
-    javascript: {
-        icon: '🟨',
-        name: 'JavaScript',
-        desc: 'Complete JavaScript reference with array, string, object methods and DOM API.',
-        categories: [
-            {
-                title: 'JavaScript Array Methods',
-                methods: [
-                    { name: 'concat()', desc: 'Joins arrays', code: '[1,2].concat([3,4])' },
-                    { name: 'every()', desc: 'Tests all elements', code: 'arr.every(x => x > 0)' },
-                    { name: 'filter()', desc: 'Filters elements', code: 'arr.filter(x => x > 2)' },
-                    { name: 'find()', desc: 'Finds first match', code: 'arr.find(x => x > 2)' },
-                    { name: 'findIndex()', desc: 'Finds index', code: 'arr.findIndex(x => x > 2)' },
-                    { name: 'flat()', desc: 'Flattens array', code: '[[1,2],[3]].flat()' },
-                    { name: 'forEach()', desc: 'Iterates elements', code: 'arr.forEach(x => log(x))' },
-                    { name: 'includes()', desc: 'Checks inclusion', code: '[1,2,3].includes(2)' },
-                    { name: 'indexOf()', desc: 'Finds index', code: 'arr.indexOf(2)' },
-                    { name: 'join()', desc: 'Joins to string', code: '[1,2,3].join(",")' },
-                    { name: 'map()', desc: 'Transforms elements', code: 'arr.map(x => x * 2)' },
-                    { name: 'pop()', desc: 'Removes last', code: 'arr.pop()' },
-                    { name: 'push()', desc: 'Adds to end', code: 'arr.push(4)' },
-                    { name: 'reduce()', desc: 'Reduces to value', code: 'arr.reduce((a,b) => a+b)' },
-                    { name: 'reverse()', desc: 'Reverses array', code: 'arr.reverse()' },
-                    { name: 'shift()', desc: 'Removes first', code: 'arr.shift()' },
-                    { name: 'slice()', desc: 'Extracts portion', code: 'arr.slice(1, 3)' },
-                    { name: 'some()', desc: 'Tests some elements', code: 'arr.some(x => x > 5)' },
-                    { name: 'sort()', desc: 'Sorts array', code: 'arr.sort((a,b) => a-b)' },
-                    { name: 'splice()', desc: 'Changes contents', code: 'arr.splice(1, 2)' },
-                    { name: 'unshift()', desc: 'Adds to start', code: 'arr.unshift(0)' }
-                ]
-            },
-            {
-                title: 'JavaScript String Methods',
-                methods: [
-                    { name: 'charAt()', desc: 'Gets character', code: '"hello".charAt(0)' },
-                    { name: 'charCodeAt()', desc: 'Gets char code', code: '"A".charCodeAt(0)' },
-                    { name: 'concat()', desc: 'Joins strings', code: '"hi".concat(" there")' },
-                    { name: 'endsWith()', desc: 'Checks ending', code: '"file.js".endsWith(".js")' },
-                    { name: 'includes()', desc: 'Checks substring', code: '"hello".includes("ell")' },
-                    { name: 'indexOf()', desc: 'Finds index', code: '"hello".indexOf("l")' },
-                    { name: 'lastIndexOf()', desc: 'Finds last index', code: '"hello".lastIndexOf("l")' },
-                    { name: 'match()', desc: 'Matches regex', code: '"test".match(/e/)' },
-                    { name: 'padEnd()', desc: 'Pads end', code: '"5".padEnd(3, "0")' },
-                    { name: 'padStart()', desc: 'Pads start', code: '"5".padStart(3, "0")' },
-                    { name: 'repeat()', desc: 'Repeats string', code: '"ab".repeat(3)' },
-                    { name: 'replace()', desc: 'Replaces substring', code: '"hi".replace("i", "o")' },
-                    { name: 'slice()', desc: 'Extracts portion', code: '"hello".slice(1, 4)' },
-                    { name: 'split()', desc: 'Splits string', code: '"a,b,c".split(",")' },
-                    { name: 'startsWith()', desc: 'Checks start', code: '"hello".startsWith("he")' },
-                    { name: 'substring()', desc: 'Gets substring', code: '"hello".substring(1,4)' },
-                    { name: 'toLowerCase()', desc: 'To lowercase', code: '"HELLO".toLowerCase()' },
-                    { name: 'toUpperCase()', desc: 'To uppercase', code: '"hello".toUpperCase()' },
-                    { name: 'trim()', desc: 'Trims whitespace', code: '" hi ".trim()' },
-                    { name: 'trimEnd()', desc: 'Trims end', code: '"hi  ".trimEnd()' },
-                    { name: 'trimStart()', desc: 'Trims start', code: '"  hi".trimStart()' }
-                ]
-            },
-            {
-                title: 'JavaScript Object Methods',
-                methods: [
-                    { name: 'Object.assign()', desc: 'Copies properties', code: 'Object.assign({}, obj)' },
-                    { name: 'Object.entries()', desc: 'Gets entries', code: 'Object.entries(obj)' },
-                    { name: 'Object.freeze()', desc: 'Freezes object', code: 'Object.freeze(obj)' },
-                    { name: 'Object.keys()', desc: 'Gets keys', code: 'Object.keys(obj)' },
-                    { name: 'Object.values()', desc: 'Gets values', code: 'Object.values(obj)' },
-                    { name: 'hasOwnProperty()', desc: 'Checks property', code: 'obj.hasOwnProperty("x")' }
-                ]
-            }
-        ]
-    },
-    java: {
-        icon: '☕',
-        name: 'Java',
-        desc: 'Complete Java reference with String, Array, Collection, and utility methods.',
-        categories: [
-            {
-                title: 'Java String Methods',
-                methods: [
-                    { name: 'charAt()', desc: 'Gets character at index', code: 'str.charAt(0)' },
-                    { name: 'compareTo()', desc: 'Compares strings', code: 'str.compareTo("other")' },
-                    { name: 'concat()', desc: 'Concatenates strings', code: 'str.concat(" world")' },
-                    { name: 'contains()', desc: 'Checks substring', code: 'str.contains("sub")' },
-                    { name: 'endsWith()', desc: 'Checks ending', code: 'str.endsWith(".txt")' },
-                    { name: 'equals()', desc: 'Checks equality', code: 'str.equals("test")' },
-                    { name: 'indexOf()', desc: 'Finds index', code: 'str.indexOf("o")' },
-                    { name: 'isEmpty()', desc: 'Checks if empty', code: 'str.isEmpty()' },
-                    { name: 'length()', desc: 'Gets length', code: 'str.length()' },
-                    { name: 'replace()', desc: 'Replaces chars', code: 'str.replace("a", "b")' },
-                    { name: 'split()', desc: 'Splits string', code: 'str.split(",")' },
-                    { name: 'startsWith()', desc: 'Checks start', code: 'str.startsWith("Hi")' },
-                    { name: 'substring()', desc: 'Gets substring', code: 'str.substring(0, 5)' },
-                    { name: 'toLowerCase()', desc: 'To lowercase', code: 'str.toLowerCase()' },
-                    { name: 'toUpperCase()', desc: 'To uppercase', code: 'str.toUpperCase()' },
-                    { name: 'trim()', desc: 'Trims whitespace', code: 'str.trim()' }
-                ]
-            },
-            {
-                title: 'Java ArrayList Methods',
-                methods: [
-                    { name: 'add()', desc: 'Adds element', code: 'list.add("item")' },
-                    { name: 'clear()', desc: 'Removes all', code: 'list.clear()' },
-                    { name: 'contains()', desc: 'Checks element', code: 'list.contains("x")' },
-                    { name: 'get()', desc: 'Gets element', code: 'list.get(0)' },
-                    { name: 'indexOf()', desc: 'Finds index', code: 'list.indexOf("x")' },
-                    { name: 'isEmpty()', desc: 'Checks empty', code: 'list.isEmpty()' },
-                    { name: 'remove()', desc: 'Removes element', code: 'list.remove(0)' },
-                    { name: 'set()', desc: 'Sets element', code: 'list.set(0, "new")' },
-                    { name: 'size()', desc: 'Gets size', code: 'list.size()' },
-                    { name: 'sort()', desc: 'Sorts list', code: 'Collections.sort(list)' },
-                    { name: 'toArray()', desc: 'To array', code: 'list.toArray()' }
-                ]
-            },
-            {
-                title: 'Java Math Methods',
-                methods: [
-                    { name: 'Math.abs()', desc: 'Absolute value', code: 'Math.abs(-5)' },
-                    { name: 'Math.ceil()', desc: 'Rounds up', code: 'Math.ceil(4.2)' },
-                    { name: 'Math.floor()', desc: 'Rounds down', code: 'Math.floor(4.9)' },
-                    { name: 'Math.max()', desc: 'Maximum value', code: 'Math.max(5, 10)' },
-                    { name: 'Math.min()', desc: 'Minimum value', code: 'Math.min(5, 10)' },
-                    { name: 'Math.pow()', desc: 'Power', code: 'Math.pow(2, 3)' },
-                    { name: 'Math.random()', desc: 'Random number', code: 'Math.random()' },
-                    { name: 'Math.round()', desc: 'Rounds', code: 'Math.round(4.5)' },
-                    { name: 'Math.sqrt()', desc: 'Square root', code: 'Math.sqrt(16)' }
-                ]
-            }
-        ]
-    },
-    cpp: {
-        icon: '⚡',
-        name: 'C++',
-        desc: 'Complete C++ STL reference with vector, string, algorithm functions.',
-        categories: [
-            {
-                title: 'C++ Vector Methods',
-                methods: [
-                    { name: 'push_back()', desc: 'Adds to end', code: 'vec.push_back(5)' },
-                    { name: 'pop_back()', desc: 'Removes last', code: 'vec.pop_back()' },
-                    { name: 'size()', desc: 'Gets size', code: 'vec.size()' },
-                    { name: 'empty()', desc: 'Checks empty', code: 'vec.empty()' },
-                    { name: 'clear()', desc: 'Clears vector', code: 'vec.clear()' },
-                    { name: 'front()', desc: 'Gets first', code: 'vec.front()' },
-                    { name: 'back()', desc: 'Gets last', code: 'vec.back()' },
-                    { name: 'at()', desc: 'Gets at index', code: 'vec.at(0)' },
-                    { name: 'insert()', desc: 'Inserts element', code: 'vec.insert(it, val)' },
-                    { name: 'erase()', desc: 'Erases element', code: 'vec.erase(it)' },
-                    { name: 'begin()', desc: 'Iterator begin', code: 'vec.begin()' },
-                    { name: 'end()', desc: 'Iterator end', code: 'vec.end()' }
-                ]
-            },
-            {
-                title: 'C++ String Methods',
-                methods: [
-                    { name: 'length()', desc: 'Gets length', code: 'str.length()' },
-                    { name: 'size()', desc: 'Gets size', code: 'str.size()' },
-                    { name: 'empty()', desc: 'Checks empty', code: 'str.empty()' },
-                    { name: 'append()', desc: 'Appends string', code: 'str.append(" world")' },
-                    { name: 'substr()', desc: 'Gets substring', code: 'str.substr(0, 5)' },
-                    { name: 'find()', desc: 'Finds substring', code: 'str.find("hello")' },
-                    { name: 'replace()', desc: 'Replaces', code: 'str.replace(0, 2, "Hi")' },
-                    { name: 'c_str()', desc: 'C-style string', code: 'str.c_str()' },
-                    { name: 'compare()', desc: 'Compares strings', code: 'str.compare("other")' }
-                ]
-            },
-            {
-                title: 'C++ Algorithm Functions',
-                methods: [
-                    { name: 'sort()', desc: 'Sorts range', code: 'sort(v.begin(), v.end())' },
-                    { name: 'reverse()', desc: 'Reverses range', code: 'reverse(v.begin(), v.end())' },
-                    { name: 'find()', desc: 'Finds element', code: 'find(v.begin(), v.end(), x)' },
-                    { name: 'count()', desc: 'Counts element', code: 'count(v.begin(), v.end(), x)' },
-                    { name: 'max_element()', desc: 'Maximum', code: 'max_element(v.begin(), v.end())' },
-                    { name: 'min_element()', desc: 'Minimum', code: 'min_element(v.begin(), v.end())' },
-                    { name: 'accumulate()', desc: 'Sum', code: 'accumulate(v.begin(), v.end(), 0)' },
-                    { name: 'binary_search()', desc: 'Binary search', code: 'binary_search(v.begin(), v.end(), x)' }
-                ]
-            }
-        ]
-    },
     c: {
         icon: '⚙️', name: 'C', desc: 'Complete C tutorial covering fundamentals, pointers, memory management, and file I/O.',
         categories: [
@@ -675,12 +496,23 @@ const TUTORIAL_DATA = {
     }
 };
 
-// Render additional language sections
+// Static languages (already rendered in HTML)
+const STATIC_LANGS = [
+    { id: 'python', name: 'Python', icon: '🐍' },
+    { id: 'javascript', name: 'JavaScript', icon: '🟨' },
+    { id: 'java', name: 'Java', icon: '☕' },
+    { id: 'cpp', name: 'C++', icon: '⚡' }
+];
+
+// Render additional language sections (Dynamic)
 function renderLanguageSections() {
     const content = document.querySelector('.tutorials-content');
     if (!content) return;
 
     Object.entries(TUTORIAL_DATA).forEach(([langId, lang]) => {
+        // Prevent duplicate if already exists (though dynamic shouldn't overlap static)
+        if (document.getElementById(langId)) return;
+
         const section = document.createElement('section');
         section.id = langId;
         section.className = 'lang-section';
@@ -719,27 +551,63 @@ function renderLanguageSections() {
     });
 }
 
-// Sidebar navigation
-function initSidebarNav() {
-    const links = document.querySelectorAll('.sidebar-link');
-    const sections = document.querySelectorAll('.lang-section');
+// Generate and Initialize Sidebar
+function initSidebar() {
+    const nav = document.getElementById('tutorialNav');
+    if (!nav) return;
 
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
+    // Clear existing hardcoded links
+    nav.innerHTML = '';
+
+    // Helper to create link
+    const createLink = (id, name, icon) => {
+        const a = document.createElement('a');
+        a.href = `#${id}`;
+        a.className = `sidebar-link ${id === 'python' ? 'active' : ''}`; // Default active
+        a.dataset.lang = id;
+        a.innerHTML = `<span>${icon}</span> ${name}`;
+
+        a.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-
-            links.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            sections.forEach(s => s.classList.remove('active'));
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            switchTab(id);
         });
+
+        return a;
+    };
+
+    // 1. Add Static Languages
+    STATIC_LANGS.forEach(lang => {
+        nav.appendChild(createLink(lang.id, lang.name, lang.icon));
     });
+
+    // 2. Add Dynamic Languages
+    Object.entries(TUTORIAL_DATA).forEach(([id, data]) => {
+        nav.appendChild(createLink(id, data.name, data.icon));
+    });
+}
+
+// Switch Tab Logic
+function switchTab(targetId) {
+    // 1. Update Sidebar Active State
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.lang === targetId);
+    });
+
+    // 2. Show Target Section
+    document.querySelectorAll('.lang-section').forEach(section => {
+        section.classList.remove('active');
+        if (section.id === targetId) {
+            section.classList.add('active');
+        }
+    });
+
+    // 3. Reset Search and Scroll to top
+    const searchInput = document.getElementById('tutorialSearch');
+    if (searchInput) {
+        searchInput.value = '';
+        document.querySelectorAll('.method-card').forEach(card => card.style.display = '');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Search functionality
@@ -749,8 +617,13 @@ function initSearch() {
 
     searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
-        const cards = document.querySelectorAll('.method-card');
 
+        // Search current active section ONLY? Or global?
+        // Let's search inside the ACTIVE section to avoid confusion
+        const activeSection = document.querySelector('.lang-section.active');
+        if (!activeSection) return;
+
+        const cards = activeSection.querySelectorAll('.method-card');
         cards.forEach(card => {
             const text = card.textContent.toLowerCase();
             card.style.display = text.includes(query) ? 'block' : 'none';
@@ -760,7 +633,7 @@ function initSearch() {
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    renderLanguageSections();
-    initSidebarNav();
+    renderLanguageSections(); // Create dynamic HTML content
+    initSidebar();           // Rebuild sidebar
     initSearch();
 });

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4108698573577077"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4108698573577077">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
+
+    <title>Go (Golang) Complete Guide - Concurrency & Cloud Native | CodeRunner Pro</title>
+    <meta name="description"
+        content="Master Go (Golang) with this complete guide. Learn Goroutines, Channels, Interfaces, and build high-performance backend systems.">
+    <meta name="keywords"
+        content="Go guide, Golang tutorial, Goroutines, Channels, Go interfaces, backend development, systems programming">
+
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #00add8;
+            /* Go Blue */
+            --primary-light: #5ce1ff;
+        }
+
+        .guide-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .guide-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #002d38 0%, #005f73 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 173, 216, 0.3);
+        }
+
+        .guide-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 173, 216, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .guide-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff 0%, #a4eaff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .guide-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #dbe4ff;
+        }
+
+        .guide-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .guide-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: #dbe4ff;
+        }
+
+        .guide-toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-toc h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .guide-toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guide-toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-toc a:hover {
+            color: var(--primary-color);
+        }
+
+        .guide-section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 100px;
+        }
+
+        .guide-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .guide-section h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .guide-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .guide-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(0, 173, 216, 0.1), rgba(10, 20, 80, 0.05));
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block-container {
+            position: relative;
+            margin: 1.5rem 0;
+        }
+
+        .code-block-header {
+            background: var(--bg-secondary);
+            padding: 0.75rem 1rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+        }
+
+        .code-language {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .copy-btn.copied {
+            background: #48bb78;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 0 0 8px 8px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 173, 216, 0.2);
+        }
+
+        .feature-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2.5rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .guide-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-container {
+                padding: 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <main class="guide-container">
+            <!-- Hero Section -->
+            <div class="guide-hero">
+                <h1>🐹 Go (Golang) – Built for Speed</h1>
+                <p class="subtitle">
+                    The language of the cloud. Simple, reliable, and efficient software. Master concurrency with
+                    Goroutines.
+                </p>
+                <div class="guide-meta">
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>4 Hours Read</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        <span>Systems / Cloud Native</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <span>Interactive Examples</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="guide-toc">
+                <h2>📚 Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">→ 1. Introduction to Go</a></li>
+                    <li><a href="#variables">→ 2. Variables & Types</a></li>
+                    <li><a href="#control">→ 3. Control Structures</a></li>
+                    <li><a href="#functions">→ 4. Functions & Multiple Returns</a></li>
+                    <li><a href="#structs">→ 5. Structs & Interfaces</a></li>
+                    <li><a href="#concurrency">→ 6. Concurrency (Goroutines)</a></li>
+                    <li><a href="#errorhandling">→ 7. Error Handling</a></li>
+                </ul>
+            </div>
+
+            <!-- What You Will Learn -->
+            <div class="highlight-box">
+                <h3>📌 What You Will Learn in This Go Course</h3>
+                <p>From "Hello World" to building scalable microservices:</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🚀 Speed & Simplicity</h4>
+                        <p>Compiles fast, runs fast, and is easy to read.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🧵 Goroutines</h4>
+                        <p>Lightweight threads for massive concurrency.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📡 Channels</h4>
+                        <p>Safe communication between running goroutines.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🧩 Interfaces</h4>
+                        <p>Flexible polymorphism without complex inheritance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🛠️ Tooling</h4>
+                        <p>Built-in testing, formatting, and dependency management.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1: Introduction -->
+            <section id="introduction" class="guide-section">
+                <h2><span class="chapter-number">1</span> Introduction to Go</h2>
+                <p>
+                    Go was created at Google to solve problems of scale. It combines the efficiency of C++ with the
+                    readability of Python. It's the language behind Docker, Kubernetes, and Terraform.
+                </p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">go</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}</pre>
+                </div>
+            </section>
+
+            <!-- Section 2: Variables -->
+            <section id="variables" class="guide-section">
+                <h2><span class="chapter-number">2</span> Variables & Types</h2>
+                <p>Go is statically typed, but has type inference using <code>:=</code>.</p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">go</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">var name string = "Alice" // Explicit
+age := 30                 // Inferred (int)
+
+const Pi = 3.14           // Constant</pre>
+                </div>
+            </section>
+
+            <!-- Section 3: Control -->
+            <section id="control" class="guide-section">
+                <h2><span class="chapter-number">3</span> Control Structures</h2>
+                <p>Go has only one looping construct: <code>for</code>.</p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">go</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">// Standard Loop
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+
+// While-like Loop
+i := 0
+for i < 5 {
+    i++
+}
+
+// If-Else
+if x > 10 {
+    fmt.Println("Big")
+} else {
+    fmt.Println("Small")
+}</pre>
+                </div>
+            </section>
+
+            <!-- Section 4: Functions -->
+            <section id="functions" class="guide-section">
+                <h2><span class="chapter-number">4</span> Functions</h2>
+                <p>Go functions can return multiple values, which is often used for error handling.</p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">go</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">func swap(x, y string) (string, string) {
+    return y, x
+}
+
+func main() {
+    a, b := swap("hello", "world")
+    fmt.Println(a, b) // world hello
+}</pre>
+                </div>
+            </section>
+
+            <!-- Section 5: Structs -->
+            <section id="structs" class="guide-section">
+                <h2><span class="chapter-number">5</span> Structs & Interfaces</h2>
+                <p>Go doesn't have classes. It uses Structs for data and Interfaces for behavior.</p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">go</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">type User struct {
+    Name  string
+    Email string
+}
+
+// Method on User
+func (u User) Greet() {
+    fmt.Println("Hi, I am", u.Name)
+}</pre>
+                </div>
+            </section>
+
+            <!-- Section 6: Concurrency -->
+            <section id="concurrency" class="guide-section">
+                <h2><span class="chapter-number">6</span> Concurrency</h2>
+                <p>This is Go's superpower. Use <code>go</code> to start a lightweight thread.</p>
+
+                <div class="info-box">
+                    <h4>Goroutines</h4>
+                    <p>Goroutines are functions that run concurrently. They are cheaper than OS threads.</p>
+                </div>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">go</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">func say(s string) {
+    for i := 0; i < 3; i++ {
+        fmt.Println(s)
+    }
+}
+
+func main() {
+    go say("world") // Runs in background
+    say("hello")    // Runs in foreground
+}</pre>
+                </div>
+            </section>
+
+            <!-- Section 7: Error Handling -->
+            <section id="errorhandling" class="guide-section">
+                <h2><span class="chapter-number">7</span> Error Handling</h2>
+                <p>Go doesn't use Try/Catch. Errors are just values returned by functions.</p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">go</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">file, err := os.Open("file.txt")
+if err != nil {
+    log.Fatal(err)
+}
+// Do something with file</pre>
+                </div>
+            </section>
+
+            <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
+                <h3>🚀 Ready to Build Scalable Systems?</h3>
+                <p>Start writing Go code now.</p>
+                <a href="editor.html?lang=go" class="btn"
+                    style="background: var(--primary-color); color:white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                    Start Coding in Go
+                </a>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
+                <div style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="privacy.html"
+                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
+                        Policy</a>
+                    <a href="terms.html"
+                        style="color: var(--webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Terms
+                        of
+                        Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Code copy functionality
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
+            const code = codeBlock.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
