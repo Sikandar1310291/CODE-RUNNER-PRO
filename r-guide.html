@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4108698573577077"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4108698573577077">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
+
+    <title>R 4.1.1 Complete Guide - Beginner to Intermediate | CodeRunner Pro</title>
+    <meta name="description"
+        content="Ultimate R programming guide for statistical computing and data analysis. Learn R fundamentals, data structures, functions, and file handling.">
+
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .guide-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .guide-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #276DC3 0%, #1E5A9E 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .guide-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .guide-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .guide-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .guide-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-toc h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guide-toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-toc a:hover {
+            color: var(--primary-color);
+        }
+
+        .guide-section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 100px;
+        }
+
+        .guide-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #276DC3;
+            padding-left: 1rem;
+        }
+
+        .guide-section h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .guide-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(39, 109, 195, 0.1), rgba(30, 90, 158, 0.1));
+            border-left: 4px solid #276DC3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .code-block-container {
+            position: relative;
+            margin: 1.5rem 0;
+        }
+
+        .code-block-header {
+            background: var(--bg-secondary);
+            padding: 0.75rem 1rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+        }
+
+        .code-language {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .copy-btn {
+            background: #276DC3;
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #1E5A9E;
+            transform: translateY(-1px);
+        }
+
+        .copy-btn.copied {
+            background: #48bb78;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 0 0 8px 8px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 2px solid #276DC3;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #276DC3;
+            box-shadow: 0 10px 30px rgba(39, 109, 195, 0.2);
+        }
+
+        .feature-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: #276DC3;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: #276DC3;
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2.5rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .guide-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <main class="guide-container">
+            <div class="guide-hero">
+                <h1>📊 R 4.1.1 – The Ultimate Complete R Programming Guide</h1>
+                <p class="subtitle">
+                    Master R from beginner to intermediate level. Learn statistical computing, data analysis, and
+                    professional R workflows with practical examples.
+                </p>
+                <div class="guide-meta">
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>45 min read</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        <span>Beginner to Intermediate</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-toc">
+                <h2>📚 Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">→ 1. Introduction to R Programming</a></li>
+                    <li><a href="#installation">→ 2. Installing R & Environment Setup</a></li>
+                    <li><a href="#basics">→ 3. R Basics & Syntax</a></li>
+                    <li><a href="#control-flow">→ 4. Control Flow in R</a></li>
+                    <li><a href="#data-structures">→ 5. Data Structures in R</a></li>
+                    <li><a href="#functions">→ 6. Functions in R</a></li>
+                    <li><a href="#statistics">→ 7. Basic Statistical Concepts in R</a></li>
+                    <li><a href="#error-handling">→ 8. Error Handling in R</a></li>
+                    <li><a href="#file-handling">→ 9. File Handling in R</a></li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>📌 What You Will Learn in This R Course</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📊 R Fundamentals</h4>
+                        <p>Core programming concepts and syntax</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔢 Data Types</h4>
+                        <p>Numeric, character, logical, and special types</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📦 Data Structures</h4>
+                        <p>Vectors, matrices, lists, and data frames</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📈 Statistics</h4>
+                        <p>Descriptive statistics and data analysis</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🚨Error Handling</h4>
+                        <p>Professional error management with tryCatch</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📁 File Operations</h4>
+                        <p>Import/export CSV, RDS, and text files</p>
+                    </div>
+                </div>
+            </div>
+
+            <section id="introduction" class="guide-section">
+                <h2><span class="chapter-number">1</span> Introduction to R Programming</h2>
+
+                <h3>What is R?</h3>
+                <p>R is a <strong>high-level, interpreted programming language</strong> and an integrated environment
+                    specifically designed for <strong>statistical analysis and data science</strong>.</p>
+                <p>R is not just a programming language—it is:</p>
+                <ul>
+                    <li>✅ A complete statistical computing platform</li>
+                    <li>✅ A data analysis ecosystem</li>
+                    <li>✅ A standard tool in research and analytics</li>
+                </ul>
+
+                <h3>History of R</h3>
+                <ul>
+                    <li>Developed by <strong>Ross Ihaka and Robert Gentleman</strong></li>
+                    <li>First released in <strong>1995</strong></li>
+                    <li>Inspired by the <strong>S programming language</strong></li>
+                    <li>Maintained by the <strong>R Core Team</strong></li>
+                </ul>
+
+                <h3>Why R Is Popular in Data Science</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📊 Built-in Statistics</h4>
+                        <p>Extensive statistical functions out of the box</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📈 Data Visualization</h4>
+                        <p>Powerful plotting with ggplot2</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📦 CRAN Packages</h4>
+                        <p>Thousands of packages available</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔬 Research Standard</h4>
+                        <p>Trusted in academia and industry</p>
+                    </div>
+                </div>
+
+                <h3>Where R Is Used</h3>
+                <ul>
+                    <li>📊 <strong>Data Science & Analytics</strong></li>
+                    <li>📈 <strong>Statistical Modeling</strong></li>
+                    <li>🔬 <strong>Academic and Scientific Research</strong></li>
+                    <li>💰 <strong>Finance and Risk Analysis</strong></li>
+                    <li>🧬 <strong>Bioinformatics</strong></li>
+                    <li>🤖 <strong>Applied Machine Learning</strong></li>
+                </ul>
+            </section>
+
+            <section id="installation" class="guide-section">
+                <h2><span class="chapter-number">2</span> Installing R & Environment Setup</h2>
+
+                <h3>Installing R</h3>
+                <p>R can be downloaded from the <strong>Comprehensive R Archive Network (CRAN)</strong>.</p>
+                <p>To verify installation:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">version</pre>
+                </div>
+
+                <h3>Installing RStudio (Recommended IDE)</h3>
+                <p>RStudio is the most widely used <strong>Integrated Development Environment (IDE)</strong> for R
+                    programming.</p>
+
+                <div class="info-box">
+                    <h4>RStudio Key Features:</h4>
+                    <ul>
+                        <li>✅ Script editor with syntax highlighting</li>
+                        <li>✅ Interactive R console</li>
+                        <li>✅ Environment and variable viewer</li>
+                        <li>✅ Plot and visualization panel</li>
+                        <li>✅ Built-in debugging tools</li>
+                    </ul>
+                    <p><strong>RStudio is considered an industry and academic standard.</strong></p>
+                </div>
+
+                <h3>Installing and Using R Packages</h3>
+                <p>Packages extend R's functionality.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Install a package
+install.packages("ggplot2")
+
+# Load a package
+library(ggplot2)</pre>
+                </div>
+            </section>
+
+            <section id="basics" class="guide-section">
+                <h2><span class="chapter-number">3</span> R Basics & Syntax</h2>
+
+                <h3>Your First R Program</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">print("Hello, R!")</pre>
+                </div>
+                <p>R automatically evaluates expressions, so even this works:</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">"Hello, R!"</pre>
+                </div>
+
+                <h3>Variables in R</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">language <- "R"
+year <- 2024</pre>
+                </div>
+                <p>The <code><-</code> operator is the <strong>recommended assignment operator</strong> in professional
+                    R code.</p>
+
+                <h3>Basic Data Types</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>numeric</code></td>
+                            <td>Decimal numbers</td>
+                            <td><code>3.14</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>integer</code></td>
+                            <td>Whole numbers</td>
+                            <td><code>42L</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>character</code></td>
+                            <td>Text strings</td>
+                            <td><code>"Hello"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>logical</code></td>
+                            <td>Boolean values</td>
+                            <td><code>TRUE, FALSE</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>NULL</code></td>
+                            <td>Empty value</td>
+                            <td><code>NULL</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>NA</code></td>
+                            <td>Missing value</td>
+                            <td><code>NA</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Example:</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">x <- 10
+y <- 3.5
+is_active <- TRUE</pre>
+                </div>
+
+                <h3>Type Conversion</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">as.numeric("10")
+as.character(100)
+as.logical(1)</pre>
+                </div>
+            </section>
+
+            <section id="control-flow" class="guide-section">
+                <h2><span class="chapter-number">4</span> Control Flow in R</h2>
+
+                <h3>Conditional Statements</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">year <- 2024
+
+if (year >= 2020) {
+  print("Modern R")
+} else {
+  print("Older R")
+}</pre>
+                </div>
+                <p><strong>Note:</strong> R uses curly braces {} instead of indentation to define <code blocks. <h3>Vectorized Conditional Logic with ifelse()</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">x <- 8
+result <- ifelse(x > 5, "Large", "Small")
+print(result)  # Output: "Large"</pre>
+                </div>
+                <p>This is commonly used in data analysis workflows.</p>
+
+                <h3>for Loop</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">for (i in 1:5) {
+  print(i)
+}</pre>
+                </div>
+
+                <h3>while Loop</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">count <- 1
+while (count <= 5) {
+  print(count)
+  count <- count + 1
+}</pre>
+                </div>
+            </section>
+
+            <section id="data-structures" class="guide-section">
+                <h2><span class="chapter-number">5</span> Data Structures in R</h2>
+
+                <p>Data structures are one of R's greatest strengths.</p>
+
+                <h3>Vectors</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">numbers <- c(1, 2, 3, 4)
+names <- c("Ali", "Sara", "John")</pre>
+                </div>
+                <p>R is a <strong>vector-based language</strong>, meaning most operations are applied to entire vectors at once.</p>
+
+                <h3>Matrices</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">m <- matrix(1:6, nrow = 2)
+print(m)</pre>
+                </div>
+                <p>Matrices store data of the same type in two dimensions.</p>
+
+                <h3>Lists</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">info <- list(name = "Ali", age = 20, active = TRUE)
+print(info$name)  # Access by name</pre>
+                </div>
+                <p>Lists can store different data types.</p>
+
+                <h3>Data Frames</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">df <- data.frame(
+  name = c("Ali", "Sara"),
+  age = c(20, 22),
+  city = c("NYC", "LA")
+)
+print(df)</pre>
+                </div>
+                <p>Data frames represent <strong>real-world tabular datasets</strong>.</p>
+            </section>
+
+            <section id="functions" class="guide-section">
+                <h2><span class="chapter-number">6</span> Functions in R</h2>
+
+                <h3>Creating Functions</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">greet <- function(name) {
+  paste("Hello", name)
+}
+
+message <- greet("R User")
+print(message)</pre>
+                </div>
+
+                <h3>Function Arguments</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Default arguments
+add <- function(a, b = 0) {
+  a + b
+}
+
+result <- add(5)      # Uses default b = 0
+result2 <- add(5, 3)  # Provides both arguments</pre>
+                </div>
+
+                <h3>Anonymous Functions</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">square <- function(x) x^2</pre>
+                </div>
+                <p>Often used in data transformation tasks.</p>
+            </section>
+
+            <section id="statistics" class="guide-section">
+                <h2><span class="chapter-number">7</span> Basic Statistical Concepts in R</h2>
+
+                <p>Statistics is at the core of R.</p>
+
+                <h3>Descriptive Statistics</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">numbers <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+mean(numbers)     # Average
+median(numbers)   # Middle value
+sd(numbers)       # Standard deviation
+summary(numbers)  # Complete summary</pre>
+                </div>
+                <p>These functions help understand data distribution and trends.</p>
+
+                <h3>Factors (Categorical Data)</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">gender <- factor(c("Male", "Female", "Male", "Female"))
+print(levels(gender))</pre>
+                </div>
+                <p>Factors are essential for categorical analysis and modeling.</p>
+
+                <h3>Apply Family Functions</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">numbers <- c(1, 4, 9, 16)
+
+lapply(numbers, sqrt)  # Returns list
+sapply(numbers, sqrt)  # Returns vector</pre>
+                </div>
+                <p>These functions provide efficient alternatives to loops.</p>
+            </section>
+
+            <section id="error-handling" class="guide-section">
+                <h2><span class="chapter-number">8</span> Error Handling in R</h2>
+
+                <h3>Common Types of Errors</h3>
+                <ul>
+                    <li>Syntax errors</li>
+                    <li>Runtime errors</li>
+                    <li>Logical errors</li>
+                </ul>
+
+                <h3>Handling Errors with tryCatch()</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">tryCatch(
+  {
+    log("abc")  # This will cause an error
+  },
+  error = function(e) {
+    print(paste("Error:", e$message))
+  },
+  finally = {
+    print("Execution complete")
+  }
+)
+                    </pre>
+                </div>
+                <p><strong>tryCatch</strong> is essential for robust scripts that run automatically.</p>
+            </section>
+
+            <section id="file-handling" class="guide-section">
+                <h2><span class="chapter-number">9</span> File Handling in R</h2>
+
+                <h3>Reading CSV Files</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">data <- read.csv("data.csv")
+head(data)  # View first few rows</pre>
+                </div>
+
+                <h3>Writing to CSV</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">write.csv(data, "output.csv", row.names = FALSE)</pre>
+                </div>
+
+                <h3>Reading Excel Files (readxl package)</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">library(readxl)
+data <- read_excel("data.xlsx")</pre>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CodeRunner Pro. Free online compiler for everyone.</p>
+                <div style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="privacy.html"
+                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
+                        Policy</a>
+                    <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        // Simple code copy function
+        function copyCode(button) {
+            const pre = button.parentElement.nextElementSibling;
+            const range = document.createRange();
+            range.selectNode(pre);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+
+            const originalText = button.innerText;
+            button.innerText = "Copied!";
+            button.classList.add("copied");
+
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.classList.remove("copied");
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
+    print(e$message)
+  }
+)</pre>
+                </div>
+                <p>Error handling is critical in production-level scripts and data pipelines.</p>
+            </section>
+
+            <section id="file-handling" class="guide-section">
+                <h2><span class="chapter-number">9</span> File Handling in R</h2>
+
+                <p>File handling is the foundation of real-world data analysis in R.</p>
+
+                <h3>Reading Text Files</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">data <- readLines("file.txt")</pre>
+                </div>
+                <p>Used for simple unstructured text data.</p>
+
+                <h3>Reading CSV Files</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">df <- read.csv("data.csv")
+head(df)  # View first 6 rows</pre>
+                </div>
+                <p>CSV is the most commonly used data format in analytics.</p>
+
+                <h3>Writing CSV Files</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">write.csv(df, "output.csv", row.names = FALSE)</pre>
+                </div>
+                <p>Setting <code>row.names = FALSE</code> is a <strong>professional best practice</strong>.</p>
+
+                <h3>Saving R Objects (RDS Format)</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">saveRDS(df, "data.rds")</pre>
+                </div>
+                <div class="info-box">
+                    <h4>RDS files advantages:</h4>
+                    <ul>
+                        <li>✅ Preserve object structure</li>
+                        <li>✅ Load faster than CSV</li>
+                        <li>✅ Reduce parsing overhead</li>
+                    </ul>
+                </div>
+
+                <h3>Loading R Objects</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">data <- readRDS("data.rds")</pre>
+                </div>
+
+                <h3>Managing the Working Directory</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">r</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">getwd()  # Get current directory
+setwd("path/to/your/folder")  # Set working directory</pre>
+                </div>
+                <p>A correct working directory prevents file-not-found errors.</p>
+
+                <div class="info-box">
+                    <h4>Why File Handling Is Critical in R</h4>
+                    <ul>
+                        <li>✅ Accessing real-world datasets</li>
+                        <li>✅ Building reproducible analyses</li>
+                        <li>✅ Data cleaning and transformation</li>
+                        <li>✅ Reporting and visualization</li>
+                        <li>✅ Professional analytics workflows</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
+                <h3>🚀 Ready to Practice R?</h3>
+                <p>Start writing R code and analyze data!</p>
+                <a href="editor.html?lang=r" class="btn btn-primary btn-lg"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="width: 20px; height: 20px;">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Start Coding in R
+                </a>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CodeRunner Pro. Free online compiler for everyone.</p>
+                <div style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="privacy.html"
+                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
+                        Policy</a>
+                    <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
+            const code = codeBlock.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        document.querySelectorAll('.guide-toc a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

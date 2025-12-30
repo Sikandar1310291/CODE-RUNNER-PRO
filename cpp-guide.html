@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4108698573577077"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4108698573577077">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
+
+    <title>C++ Programming Complete Guide - Beginner to Advanced | CodeRunner Pro</title>
+    <meta name="description"
+        content="Ultimate C++ guide covering C++11 to C++20. Master OOP, STL, Memory Management, Pointers, and High-Performance Computing.">
+    <meta name="keywords"
+        content="C++ guide, C++ tutorial, learn C++, STL, Object Oriented Programming, Pointers, C++20, system programming">
+
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #00599C;
+            /* C++ Blue */
+            --primary-light: #5e97d1;
+        }
+
+        .guide-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .guide-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #101820 0%, #1f2a36 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 89, 156, 0.3);
+        }
+
+        .guide-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 89, 156, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .guide-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff 0%, #a9cce3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .guide-hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #b0c4de;
+        }
+
+        .guide-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .guide-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: #d6eaf8;
+        }
+
+        .guide-toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-toc h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .guide-toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guide-toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-toc a:hover {
+            color: var(--primary-color);
+        }
+
+        .guide-section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 100px;
+        }
+
+        .guide-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .guide-section h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .guide-section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .guide-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(0, 89, 156, 0.1), rgba(0, 50, 100, 0.05));
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block-container {
+            position: relative;
+            margin: 1.5rem 0;
+        }
+
+        .code-block-header {
+            background: var(--bg-secondary);
+            padding: 0.75rem 1rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+        }
+
+        .code-language {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .copy-btn.copied {
+            background: #48bb78;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 0 0 8px 8px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 89, 156, 0.2);
+        }
+
+        .feature-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2.5rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .guide-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-container {
+                padding: 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="guides.html" class="nav-link active">Guide Book</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <main class="guide-container">
+            <!-- Hero Section -->
+            <div class="guide-hero">
+                <h1>⚡ C++ Programming – The Ultimate High-Performance Guide</h1>
+                <p class="subtitle">
+                    Master the language of high-performance computing. From standard C++11 to modern C++20, covering
+                    OOP, STL, and Memory Management.
+                </p>
+                <div class="guide-meta">
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>5 Hours Read</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        <span>Beginner to Advanced (C++20)</span>
+                    </div>
+                    <div class="guide-meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <span>80+ Code Examples</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="guide-toc">
+                <h2>📚 Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">→ 1. Introduction to C++</a></li>
+                    <li><a href="#setup">→ 2. Environment Setup</a></li>
+                    <li><a href="#basics">→ 3. Basic Syntax & I/O</a></li>
+                    <li><a href="#memory">→ 4. Pointers & Memory Management</a></li>
+                    <li><a href="#oop">→ 5. Object-Oriented Programming (OOP)</a></li>
+                    <li><a href="#stl">→ 6. Standard Template Library (STL)</a></li>
+                    <li><a href="#modern">→ 7. Modern C++ Features (C++11/14/17/20)</a></li>
+                    <li><a href="#files">→ 8. File Handling</a></li>
+                </ul>
+            </div>
+
+            <!-- What You Will Learn -->
+            <div class="highlight-box">
+                <h3>📌 What You Will Learn in This C++ Course</h3>
+                <p>This course is designed to take you from "Hello World" to writing complex systems:</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🎯 Core Mechanics</h4>
+                        <p>Vegetables, loops, references, and robust type systems.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🧠 Memory Mastery</h4>
+                        <p>Pointers, stack vs heap, and manual memory management.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🏗️ OOP Design</h4>
+                        <p>Classes, Inheritance, Polymorphism, and Encapsulation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📦 The STL</h4>
+                        <p>Vectors, Maps, Sets, and efficient Algorithms.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Modern Features</h4>
+                        <p>Smart Pointers, Lambdas, and Auto type deduction.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🚀 Performance</h4>
+                        <p>Writing code that runs close to the metal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1: Introduction -->
+            <section id="introduction" class="guide-section">
+                <h2><span class="chapter-number">1</span> Introduction to C++</h2>
+
+                <h3>What is C++?</h3>
+                <p>
+                    C++ is a <strong>compiled, multi-paradigm, general-purpose programming language</strong> created by
+                    Bjarne Stroustrup in 1985.
+                    It extends C with Object-Oriented features, generic programming, and high-performance capabilities.
+                </p>
+
+                <div class="info-box">
+                    <h4>🎯 Why C++ Starts with 'C'?</h4>
+                    <p>It was originally called "C with Classes". The `++` operator means "increment by one" in C,
+                        symbolizing that C++ is the next evolution of C.</p>
+                </div>
+
+                <h3>Why Use C++?</h3>
+                <ul>
+                    <li><strong>Performance</strong>: Used in Game Engines (Unreal), Browsers (Chrome), and OS kernels.
+                    </li>
+                    <li><strong>Control</strong>: Direct access to hardware and memory.</li>
+                    <li><strong>Scalability</strong>: Supports massive systems with millions of lines of code.</li>
+                </ul>
+            </section>
+
+            <!-- Section 2: Setup -->
+            <section id="setup" class="guide-section">
+                <h2><span class="chapter-number">2</span> Environment Setup</h2>
+                <p>To run C++, you need a compiler like GCC (MinGW for Windows) or Clang.</p>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">bash</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block"># Check if you have g++ installed
+g++ --version</pre>
+                </div>
+
+                <p>If you don't have a local setup, you can use our <a href="editor.html?lang=cpp"
+                        style="color:var(--primary-color)">Online Compiler</a>.</p>
+            </section>
+
+            <!-- Section 3: Basic Syntax -->
+            <section id="basics" class="guide-section">
+                <h2><span class="chapter-number">3</span> Basic Syntax & I/O</h2>
+
+                <h3>Hello World</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">#include &lt;iostream&gt;
+// using namespace std; // Optional, but common for beginners
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}</pre>
+                </div>
+
+                <div class="info-box">
+                    <h4>Code Breakdown</h4>
+                    <ul>
+                        <li><code>#include &lt;iostream&gt;</code>: Imports Input/Output stream library.</li>
+                        <li><code>std::cout</code>: 'Character Output' - prints to console.</li>
+                        <li><code>main()</code>: The entry point of every C++ program.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 4: Memory -->
+            <section id="memory" class="guide-section">
+                <h2><span class="chapter-number">4</span> Pointers & Memory Management</h2>
+                <p>This is what makes C++ powerful and dangerous. You manage memory manually.</p>
+
+                <h3>Pointers vs References</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Pointer (<code>*</code>)</th>
+                            <th>Reference (<code>&</code>)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Definition</td>
+                            <td>Holds memory address</td>
+                            <td>Alias for an existing variable</td>
+                        </tr>
+                        <tr>
+                            <td>Reassignable</td>
+                            <td>Yes</td>
+                            <td>No (Once set, it's fixed)</td>
+                        </tr>
+                        <tr>
+                            <td>Null Value</td>
+                            <td>Can be <code>nullptr</code></td>
+                            <td>Cannot be null</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">int val = 10;
+int* ptr = &val;  // Point to address of val
+int& ref = val;   // Reference to val
+
+*ptr = 20;        // Changes val to 20
+ref = 30;         // Changes val to 30</pre>
+                </div>
+            </section>
+
+            <!-- Section 5: OOP -->
+            <section id="oop" class="guide-section">
+                <h2><span class="chapter-number">5</span> Object-Oriented Programming</h2>
+                <p>C++ fully supports OOP principles.</p>
+
+                <h3>Classes and Objects</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">class Car {
+public: // Access specifier
+    string brand;
+    
+    // Constructor
+    Car(string b) {
+        brand = b;
+    }
+    
+    void honk() {
+        cout << "Beep beep!" << endl;
+    }
+};
+
+int main() {
+    Car myCar("Tesla");
+    myCar.honk();
+    return 0;
+}</pre>
+                </div>
+
+                <h3>Inheritance</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">class Vehicle {
+public:
+    void move() { cout << "Moving..."; }
+};
+
+// Car inherits from Vehicle
+class Bike : public Vehicle {
+};
+
+int main() {
+    Bike b;
+    b.move(); // Works!
+}</pre>
+                </div>
+            </section>
+
+            <!-- Section 6: STL -->
+            <section id="stl" class="guide-section">
+                <h2><span class="chapter-number">6</span> Standard Template Library (STL)</h2>
+                <p>Don't reinvent the wheel. Use STL for standard data structures.</p>
+
+                <h3>Vectors (Dynamic Arrays)</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">#include &lt;vector&gt;
+
+vector&lt;int&gt; numbers = {1, 2, 3};
+numbers.push_back(4); // Add to end inside [1, 2, 3, 4]
+numbers.pop_back();   // Remove last</pre>
+                </div>
+
+                <h3>Maps (Key-Value)</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">#include &lt;map&gt;
+
+map&lt;string, int&gt; ages;
+ages["Alice"] = 25;
+ages["Bob"] = 30;
+
+cout << ages["Alice"]; // 25</pre>
+                </div>
+            </section>
+
+            <!-- Section 7: Modern C++ -->
+            <section id="modern" class="guide-section">
+                <h2><span class="chapter-number">7</span> Modern C++ Features (C++11/14/17/20)</h2>
+
+                <h3>Smart Pointers</h3>
+                <p>Avoid memory leaks by using Smart Pointers instead of `new`/`delete`.</p>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">#include &lt;memory&gt;
+
+// unique_ptr: Automatically deleted when out of scope
+unique_ptr&lt;int&gt; ptr = make_unique&lt;int&gt;(10);
+
+// shared_ptr: Shared ownership
+shared_ptr&lt;int&gt; sptr = make_shared&lt;int&gt;(20);</pre>
+                </div>
+
+                <h3>Lambda Expressions</h3>
+                <div class="code-block-container">
+                    <div class="code-block-header">
+                        <span class="code-language">cpp</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre class="code-block">auto add = [](int a, int b) {
+    return a + b;
+};
+
+cout << add(5, 3); // 8</pre>
+                </div>
+            </section>
+
+            <div class="highlight-box" style="text-align: center; margin-top: 4rem;">
+                <h3>🚀 Ready to Code?</h3>
+                <p>Unleash the power of C++ in your browser.</p>
+                <a href="editor.html?lang=cpp" class="btn"
+                    style="background: var(--primary-color); color:white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 1rem;">
+                    Start Coding in C++
+                </a>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 CodeRunner Pro. Free programming guides and online compiler.</p>
+                <div style="margin-top: 1rem; font-size: 0.9rem;">
+                    <a href="privacy.html"
+                        style="color: var(--text-secondary); margin-right: 1rem; text-decoration: none;">Privacy
+                        Policy</a>
+                    <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Code copy functionality
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block-container').querySelector('.code-block');
+            const code = codeBlock.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>

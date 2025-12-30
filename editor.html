@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4108698573577077"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4108698573577077">
+    <!-- Favicon for browsers -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+
+    <!-- PNG Favicons for different sizes -->
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png?v=2">
+
+    <!-- Apple Touch Icon for iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-192x192.png?v=2">
+    <meta name="description" content="Professional online code editor supporting 17+ languages.">
+    <title>Editor - CodeRunner Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-particles">
+            <div class="splash-particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="splash-particle" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="splash-particle" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="splash-particle" style="left: 50%; animation-delay: 1.5s;"></div>
+            <div class="splash-particle" style="left: 70%; animation-delay: 0.8s;"></div>
+            <div class="splash-particle" style="left: 90%; animation-delay: 2.8s;"></div>
+        </div>
+        <div class="splash-content">
+            <div class="splash-logo-container">
+                <div class="splash-logo-ring"></div>
+                <div class="splash-logo-inner">
+                    <img src="logo.png" alt="CodeRunner Pro">
+                </div>
+            </div>
+            <div class="splash-brand">
+                <h1 class="splash-title">CodeRunner<span class="pro">Pro</span></h1>
+                <p class="splash-tagline">Code. Compile. Conquer.</p>
+            </div>
+            <div class="splash-loader">
+                <div class="splash-progress-bar">
+                    <div class="splash-progress-fill"></div>
+                </div>
+                <div class="splash-loading-text">
+                    Loading Editor
+                    <span class="splash-loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                    </div>
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link active">Editor</a>
+                </div>
+                <button class="btn-icon" id="themeToggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Language Selection Modal -->
+        <div class="language-modal" id="languageModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Choose Your Language</h2>
+                    <button class="btn-icon modal-close" id="modalClose">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="languageSearch" placeholder="Search languages...">
+                </div>
+                <div class="language-grid" id="languageGrid">
+                    <!-- Languages will be injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Editor Section -->
+        <section class="editor-section" id="editor-section">
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="language-picker" id="languagePicker">
+                        <div class="language-icon" id="currentLangIcon">
+                            <span>🐍</span>
+                        </div>
+                        <div class="language-info">
+                            <span class="language-name" id="currentLangName">Python</span>
+                            <span class="language-version" id="currentLangVersion">v3.10</span>
+                        </div>
+                        <svg class="picker-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="file-name">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        <span id="fileName">main.py</span>
+                    </div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-ghost" id="clearBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2">
+                            </path>
+                        </svg>
+                        Clear
+                    </button>
+                    <button class="btn btn-primary" id="runBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        Run Code
+                        <span class="shortcut">Ctrl+Enter</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Editor and Output Container -->
+            <div class="editor-container">
+                <!-- Code Editor Panel -->
+                <div class="panel editor-panel">
+                    <div class="panel-header">
+                        <div class="panel-tabs">
+                            <button class="panel-tab active">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                                Code
+                            </button>
+                        </div>
+                    </div>
+                    <div id="editor" class="editor"></div>
+                </div>
+
+                <!-- Resizer -->
+                <div class="resizer" id="resizer">
+                    <div class="resizer-handle"></div>
+                </div>
+
+                <!-- Output Panel -->
+                <div class="panel output-panel">
+                    <div class="panel-header">
+                        <div class="panel-tabs">
+                            <button class="panel-tab active">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                                Output
+                            </button>
+                        </div>
+                        <div class="output-actions">
+                            <span id="executionTime" class="execution-badge"></span>
+                            <button class="btn-icon-sm" id="copyOutput" title="Copy Output">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="output-content">
+                        <div id="output" class="output">
+                            <div class="output-placeholder">
+                                <div class="placeholder-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                </div>
+                                <p>Click <strong>Run Code</strong> to see output</p>
+                                <span class="shortcut-hint">or press Ctrl+Enter</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Section -->
+                    <div class="input-section collapsed" id="inputSection">
+                        <button class="input-toggle" id="inputToggle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"></path>
+                            </svg>
+                            Standard Input (stdin)
+                            <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="input-content">
+                            <textarea id="stdinInput" class="stdin-input"
+                                placeholder="Enter input for your program here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="loader">
+                <div class="loader-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <p>Executing code...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ad Slot: Editor Bottom -->
+    <div class="ad-slot" style="margin: 1rem 0;">
+        <div class="ad-container" style="max-width: 728px; margin: 0 auto;">
+            <span class="ad-label">Advertisement</span>
+        </div>
+    </div>
+
+    <footer class="footer"
+        style="margin-top: auto; padding: 0.5rem; background: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+        <div class="footer-content" style="display: flex; justify-content: center; gap: 2rem; font-size: 0.8rem;">
+            <span style="color: var(--text-muted);">&copy; 2024 CodeRunner Pro</span>
+            <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a>
+            <a href="terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of Service</a>
+        </div>
+    </footer>
+    </div>
+
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

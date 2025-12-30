@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # Frontend (Static site served by Nginx)
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - coderunner-network
+    restart: unless-stopped
+
+  # Backend API Server
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - PISTON_URL=http://piston:2000/api/v2
+    depends_on:
+      - piston
+    networks:
+      - coderunner-network
+    restart: unless-stopped
+
+  # Piston Code Execution Engine
+  piston:
+    image: ghcr.io/engineer-man/piston
+    ports:
+      - "2000:2000"
+    privileged: true
+    volumes:
+      - piston_packages:/piston/packages # PERSISTENCE: Downloads saved here!
+    networks:
+      - coderunner-network
+    restart: unless-stopped
+    # Improved entrypoint: checks if packages exist before installing to save time
+    entrypoint: >
+      /bin/sh -c "
+        if [ ! -d '/piston/packages/python' ]; then
+          echo 'First run detected! Installing language runtimes (this happens only once)...' &&
+          piston ppman install python java gcc g++ csharp.net node typescript go rust ruby php dart swift scala rlang sqlite3
+        else
+          echo 'Runtimes already installed! Starting fast...'
+        fi &&
+        /piston_api
+      "
+
+networks:
+  coderunner-network:
+    driver: bridge
+
+volumes:
+  piston_packages: # Named volume for persistence
