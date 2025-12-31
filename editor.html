@@ -304,6 +304,28 @@
     <!-- Monaco Editor CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
     <script src="app.js"></script>
+    <style>
+        .embed-mode .header,
+        .embed-mode .footer,
+        .embed-mode .ad-slot {
+            display: none !important;
+        }
+
+        .embed-mode .app-container {
+            padding-top: 0 !important;
+            min-height: 100vh !important;
+        }
+
+        .embed-mode .editor-section {
+            padding: 0 !important;
+            height: 100vh !important;
+        }
+
+        .embed-mode .editor-container {
+            height: calc(100vh - 60px) !important;
+        }
+    </style>
 </body>
+
 
 </html>

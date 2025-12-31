@@ -505,6 +505,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('editor')) {
         initEditor();
         initResizer();
+
+        // Handle URL Parameters (lang/code)
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const codeParam = urlParams.get('code');
+        const embedParam = urlParams.get('embed');
+
+        if (embedParam === 'true') {
+            document.body.classList.add('embed-mode');
+        }
+
+        if (langParam && LANGUAGES[langParam]) {
+            currentLanguage = langParam;
+        }
+
+        if (codeParam) {
+            // Need to wait for editor to be ready
+            const checkEditor = setInterval(() => {
+                if (editor) {
+                    clearInterval(checkEditor);
+                    selectLanguage(currentLanguage, codeParam);
+                }
+            }, 100);
+        }
     }
 });
 
@@ -707,14 +731,14 @@ function setTheme(theme) {
 
 
 // ===== Language Selection =====
-function selectLanguage(langId) {
+function selectLanguage(langId, customCode = null) {
     currentLanguage = langId;
     const lang = LANGUAGES[langId];
 
     // If editor exists, update it
     if (editor) {
         monaco.editor.setModelLanguage(editor.getModel(), lang.monaco);
-        editor.setValue(lang.template);
+        editor.setValue(customCode !== null ? customCode : lang.template);
 
         // Update picker UI
         const iconEl = document.getElementById('currentLangIcon');
