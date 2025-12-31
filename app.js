@@ -639,6 +639,9 @@ function initEventListeners() {
     // Clear button
     document.getElementById('clearBtn')?.addEventListener('click', clearEditor);
 
+    // Download button
+    document.getElementById('downloadBtn')?.addEventListener('click', downloadCode);
+
     // Copy output
     document.getElementById('copyOutput')?.addEventListener('click', copyOutput);
 
@@ -892,6 +895,27 @@ function displayOutput(result, executionTime) {
 
     const timeEl = document.getElementById('executionTime');
     if (timeEl) timeEl.textContent = `${executionTime}ms`;
+}
+
+// ===== Download Code =====
+function downloadCode() {
+    if (!editor) return;
+
+    const code = editor.getValue();
+    const lang = LANGUAGES[currentLanguage];
+    const fileName = `main${lang.extension}`;
+
+    const blob = new Blob([code], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
 }
 
 // ===== Display Error =====
