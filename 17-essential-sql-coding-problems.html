@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17 Essential SQL Coding Problems (With Solutions) | CodeRunner Pro</title>
+    <meta name="description" content="Master SQL with these 17 essential coding problems. Includes full working solutions, detailed explanations, and time/space complexity analysis. Perfect for interview prep.">
+    <link rel="stylesheet" href="styles.css?v=1.4">
+    <style>
+        .article-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .intro-section { margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
+        .problem-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .problem-title { color: var(--accent-color); font-size: 1.8rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .problem-statement { font-style: italic; color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
+        .code-container { background: #0d1117; border-radius: 8px; padding: 20px; margin-bottom: 15px; position: relative; }
+        .code-container pre { margin: 0; overflow-x: auto; }
+        .btn-run-live { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 15px; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+        .complexity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .complexity-item h4 { color: var(--text-secondary); margin-bottom: 5px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .complexity-item p { font-family: 'JetBrains Mono', monospace; color: var(--accent-color); }
+        .explanation { line-height: 1.6; margin: 15px 0; }
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+        .toc-list { list-style: none; padding: 0; border-left: 2px solid var(--border-color); padding-left: 15px; }
+        .toc-list li { margin-bottom: 10px; }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .toc-list a:hover { color: var(--accent-color); }
+        @media (max-width: 1100px) { .toc-container { display: none; } }
+        .main-layout { display: grid; grid-template-columns: 1fr 250px; gap: 40px; }
+        @media (max-width: 1100px) { .main-layout { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="compiler-page">
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="articles.html" class="nav-link">Articles</a>
+                    <a href="guides.html" class="nav-link">Guide Book</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+            </nav>
+        </header>
+
+        <div class="article-container">
+            <div class="intro-section">
+                <h1>17 Essential SQL Coding Problems</h1>
+                <p class="tagline">Boost your logic and interview skills with these foundational SQL challenges.</p>
+                <div class="explanation">
+                    <p>SQL is for data. These problems translate algorithmic logic into declarative queries.</p>
+                    <p>Whether you're preparing for a technical interview or just starting your journey in SQL, mastering these 17 problems will give you a solid foundation in algorithm design and problem-solving. Each solution includes an interactive "Run Live" button so you can experiment with the code yourself!</p>
+                </div>
+            </div>
+
+            <div class="main-layout">
+                <div class="content">
+                    
+            <section id="swap-variables" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">1.</span> Swap Variables
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Swap Variables algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=UPDATE%20table%20SET%20a%20%3D%20b%2C%20b%20%3D%20a%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">UPDATE table SET a = b, b = a;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Cross-assignment in modern DB engines.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="factorial-recursive" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">2.</span> Factorial (recursive)
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Factorial (recursive) algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=WITH%20RECURSIVE%20fact%28n%2C%20v%29%20AS%20%28%0A%20%20SELECT%201%2C%201%20UNION%20ALL%0A%20%20SELECT%20n%20%2B%201%2C%20%28n%20%2B%201%29%20%2A%20v%20FROM%20fact%20WHERE%20n%20%3C%205%0A%29%20SELECT%20v%20FROM%20fact%20WHERE%20n%20%3D%205%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">WITH RECURSIVE fact(n, v) AS (
+  SELECT 1, 1 UNION ALL
+  SELECT n + 1, (n + 1) * v FROM fact WHERE n < 5
+) SELECT v FROM fact WHERE n = 5;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>CTE recursive factorial generation.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="fibonacci" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">3.</span> Fibonacci
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Fibonacci algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=WITH%20RECURSIVE%20fib%28n%2C%20a%2C%20b%29%20AS%20%28%0A%20%20SELECT%201%2C%200%2C%201%20UNION%20ALL%0A%20%20SELECT%20n%20%2B%201%2C%20b%2C%20a%20%2B%20b%20FROM%20fib%20WHERE%20n%20%3C%2010%0A%29%20SELECT%20a%20FROM%20fib%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">WITH RECURSIVE fib(n, a, b) AS (
+  SELECT 1, 0, 1 UNION ALL
+  SELECT n + 1, b, a + b FROM fib WHERE n < 10
+) SELECT a FROM fib;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Recursive sequence generation.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="prime-check" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">4.</span> Prime Check
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Prime Check algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%201%20WHERE%20NOT%20EXISTS%20%28SELECT%201%20FROM%20numbers%20WHERE%20num%20BETWEEN%202%20AND%20SQRT%2817%29%20AND%2017%20%25%20num%20%3D%200%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM numbers WHERE num BETWEEN 2 AND SQRT(17) AND 17 % num = 0);</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Primality via non-existence of divisors.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(sqrt(n))</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="reverse-array/list" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">5.</span> Reverse Array/List
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Reverse Array/List algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20val%20FROM%20data%20ORDER%20BY%20id%20DESC%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT val FROM data ORDER BY id DESC;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Order-based reversal.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="binary-search" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">6.</span> Binary Search
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Binary Search algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20%2A%20FROM%20data%20WHERE%20val%20%3D%204%3B%20--%20Indexes%20handle%20the%20work" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT * FROM data WHERE val = 4; -- Indexes handle the work</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Implicitly handled by B-Tree indexing.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="gcd" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">7.</span> GCD
+                </h2>
+                <p class="problem-statement">Problem: Implementation of GCD algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=Manual%20implementation%20not%20standard%3B%20usually%20via%20functions." class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">Manual implementation not standard; usually via functions.</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Logic involves repeated modulo math.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="power-function" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">8.</span> Power Function
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Power Function algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20POWER%282%2C%2010%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT POWER(2, 10);</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Standard mathematical function.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="sum-of-array/list" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">9.</span> Sum of Array/List
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Sum of Array/List algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20SUM%28col%29%20FROM%20table%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT SUM(col) FROM table;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Aggregate SUM function.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="max-element" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">10.</span> Max Element
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Max Element algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20MAX%28col%29%20FROM%20table%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT MAX(col) FROM table;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Aggregate MAX function.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="sort" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">11.</span> Sort
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Sort algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20%2A%20FROM%20table%20ORDER%20BY%20col%20ASC%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT * FROM table ORDER BY col ASC;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Standard sorting clause.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="remove-duplicates" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">12.</span> Remove Duplicates
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Remove Duplicates algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20DISTINCT%20col%20FROM%20table%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT DISTINCT col FROM table;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>DISTINCT keyword.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="factorial-iterative" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">13.</span> Factorial (iterative)
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Factorial (iterative) algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=Handled%20via%20recursive%20CTE%20or%20loops." class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">Handled via recursive CTE or loops.</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Aggregated value generation.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="armstrong-number" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">14.</span> Armstrong Number
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Armstrong Number algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=//%20Multi-step%20digit%20isolation%20and%20math%20SELECT" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">// Multi-step digit isolation and math SELECT</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Calculation through string/math conversion.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(d)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="palindrome" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">15.</span> Palindrome
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Palindrome algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20val%20%3D%20REVERSE%28val%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT val = REVERSE(val);</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Built-in reverse comparison.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="largest-of-3-numbers" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">16.</span> Largest of 3 numbers
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Largest of 3 numbers algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20GREATEST%28a%2C%20b%2C%20c%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT GREATEST(a, b, c);</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Multi-value maximum finder.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="even/odd-count" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">17.</span> Even/Odd Count
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Even/Odd Count algorithm in SQL.</p>
+                
+                <a href="editor.html?lang=sql&code=SELECT%20SUM%28CASE%20WHEN%20val%20%25%202%20%3D%200%20THEN%201%20ELSE%200%20END%29%20as%20even%20FROM%20data%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-sql">SELECT SUM(CASE WHEN val % 2 = 0 THEN 1 ELSE 0 END) as even FROM data;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Conditional aggregation.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+                </div>
+                <div class="toc-container">
+                    <div class="sidebar">
+                        <h3>In this article</h3>
+                        <ul class="toc-list">
+                            <li><a href="#swap-variables">1. Swap Variables</a></li><li><a href="#factorial-recursive">2. Factorial (recursive)</a></li><li><a href="#fibonacci">3. Fibonacci</a></li><li><a href="#prime-check">4. Prime Check</a></li><li><a href="#reverse-array/list">5. Reverse Array/List</a></li><li><a href="#binary-search">6. Binary Search</a></li><li><a href="#gcd">7. GCD</a></li><li><a href="#power-function">8. Power Function</a></li><li><a href="#sum-of-array/list">9. Sum of Array/List</a></li><li><a href="#max-element">10. Max Element</a></li><li><a href="#sort">11. Sort</a></li><li><a href="#remove-duplicates">12. Remove Duplicates</a></li><li><a href="#factorial-iterative">13. Factorial (iterative)</a></li><li><a href="#armstrong-number">14. Armstrong Number</a></li><li><a href="#palindrome">15. Palindrome</a></li><li><a href="#largest-of-3-numbers">16. Largest of 3 numbers</a></li><li><a href="#even/odd-count">17. Even/Odd Count</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Compilers</h3>
+                    <ul>
+                        <li><a href="python-online-compiler.html">Python Compiler</a></li>
+                        <li><a href="javascript-online-compiler.html">JavaScript Compiler</a></li>
+                        <li><a href="java-online-compiler.html">Java Compiler</a></li>
+                        <li><a href="cpp-online-compiler.html">C++ Compiler</a></li>
+                        <li><a href="c-online-compiler.html">C Compiler</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="editor.html">Online Editor</a></li>
+                        <li><a href="guides.html">Programming Guides</a></li>
+                        <li><a href="examples.html">Code Examples</a></li>
+                        <li><a href="tutorials.html">Important Functions</a></li>
+                        <li><a href="articles.html">Problem Solving</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="https://www.effectivegatecpm.com/z2g7jdtk?key=412ba1f8e27fcea0bff7d1ea1b59a2bc" target="_blank" style="color: #ffd700; font-weight: bold;">Featured Tools ✨</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2025 CodeRunner Pro. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17 Essential Rust Coding Problems (With Solutions) | CodeRunner Pro</title>
+    <meta name="description" content="Master Rust with these 17 essential coding problems. Includes full working solutions, detailed explanations, and time/space complexity analysis. Perfect for interview prep.">
+    <link rel="stylesheet" href="styles.css?v=1.4">
+    <style>
+        .article-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .intro-section { margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
+        .problem-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .problem-title { color: var(--accent-color); font-size: 1.8rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .problem-statement { font-style: italic; color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; }
+        .code-container { background: #0d1117; border-radius: 8px; padding: 20px; margin-bottom: 15px; position: relative; }
+        .code-container pre { margin: 0; overflow-x: auto; }
+        .btn-run-live { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 15px; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+        .complexity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .complexity-item h4 { color: var(--text-secondary); margin-bottom: 5px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .complexity-item p { font-family: 'JetBrains Mono', monospace; color: var(--accent-color); }
+        .explanation { line-height: 1.6; margin: 15px 0; }
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+        .toc-list { list-style: none; padding: 0; border-left: 2px solid var(--border-color); padding-left: 15px; }
+        .toc-list li { margin-bottom: 10px; }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .toc-list a:hover { color: var(--accent-color); }
+        @media (max-width: 1100px) { .toc-container { display: none; } }
+        .main-layout { display: grid; grid-template-columns: 1fr 250px; gap: 40px; }
+        @media (max-width: 1100px) { .main-layout { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="compiler-page">
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="logo.png" alt="CodeRunner Pro" style="width:32px;height:32px;border-radius:6px;">
+                </a>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">CodeRunner<span class="pro">Pro</span></span>
+                </a>
+            </div>
+            <nav class="nav-actions">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="articles.html" class="nav-link">Articles</a>
+                    <a href="guides.html" class="nav-link">Guide Book</a>
+                    <a href="editor.html" class="nav-link">Editor</a>
+                </div>
+            </nav>
+        </header>
+
+        <div class="article-container">
+            <div class="intro-section">
+                <h1>17 Essential Rust Coding Problems</h1>
+                <p class="tagline">Boost your logic and interview skills with these foundational Rust challenges.</p>
+                <div class="explanation">
+                    <p>Rust focuses on safety and performance. These 17 problems showcase zero-cost abstractions and safe memory patterns.</p>
+                    <p>Whether you're preparing for a technical interview or just starting your journey in Rust, mastering these 17 problems will give you a solid foundation in algorithm design and problem-solving. Each solution includes an interactive "Run Live" button so you can experiment with the code yourself!</p>
+                </div>
+            </div>
+
+            <div class="main-layout">
+                <div class="content">
+                    
+            <section id="swap-variables" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">1.</span> Swap Variables
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Swap Variables algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=let%20mut%20a%20%3D%205%3B%20let%20mut%20b%20%3D%2010%3B%0Astd%3A%3Amem%3A%3Aswap%28%26mut%20a%2C%20%26mut%20b%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">let mut a = 5; let mut b = 10;
+std::mem::swap(&mut a, &mut b);</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Safe memory swap using standard library primitives.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="factorial-recursive" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">2.</span> Factorial (recursive)
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Factorial (recursive) algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=fn%20fact%28n%3A%20u64%29%20-%3E%20u64%20%7B%0A%20%20if%20n%20%3C%3D%201%20%7B%201%20%7D%20else%20%7B%20n%20%2A%20fact%28n-1%29%20%7D%0A%7D" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">fn fact(n: u64) -> u64 {
+  if n <= 1 { 1 } else { n * fact(n-1) }
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Recursive factorial with typed returns.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="fibonacci" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">3.</span> Fibonacci
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Fibonacci algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=fn%20fib%28n%3A%20u32%29%20-%3E%20u32%20%7B%0A%20%20if%20n%20%3C%202%20%7B%20n%20%7D%20else%20%7B%20fib%28n-1%29%20%2B%20fib%28n-2%29%20%7D%0A%7D" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">fn fib(n: u32) -> u32 {
+  if n < 2 { n } else { fib(n-1) + fib(n-2) }
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Recursive Fibonacci implementation.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(2^n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="prime-check" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">4.</span> Prime Check
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Prime Check algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=fn%20is_prime%28n%3A%20u64%29%20-%3E%20bool%20%7B%0A%20%20if%20n%20%3C%202%20%7B%20return%20false%20%7D%0A%20%20for%20i%20in%202..%3D%28%28n%20as%20f64%29.sqrt%28%29%20as%20u64%29%20%7B%0A%20%20%20%20if%20n%20%25%20i%20%3D%3D%200%20%7B%20return%20false%20%7D%0A%20%20%7D%0A%20%20true%0A%7D" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">fn is_prime(n: u64) -> bool {
+  if n < 2 { return false }
+  for i in 2..=((n as f64).sqrt() as u64) {
+    if n % i == 0 { return false }
+  }
+  true
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Range-based prime test.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(sqrt(n))</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="reverse-array/list" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">5.</span> Reverse Array/List
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Reverse Array/List algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=let%20mut%20v%20%3D%20vec%21%5B1%2C%202%2C%203%5D%3B%20v.reverse%28%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">let mut v = vec![1, 2, 3]; v.reverse();</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>In-place vector reversal.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="binary-search" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">6.</span> Binary Search
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Binary Search algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=let%20v%20%3D%20vec%21%5B1%2C%202%2C%203%2C%204%2C%205%5D%3B%0Av.binary_search%28%264%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">let v = vec![1, 2, 3, 4, 5];
+v.binary_search(&4);</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Standard library binary search on slices.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="gcd" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">7.</span> GCD
+                </h2>
+                <p class="problem-statement">Problem: Implementation of GCD algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=fn%20gcd%28mut%20a%3A%20u64%2C%20mut%20b%3A%20u64%29%20-%3E%20u64%20%7B%0A%20%20while%20b%20%21%3D%200%20%7B%20a%20%25%3D%20b%3B%20std%3A%3Amem%3A%3Aswap%28%26mut%20a%2C%20%26mut%20b%29%3B%20%7D%20a%0A%7D" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">fn gcd(mut a: u64, mut b: u64) -> u64 {
+  while b != 0 { a %= b; std::mem::swap(&mut a, &mut b); } a
+}</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Efficient iterative GCD.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="power-function" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">8.</span> Power Function
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Power Function algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=2u32.pow%2810%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">2u32.pow(10);</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Native integer power function.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="sum-of-array/list" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">9.</span> Sum of Array/List
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Sum of Array/List algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=let%20s%3A%20i32%20%3D%20vec%21%5B1%2C%202%2C%203%5D.iter%28%29.sum%28%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">let s: i32 = vec![1, 2, 3].iter().sum();</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Iterator-based summation.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="max-element" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">10.</span> Max Element
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Max Element algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=let%20m%20%3D%20vec%21%5B10%2C%205%2C%2020%5D.iter%28%29.max%28%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">let m = vec![10, 5, 20].iter().max();</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Safe iterator max (returns Option).</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="sort" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">11.</span> Sort
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Sort algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=let%20mut%20v%20%3D%20vec%21%5B5%2C%202%2C%209%5D%3B%20v.sort%28%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">let mut v = vec![5, 2, 9]; v.sort();</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>In-place sorting (stable).</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(log n)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="remove-duplicates" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">12.</span> Remove Duplicates
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Remove Duplicates algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=v.sort%28%29%3B%20v.dedup%28%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">v.sort(); v.dedup();</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Sort followed by dedup for efficient removal.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n log n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1) after sort</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="factorial-iterative" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">13.</span> Factorial (iterative)
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Factorial (iterative) algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=%281..%3Dn%29.product%28%29" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">(1..=n).product()</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Elegant range product calculation.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="armstrong-number" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">14.</span> Armstrong Number
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Armstrong Number algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=//%20Digit%20extraction%20loop" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">// Digit extraction loop</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Manual digit checking.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(d)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="palindrome" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">15.</span> Palindrome
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Palindrome algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=s.chars%28%29.rev%28%29.eq%28s.chars%28%29%29" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">s.chars().rev().eq(s.chars())</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Efficient iterator equality test.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="largest-of-3-numbers" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">16.</span> Largest of 3 numbers
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Largest of 3 numbers algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=a.max%28b%29.max%28c%29" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">a.max(b).max(c)</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Method chaining for maximum.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="even/odd-count" class="problem-section">
+                <h2 class="problem-title">
+                    <span class="number">17.</span> Even/Odd Count
+                </h2>
+                <p class="problem-statement">Problem: Implementation of Even/Odd Count algorithm in Rust.</p>
+                
+                <a href="editor.html?lang=rust&code=v.iter%28%29.filter%28%7C%26%26x%7C%20x%20%25%202%20%3D%3D%200%29.count%28%29%3B" class="btn btn-primary btn-run-live">
+                    <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Live
+                </a>
+
+                <div class="code-container">
+                    <pre><code class="language-rust">v.iter().filter(|&&x| x % 2 == 0).count();</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <p>Iterator filtering.</p>
+                </div>
+
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <h4>Time Complexity</h4>
+                        <p>O(n)</p>
+                    </div>
+                    <div class="complexity-item">
+                        <h4>Space Complexity</h4>
+                        <p>O(1)</p>
+                    </div>
+                </div>
+            </section>
+            
+                </div>
+                <div class="toc-container">
+                    <div class="sidebar">
+                        <h3>In this article</h3>
+                        <ul class="toc-list">
+                            <li><a href="#swap-variables">1. Swap Variables</a></li><li><a href="#factorial-recursive">2. Factorial (recursive)</a></li><li><a href="#fibonacci">3. Fibonacci</a></li><li><a href="#prime-check">4. Prime Check</a></li><li><a href="#reverse-array/list">5. Reverse Array/List</a></li><li><a href="#binary-search">6. Binary Search</a></li><li><a href="#gcd">7. GCD</a></li><li><a href="#power-function">8. Power Function</a></li><li><a href="#sum-of-array/list">9. Sum of Array/List</a></li><li><a href="#max-element">10. Max Element</a></li><li><a href="#sort">11. Sort</a></li><li><a href="#remove-duplicates">12. Remove Duplicates</a></li><li><a href="#factorial-iterative">13. Factorial (iterative)</a></li><li><a href="#armstrong-number">14. Armstrong Number</a></li><li><a href="#palindrome">15. Palindrome</a></li><li><a href="#largest-of-3-numbers">16. Largest of 3 numbers</a></li><li><a href="#even/odd-count">17. Even/Odd Count</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Compilers</h3>
+                    <ul>
+                        <li><a href="python-online-compiler.html">Python Compiler</a></li>
+                        <li><a href="javascript-online-compiler.html">JavaScript Compiler</a></li>
+                        <li><a href="java-online-compiler.html">Java Compiler</a></li>
+                        <li><a href="cpp-online-compiler.html">C++ Compiler</a></li>
+                        <li><a href="c-online-compiler.html">C Compiler</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="editor.html">Online Editor</a></li>
+                        <li><a href="guides.html">Programming Guides</a></li>
+                        <li><a href="examples.html">Code Examples</a></li>
+                        <li><a href="tutorials.html">Important Functions</a></li>
+                        <li><a href="articles.html">Problem Solving</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="https://www.effectivegatecpm.com/z2g7jdtk?key=412ba1f8e27fcea0bff7d1ea1b59a2bc" target="_blank" style="color: #ffd700; font-weight: bold;">Featured Tools ✨</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2025 CodeRunner Pro. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

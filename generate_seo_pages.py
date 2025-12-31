@@ -412,8 +412,11 @@ TEMPLATE = """<!DOCTYPE html>
             <nav class="nav-actions">
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
+                    <a href="tutorials.html" class="nav-link">Important Functions</a>
+                    <a href="examples.html" class="nav-link">Examples</a>
+                    <a href="articles.html" class="nav-link">Articles</a>
+                    <a href="guides.html" class="nav-link">Guide Book</a>
                     <a href="editor.html" class="nav-link">Editor</a>
-                    <a href="guides.html" class="nav-link">Guides</a>
                 </div>
             </nav>
         </header>
@@ -477,6 +480,8 @@ TEMPLATE = """<!DOCTYPE html>
                 </ul>
                 <p style="margin-top:20px;">From competitive programming on Codeforces to rapid API prototyping, our {name} playground has everything you need to succeed.</p>
             </section>
+
+            {logic_link_html}
 
             <section class="seo-section faq">
                 <h2>Frequently Asked Questions</h2>
@@ -567,6 +572,16 @@ def generate_pages():
                 <div class="faq-a">{faq['a']}</div>
             </div>"""
             
+        logic_link_html = ""
+        if data["slug"] != "html":
+            logic_link_html = f'''
+            <section class="seo-section logic-mastery" style="background: rgba(var(--accent-rgb), 0.1); border: 1px solid var(--accent-color); border-radius: 12px; padding: 30px; margin-top: 40px; text-align: center;">
+                <h2 style="color: var(--accent-color); margin-bottom: 15px;">Master {data["name"]} Problem Solving</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 25px;">Ready to level up? We've compiled 17 essential {data["name"]} coding problems with full solutions, explanations, and complexity analysis.</p>
+                <a href="17-essential-{data["slug"]}-coding-problems.html" class="btn btn-primary" style="padding: 12px 24px; font-size: 1rem;">View {data["name"]} Interview Questions</a>
+            </section>
+            '''
+            
         use_cases_str = ", ".join(data["useCases"])
         
         filename = f"{data['slug']}-online-compiler.html"
@@ -580,7 +595,8 @@ def generate_pages():
             use_cases_str=use_cases_str,
             examples_html=examples_html,
             use_cases_html=use_cases_html,
-            faqs_html=faqs_html
+            faqs_html=faqs_html,
+            logic_link_html=logic_link_html
         )
         
         with open(filename, "w", encoding="utf-8") as f:
