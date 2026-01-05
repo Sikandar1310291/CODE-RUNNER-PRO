@@ -395,6 +395,7 @@ TEMPLATE = """<!DOCTYPE html>
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css?v=1.4">
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="compiler-page">
     <div class="app-container">

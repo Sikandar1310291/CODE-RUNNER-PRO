@@ -505,6 +505,7 @@ TEMPLATE = """<!DOCTYPE html>
     <title>17 Essential {name} Coding Problems (With Solutions) | CodeRunner Pro</title>
     <meta name="description" content="Master {name} with these 17 essential coding problems. Includes full working solutions, detailed explanations, and time/space complexity analysis. Perfect for interview prep.">
     <link rel="stylesheet" href="styles.css?v=1.4">
+    <script defer src="/_vercel/insights/script.js"></script>
     <style>
         .article-container {{ max-width: 900px; margin: 0 auto; padding: 40px 20px; }}
         .intro-section {{ margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }}
