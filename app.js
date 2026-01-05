@@ -1,19 +1,33 @@
 // ===== Splash Screen Handler =====
 function initSplashScreen() {
-    const splash = document.getElementById('splashScreen');
-    if (!splash) return;
+    console.log('Splash screen init started');
+    try {
+        const splash = document.getElementById('splashScreen');
+        if (!splash) {
+            console.error('Splash screen element not found');
+            return;
+        }
 
-    // Fade out after animation completes (2.5 seconds)
-    setTimeout(() => {
-        splash.classList.add('fade-out');
-        // Remove from DOM after transition
+        // Fade out after animation completes (4.5 seconds)
         setTimeout(() => {
-            splash.remove();
-        }, 800);
-    }, 2500);
+            console.log('Starting splash fade out');
+            splash.classList.add('fade-out');
+            // Remove from DOM after transition
+            setTimeout(() => {
+                console.log('Removing splash screen');
+                splash.remove();
+            }, 800);
+        }, 4500);
+    } catch (e) {
+        console.error('Error in splash screen:', e);
+        // Force remove in case of error
+        const splash = document.getElementById('splashScreen');
+        if (splash) splash.remove();
+    }
 }
 
 // Initialize splash screen immediately
+console.log('app.js loaded');
 initSplashScreen();
 
 // ===== Language Configuration with Icons =====

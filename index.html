@@ -118,6 +118,17 @@
             </div>
         </div>
     </div>
+    <script>
+        // Failsafe: Force remove splash screen after 6 seconds if app.js fails
+        setTimeout(() => {
+            const splash = document.getElementById('splashScreen');
+            if (splash) {
+                console.warn('Splash screen forced removed by failsafe');
+                splash.style.opacity = '0';
+                setTimeout(() => splash.remove(), 500);
+            }
+        }, 6000);
+    </script>
 
     <!-- Animated Background -->
     <div class="animated-bg">
@@ -142,7 +153,7 @@
                 </a>
             </div>
             <nav class="nav-actions">
-                                <div class="nav-links">
+                <div class="nav-links">
                     <a href="index.html" class="nav-link active">Home</a>
                     <a href="tutorials.html" class="nav-link">Important Functions</a>
                     <a href="examples.html" class="nav-link">Examples</a>
@@ -195,7 +206,7 @@
                         </svg>
                         View Functions
                     </a>
-                        target="_blank" class="btn btn-secondary btn-lg"
+                    <a href="articles.html" target="_blank" class="btn btn-secondary btn-lg"
                         style="background: rgba(255, 215, 0, 0.1); border-color: #ffd700; color: #ffd700;">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path
@@ -750,14 +761,13 @@
                                 'params': {}
                             };
                         </script>
-                        <script type="text/javascript"
-                    </div>
+                        <script type="text/javascript" </div>
 
                     <!-- Footer -->
-                    <!-- Ad Slot: Before Footer -->
-                    <div class="ad-slot">
-                        <div class="ad-container">
-                            <script type="text/javascript">
+                        < !--Ad Slot: Before Footer-- >
+                            <div class="ad-slot">
+                                <div class="ad-container">
+                                    <script type="text/javascript">
                                 atOptions = {
                                     'key': '09658977ae434a0281263553b0a86199',
                                     'format': 'iframe',
@@ -765,9 +775,8 @@
                                     'width': 728,
                                     'params': {}
                                 };
-                            </script>
-                            <script type="text/javascript"
-                        </div>
+                        </script>
+                                    <script type="text/javascript" </div>
                     </div>
 
                     <footer class="footer-main">
@@ -813,8 +822,7 @@
                                         <li><a href="editor.html">Online Compiler</a></li>
                                         <li><a href="tutorials.html">Important Functions</a></li>
                                         <li><a href="examples.html">Code Examples</a></li>
-                                                target="_blank" style="color: #ffd700; font-weight: bold;">Featured
-                                                Tools ✨</a></li>
+                                        <li><a href="editor.html" target="_blank" style="color: #ffd700; font-weight: bold;">Featured Tools ✨</a></li>
                                         <li><a href="#faq">FAQ</a></li>
                                     </ul>
                                 </div>
@@ -852,11 +860,11 @@
                                 <p>&copy; 2024 CodeRunner Pro. Free online compiler for everyone.</p>
                                 <p>Powered by <strong>Piston</strong> Execution Engine</p>
                             </div>
-                        </div>
-                    </footer>
-                </div>
+                        </div >
+                    </footer >
+                </div >
 
-                <script src="app.js"></script>
+                                            <script src="app.js?v=2"></script>
 </body>
 
 </html>
